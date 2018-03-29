@@ -1,0 +1,154 @@
+{
+  "id": "22222222",
+  "title": "Generic WS-Fed",
+  "version": "1.0.0",
+  "icon": "https://docs.secureauth.com/download/attachments/44830637/UserExchange.png",
+  "aliases": [
+    "WSFed",
+    "WS-Fed",
+    "Default WS Fed"
+  ],
+  "entries": {
+    "RedirectType": {
+      "label": "Authenticated User Redirect",
+      "visible": false,
+      "controlType": "dropdown",
+      "defaultValue": "WsFederation",
+      "options": [
+        {
+          "value": "WsFederation",
+          "display": "WS-Federation Assertion"
+        }
+      ]
+    },
+    "WsFedReplyTo_SamlTargetUrl": {
+      "label": "WS-Federation ReplyTo URL",
+      "visible": true,
+      "controlType": "text"
+    },
+    "AppendHttpsToTargetUrl": {
+      "visible": false,
+      "controlType": "switch",
+      "defaultValue": "true",
+      "description": "Append HTTPS to WS-Federation ReplyTo URL (if not included)."
+    },
+    "GenerateUniqueAssertionId": {
+      "visible": false,
+      "controlType": "switch",
+      "defaultValue": "false",
+      "description": "Generate GUID to pass to Service Provider"
+    },
+    "WsFedVersion": {
+      "label": "WS-Federation Version",
+      "visible": true,
+      "controlType": "dropdown",
+      "defaultValue": "1.3",
+      "description": "Version of WS-Federation",
+      "options": [
+        {
+          "value": "1.2",
+          "display": "1.2"
+        },
+        {
+          "value": "1.3",
+          "display": "1.3"
+        }
+      ]
+    },
+    "WsFedSigningAlgorithm": {
+      "label": "WS-Federation Signing Algorithm",
+      "visible": true,
+      "controlType": "dropdown",
+      "defaultValue": "SHA-2",
+      "description": "Algorithm used to sign WS-Federation assertion",
+      "options": [
+        {
+          "value": "SHA1",
+          "display": "SHA-1"
+        },
+        {
+          "value": "SHA2",
+          "display": "SHA-2"
+        }
+      ]
+    },
+    "Issuer": {
+      "label": "WS-Federation Issuer",
+      "visible": true,
+      "controlType": "text",
+      "description": "A unique name that must match exactly on the COMBOCo IdP side and the WS-Fed side"
+    },
+    "EndpointConfiguration": {
+      "label": "Endpoint Configuration",
+      "visible": true,
+      "controlType": "text",
+      "description": "Settings for WS-Trust endpoints"
+    },
+    "Endpoints": {
+      "label": "Endpoint Settings",
+      "visible": true,
+      "controlType": "text",
+      "description": "Settings for endpoints"
+    },
+    "Host": {
+      "label": "COMBOCo Host",
+      "visible": true,
+      "controlType": "text",
+      "description": "Base DNS address of public COMBOCo IdP URL"
+    },
+    "Id": {
+      "label": "WS-Trust ID",
+      "visible": true,
+      "controlType": "text",
+      "description": "WS-Trust endpoint name"
+    },
+    "Enabled": {
+      "label": "Enable Endpoint",
+      "visible": true,
+      "controlType": "switch",
+      "description": "Enable endpoint"
+    },
+    "EndpointPath": {
+      "label": "WS-Trust Endpoint Path",
+      "visible": true,
+      "controlType": "text",
+      "description": "WS-Trust endpoint path"
+    },
+    "AuthenticationType": {
+      "label": "Authentication Type",
+      "visible": true,
+      "controlType": "text",
+      "description": "Type of authentication supported"
+    },
+    "SecurityMode": {
+      "label": "Security Mode",
+      "visible": true,
+      "controlType": "text",
+      "description": "desc"
+    },
+    "Type": {
+      "label": "WS-Trust Type",
+      "visible": true,
+      "controlType": "text",
+      "description": "WS-Trust type"
+    }
+  },
+  "order": [
+    "RedirectType",
+    "WsFedVersion",
+    "WsFedReplyTo_SamlTargetUrl",
+    "AppendHttpsToTargetUrl",
+    "Issuer",
+    "GenerateUniqueAssertionId",
+    "WsFedSigningAlgorithm",
+    "EndpointConfiguration",
+    "Endpoints",
+    "Host",
+    "Id",
+    "Enabled",
+    "EndpointPath",
+    "AuthenticationType",
+    "SecurityMode",
+    "Type"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "11111111",
+  "title": "Salesforce",
+  "version": "1.0.0",
+  "icon": "https://docs.secureauth.com/download/attachments/44830637/Salesforce.png",
+  "aliases": [
+    "SalesforceSP"
+  ],
+  "entries": {
+    "RedirectType": {
+      "label": "Authenticated User Redirect",
+      "visible": true,
+      "controlType": "dropdown",
+      "defaultValue": "Saml2IdpInitiated",
+      "options": [
+        {
+          "value": "Saml2SpInitiated",
+          "display": "SAML 2.0 (SP Initiated) Assertion"
+        },
+        {
+          "value": "Saml2IdpInitiated",
+          "display": "SAML 2.0 (SP Initiated) Assertion"
+        },
+        {
+          "value": "Saml2SpInitiatedByPost",
+          "display": "SAML 2.0 (SP Initiated) Assertion"
+        }
+      ]
+    },
+    "WsFedReplyTo_SamlTargetUrl": {
+      "label": "SAML Target URL",
+      "visible": false,
+      "controlType": "text",
+      "defaultValue": "https://saml.salesforce.com"
+    },
+    "SAMLAudience": {
+      "label": "SAML Audience",
+      "visible": false,
+      "controlType": "text",
+      "defaultValue": "https://saml.salesforce.com"
+    },
+    "xxxConsumerID": {
+      "label": "SAML Consumer URL ID",
+      "visible": true,
+      "controlType": "text",
+      "description": "Customer's Salesforce ID number (can be found in the Salesforce admin console, in the Endpoints section of the Security Controls --> Single Sign-On Settings)"
+    },
+    "Issuer": {
+      "label": "SAML Issuer",
+      "visible": true,
+      "controlType": "text",
+      "description": "A unique name that must match exactly on the SecureAuth IdP side and the Salesforce side"
+    },
+    "SAMLValidHours": {
+      "label": "SAML Valid Hours",
+      "visible": true,
+      "controlType": "number",
+      "defaultValue": "24",
+      "description": "How long SAML assertion is valid"
+    },
+    "SAMLConsumerURL": {
+      "label": "SAML Consumer URL",
+      "visible": false,
+      "controlType": "none",
+      "interpolateValue": "https://login.salesforce.com?so={@xxxConsumerID}"
+    },
+    "SAMLRecipient": {
+      "label": "SAML Recipient URL",
+      "visible": false,
+      "controlType": "none",
+      "interpolateValue": "https://login.salesforce.com?so={@xxxConsumerID}"
+    }
+  },
+  "order": [
+    "RedirectType",
+    "WsFedReplyTo_SamlTargetUrl",
+    "SAMLAudience",
+    "xxxConsumerID",
+    "Issuer",
+    "SAMLValidHours",
+    "SAMLConsumerURL",
+    "SAMLRecipient"
+  ]
+}

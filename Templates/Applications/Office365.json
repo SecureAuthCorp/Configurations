@@ -1,0 +1,171 @@
+{
+  "id": "33333333",
+  "title": "Office365",
+  "version": "1.0.0",
+  "icon": "https://docs.secureauth.com/download/attachments/44830637/Office365.png",
+  "aliases": [
+    "Office 365",
+    "O365"
+  ],
+  "entries": {
+    "UserIdMapping": {
+      "label": "User ID Mapping",
+      "visible": true,
+      "controlType": "dropdown",
+      "defaultValue": "Aux ID 2",
+      "description": "Should map to the 'objectGUID' property.",
+      "source": "MappedProperties"
+    },
+    "NameIdFormat": {
+      "label": "Name ID Format",
+      "visible": false,
+      "controlType": "dropdown",
+      "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+      "source": "NameIdFormats"
+    },
+    "EncodeToBase64": {
+      "label": "Encode to Base 64",
+      "visible": false,
+      "controlType": "switch",
+      "defaultValue": "True"
+    },
+    "RedirectType": {
+      "label": "Authenticated User Redirect",
+      "visible": false,
+      "controlType": "dropdown",
+      "defaultValue": "WS-Federation Assertion",
+      "options": [
+        {
+          "value": "WsFederation",
+          "display": "WS-Federation Assertion"
+        }
+      ]
+    },
+    "WsFedReplyTo_SamlTargetUrl": {
+      "label": "WS-Federation ReplyTo URL",
+      "visible": false,
+      "controlType": "text",
+      "defaultValue": "https://login.microsoftonline.com/login.srf"
+    },
+    "FullyQualifiedDomainName": {
+      "label": "Fully-Qualified IdP Domain Name",
+      "visible": true,
+      "controlType": "text",
+      "hint": "secureauth.company.com",
+      "description": "Fully Qualified Domain Name (FQDN) of the SecureAuth IdP server"
+    },
+    "Issuer": {
+      "label": "WS-Federation Issuer",
+      "visible": false,
+      "controlType": "text",
+      "defaultValue": "https://secureauth.company.com/secureauth777/",
+      "interpolateValue": "https://{@FullyQualifiedDomainName}/{@REALM}/",
+      "description": "A unique name that must match exactly on the COMBOCo IdP side and the WS-Fed side"
+    },
+    "SamlAudience": {
+      "label": "SAML Audience",
+      "visible": false,
+      "controlType": "text",
+      "defaultValue": "urn:federation:MicrosoftOnline"
+    },
+    "SpStartURL": {
+      "label": "SP Start URL",
+      "visible": false,
+      "controlType": "text",
+      "defaultValue": "https://login.microsoftonline.com/login.srf"
+    },
+    "SignSamlAssertion": {
+      "label": "Sign SAML Assertion",
+      "visible": false,
+      "controlType": "switch",
+      "defaultValue": "True"
+    },
+    "SignSamlMessage": {
+      "label": "Sign SAML Message",
+      "visible": false,
+      "controlType": "switch",
+      "defaultValue": "False"
+    },
+    "SigningCertSerialNumber": {
+      "label": "Signing Cert Serial Number",
+      "visible": true,
+      "controlType": "dropdown",
+      "description": "Publicly-trusted SSL signing certificate",
+      "source": "Certificates"
+    },
+    "Domain": {
+      "label": "Domain",
+      "visible": true,
+      "controlType": "text",
+      "hint": "http://<PublicServerAddress>",
+      "description": "Domain used for downloaded metadata file."
+    },
+    "HostName": {
+      "label": "WS-Trust Host Name",
+      "visible": false,
+      "controlType": "text",
+      "interpolateValue": "https://{@FullyQualifiedDomainName}/{@REALM}/webservice/wstrust.svc"
+    },
+    "2005UsernameMixed": {
+      "label": "2005/usernamemixed",
+      "visible": false,
+      "controlType": "checkbox",
+      "defaultValue": "true"
+    },
+    "2005WindowsTransport": {
+      "label": "2005/windowstransport",
+      "visible": false,
+      "controlType": "checkbox",
+      "defaultValue": "true"
+    }
+  },
+  "groups": {
+    "UserMappingGroup": {
+      "order": [
+        "UserIdMapping",
+        "NameIdFormat",
+        "EncodeToBase64"
+      ]
+    },
+    "WsFedGroup": {
+      "order": [
+        "RedirectType",
+        "WsFedReplyTo_SamlTargetUrl",
+        "FullyQualifiedDomainName",
+        "Issuer",
+        "SamlAudience",
+        "SpStartURL",
+        "SignSamlAssertion",
+        "SignSamlMessage",
+        "SigningCertSerialNumber",
+        "Domain"
+      ]
+    },
+    "WsTrustGroup": {
+      "order": [
+        "HostName",
+        "2005UsernameMixed",
+        "2005WindowsTransport"
+      ]
+    }
+  },
+  "order": [
+    "UserMappingGroup",
+    "WsFedGroup",
+    "WsTrustGroup"
+  ],
+  "samlAttributes": {
+    "IDPEmail": {
+      "namespace": "http://schemas.xmlsoap.org/claims/UPN",
+      "format": "Basic",
+      "value": "@@userPrincipalName",
+      "groupFilterExpression": "*"
+    },
+    "ImmutableID": {
+      "namespace": "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID",
+      "format": "Base64 Encoded",
+      "value": "@@objectGUID",
+      "groupFilterExpression": "*"
+    }
+  }
+}
