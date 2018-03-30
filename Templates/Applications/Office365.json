@@ -14,14 +14,14 @@
       "controlType": "dropdown",
       "defaultValue": "Aux ID 2",
       "description": "Should map to the 'objectGUID' property.",
-      "source": "MappedProperties"
+      "source": "options:MappedProperties"
     },
     "NameIdFormat": {
       "label": "Name ID Format",
       "visible": false,
       "controlType": "dropdown",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-      "source": "NameIdFormats"
+      "source": "options:NameIdFormats"
     },
     "EncodeToBase64": {
       "label": "Encode to Base 64",
@@ -91,7 +91,7 @@
       "visible": true,
       "controlType": "dropdown",
       "description": "Publicly-trusted SSL signing certificate",
-      "source": "Certificates"
+      "source": "options:Certificates"
     },
     "Domain": {
       "label": "Domain",
@@ -117,6 +117,19 @@
       "visible": false,
       "controlType": "checkbox",
       "defaultValue": "true"
+    },
+    "namespace": {
+      "label": "Namespace"
+    },
+    "format": {
+      "label": "Format"
+    },
+    "value": {
+      "label": "Value"
+    },
+    "groupFilterExpression": {
+      "label": "Group Filter Expression",
+      "defaultValue": "*"
     }
   },
   "groups": {
@@ -147,25 +160,49 @@
         "2005UsernameMixed",
         "2005WindowsTransport"
       ]
+    },
+    "IDPEmail": {
+      "logical": true,
+      "order": [
+        {
+          "name": "namespace",
+          "defaultValue": "http://schemas.xmlsoap.org/claims/UPN"
+        },
+        {
+          "name": "format",
+          "defaultValue": "Basic"
+        },
+        {
+          "name": "value",
+          "defaultValue": "@@userPrincipalName"
+        },
+        "groupFilterExpression"
+      ]
+    },
+    "ImmutableID": {
+      "logical": true,
+      "order": [
+        {
+          "name": "namespace",
+          "defaultValue": "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"
+        },
+        {
+          "name": "format",
+          "defaultValue": "Base64 Encoded"
+        },
+        {
+          "name": "value",
+          "defaultValue": "@@@@objectGUID"
+        },
+        "groupFilterExpression"
+      ]
     }
   },
   "order": [
     "group:UserMappingGroup",
     "group:WsFedGroup",
-    "group:WsTrustGroup"
-  ],
-  "samlAttributes": {
-    "IDPEmail": {
-      "namespace": "http://schemas.xmlsoap.org/claims/UPN",
-      "format": "Basic",
-      "value": "@@userPrincipalName",
-      "groupFilterExpression": "*"
-    },
-    "ImmutableID": {
-      "namespace": "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID",
-      "format": "Base64 Encoded",
-      "value": "@@objectGUID",
-      "groupFilterExpression": "*"
-    }
-  }
+    "group:WsTrustGroup",
+    "group:IDPEmail",
+    "group:ImmutableID"
+  ]
 }
