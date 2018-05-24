@@ -1,0 +1,480 @@
+{
+    "id": "SAML102",
+    "title": "SAML Application",
+    "version": "1.0.0",
+    "icon": "https://docs.secureauth.com/download/attachments/44830637/UserExchange.png",
+    "entries":
+    {
+        "assertionConsumerService":
+        {
+            "label": "Assertion Consumer Service (ACS)",
+            "controlType": "input",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
+        },
+        "assertionConsumerService@review":
+        {
+            "description": null
+        },
+        "assertionOffsetMinutes":
+        {
+            "label": "Offset Minutes",
+            "controlType": "input",
+            "type": "number",
+            "extras": [
+                "&nbsp;&nbsp;Minutes&nbsp;",
+                "assertionOffsetMinutesTooltip"
+            ],
+            "extrasAt": "field",
+            "width": 3
+        },
+        "assertionOffsetMinutes@review":
+        {
+            "extras": null
+        },
+        "assertionValidHours":
+        {
+            "label": "Number of hours assertion will be valid",
+            "controlType": "input",
+            "type": "number",
+            "extras": [
+                "&nbsp;&nbsp;Hours&nbsp;",
+                "assertionValidHoursTooltip"
+            ],
+            "extrasAt": "field",
+            "width": 3
+        },
+        "assertionValidHours@review":
+        {
+            "extras": null
+        },
+        "audience":
+        {
+            "label": "Audience",
+            "controlType": "input",
+            "extras": "audienceTooltip",
+            "extrasAt": "field",
+            "extras@review": null
+        },
+        "dataEncryptionMethod":
+        {
+            "label": "Data Encryption Method",
+            "controlType": "select"
+        },
+        "encryptSamlAssertion":
+        {
+            "states": "Encrypt SAML Assertion",
+            "controlType": "switch",
+            "defaultValue": false,
+            "modify":
+            {
+                "encryptSamlAssertionOff":
+                {
+                    "order": null
+                },
+                "encryptSamlAssertionOn":
+                {
+                    "order": "encryptSamlAssertionCallout"
+                }
+            },
+            "notify":
+            {
+                "encryptSamlAssertionOff": false,
+                "encryptSamlAssertionOn": true
+            },
+            "label@review": "Encrypt SAML Assertion"
+        },
+        "idpIssuer":
+        {
+            "label": "IdP Issuer",
+            "controlType": "input",
+            "hint": "sample-issuer"
+        },
+        "initiationType":
+        {
+            "label": "Connection Type",
+            "controlType": "select",
+            "defaultValue": "sp",
+            "width": 6,
+            "options": [
+            {
+                "value": "sp",
+                "display": "SP Initiated"
+            },
+            {
+                "value": "idp",
+                "display": "IdP Initiated"
+            }],
+            "notify":
+            {
+                "initiationTypeSP": "sp",
+                "initiationTypeIdP": "idp"
+            }
+        },
+        "initiationBy":
+        {
+            "controlType": "radiogroup",
+            "defaultValue": "redirect",
+            "noFieldset": true,
+            "properties":
+            {
+                "inline": true,
+                "stack": "small::small"
+            },
+            "options": [
+            {
+                "value": "redirect",
+                "display": "By Redirect"
+            },
+            {
+                "value": "post",
+                "display": "By Post",
+                "extras": "initiationByTooltip"
+            }],
+            "modify":
+            {
+                "initiationTypeSP":
+                {
+                    "visible": true
+                },
+                "initiationTypeIdP":
+                {
+                    "visible": false
+                }
+            }
+        },
+        "keyEncryptionMethod":
+        {
+            "label": "Key Encryption Method",
+            "controlType": "select",
+            "defaultValue": "one",
+            "noMargin": true,
+            "options": [
+            {
+                "value": "one",
+                "display": "One"
+            },
+            {
+                "value": "two",
+                "display": "Two"
+            }]
+        },
+        "nameIdFormat":
+        {
+            "label": "Name ID Format",
+            "controlType": "select",
+            "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "width": 8,
+            "options": [
+                "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+                "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+                "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos",
+                "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+                "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+                "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName",
+                "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+            ]
+        },
+        "recipient":
+        {
+            "label": "Recipient",
+            "controlType": "input",
+            "extras": "recipientTooltip",
+            "extrasAt": "field",
+            "extras@review": null
+        },
+        "relayState":
+        {
+            "label": "Relay State",
+            "controlType": "input",
+            "description": "User will be directed to this URL after authentication",
+            "extras": "relayStateTooltip",
+            "extrasAt": "field"
+        },
+        "relayState@review":
+        {
+            "description": null,
+            "extras": null
+        },
+        "signingAlgorithm":
+        {
+            "label": "Signing Algorithm",
+            "controlType": "radiogroup",
+            "defaultValue": "SHA1",
+            "noMargin": true,
+            "properties":
+            {
+                "inline": true,
+                "stack": "small::small"
+            },
+            "options": [
+                "SHA1",
+                "SHA2"
+            ]
+        },
+        "signSamlAssertion":
+        {
+            "states": "Sign SAML Assertion",
+            "controlType": "switch",
+            "defaultValue": false,
+            "notify":
+            {
+                "signSamlElementsOn": true
+            },
+            "label@review": "Sign SAML Assertion"
+        },
+        "signSamlMessage":
+        {
+            "states": "Sign SAML Message",
+            "controlType": "switch",
+            "defaultValue": false,
+            "order": "signSamlElementsCallout",
+            "notify":
+            {
+                "signSamlElementsOn": true
+            },
+            "label@review": "Sign SAML Message"
+        },
+        "spLoginUrl":
+        {
+            "label": "SP Login URL",
+            "controlType": "input",
+            "extras": "spLoginUrlTooltip",
+            "extrasAt": "field",
+            "modify":
+            {
+                "initiationTypeSP":
+                {
+                    "visible": true
+                },
+                "initiationTypeIdP":
+                {
+                    "visible": false
+                }
+            },
+            "extras@review": null
+        },
+        "userIdProfileField":
+        {
+            "label": "User ID Profile Field",
+            "controlType": "select",
+            "description": "Select the profile field in your data store that contains your users' IDs.",
+            "width": 6
+        },
+        "userIdProfileField@review":
+        {
+            "description": null
+        }
+    },
+    "statics":
+    {
+        "assertionOffsetMinutesTooltip":
+        {
+            "content": "This is referred to as \"SAML Not Before\" in the SAML Specification."
+        },
+        "assertionValidHoursTooltip":
+        {
+            "content": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "attributesHeader":
+        {
+            "content": "SAML ATTRIBUTES",
+            "contentEast@review":
+            {
+                "name": "editIcon",
+                "clickAction":
+                {
+                    "actions": "editSamlAttributes",
+                    "sendToParent": true
+                }
+            },
+            "small": true,
+            "stack": "large"
+        },
+        "audienceTooltip":
+        {
+            "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID. This field is optional for certain applications.",
+            "pad": "::small"
+        },
+        "encryptSamlAssertionCallout":
+        {
+            "after": "encryptSamlAssertionOptions",
+            "stack": "small"
+        },
+        "defaultHeader":
+        {
+            "small": true,
+            "stack": "large"
+        },
+        "editIcon":
+        {
+            "icon": "pencil",
+            "size": "medium"
+        },
+        "initiationByTooltip":
+        {
+            "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
+            "inline": true,
+            "width": "medium",
+            "pad": "::small"
+        },
+        "initiationTypeInfo":
+        {
+            "staticType": "fieldset",
+            "content": " - ",
+            "before": [
+                "initiationTypeLabel",
+                {
+                    "name": "initiationType",
+                    "noFieldset": true,
+                    "inline": true
+                }
+            ],
+            "after":
+            {
+                "name": "initiationBy",
+                "inline": true
+            },
+            "markdown": "inline"
+        },
+        "initiationTypeLabel":
+        {
+            "content": "Connection Type"
+        },
+        "recipientTooltip":
+        {
+            "content": "This field is typically the same as the consumer URL. It is optional for certain Service Providers.",
+            "pad": "::small"
+        },
+        "relayStateTooltip":
+        {
+            "content": "This field is optional for certain applications.",
+            "pad": "::small"
+        },
+        "settingsHeader":
+        {
+            "content": "CONNECTION SETTINGS",
+            "content@review": "APPLICATION SETTINGS",
+            "contentEast@review":
+            {
+                "name": "editIcon",
+                "clickAction":
+                {
+                    "actions": "editConnectionSettings",
+                    "sendToParent": true
+                }
+            },
+            "small": true,
+            "stack": "large"
+        },
+        "signSamlElementsCallout":
+        {
+            "after": "signSamlElementsOptions",
+            "stack": "small",
+            "modify":
+            {
+                "signSamlElementsOff":
+                {
+                    "visible": false
+                },
+                "signSamlElementsOn":
+                {
+                    "visible": true
+                }
+            }
+        },
+        "spLoginUrlTooltip":
+        {
+            "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+            "pad": "::small"
+        }
+    },
+    "groups":
+    {
+        "encryptSamlAssertionOptions":
+        {
+            "logical": true,
+            "order": [
+                "dataEncryptionMethod",
+                "keyEncryptionMethod"
+            ]
+        },
+        "signSamlElements":
+        {
+            "notify":
+            {
+                "signSamlElementsOff":
+                {
+                    "value.signSamlAssertion": false,
+                    "value.signSamlMessage": false
+                }
+            },
+            "order": [
+                "signSamlAssertion",
+                "signSamlMessage"
+            ]
+        },
+        "signSamlElementsOptions":
+        {
+            "logical": true,
+            "order": [
+                "signingAlgorithm"
+            ]
+        }
+    },
+    "views":
+    {
+        "review":
+        {
+            "entries":
+            {
+                "displayOnly": true
+            }
+        },
+        "default":
+        {
+            "entries":
+            {
+                "width": 9
+            }
+        }
+    },
+    "order": [
+        "settingsHeader",
+        {
+            "name": "initiationTypeInfo",
+            "render@default": false
+        },
+        {
+            "name": "initiationType",
+            "render@review": false
+        },
+        {
+            "name": "initiationBy",
+            "render@review": false
+        },
+        {
+            "name": "defaultHeader",
+            "content": "USER ID MAPPING",
+            "visible@review": false
+        },
+        "userIdProfileField",
+        "nameIdFormat",
+        {
+            "name": "defaultHeader",
+            "content": "SAML ASSERTION",
+            "visible@review": false
+        },
+        "idpIssuer",
+        "assertionConsumerService",
+        "relayState",
+        "recipient",
+        "audience",
+        "spLoginUrl",
+        "assertionValidHours",
+        "assertionOffsetMinutes",
+        "signSamlElements",
+        "encryptSamlAssertion",
+        "attributesHeader",
+        "This is coming in some other sprint!"
+    ]
+}
