@@ -278,14 +278,14 @@
     "signingCert": {
       "controlType": "options",
       "defaultValue": {
-        "value": "No Certificate Selected",
-        "serialno": "No Certificate Selected"
+        "issuedTo": "No Certificate Selected",
+        "serialNo": "No Certificate Selected"
       },
       "width": 12,
       "columns": [
-        "value",
-        "issueBy",
-        "expires"
+        "issuedTo",
+        "issuedBy",
+        "expiresOn"
       ],
       "headers": [
         "Issued To",
@@ -295,28 +295,25 @@
       "optionAsValue": true,
       "options": [
         {
-          "value": "wse3.cer",
-          "issueBy": "CMCer Co.",
-          "expires": "05/12/2020",
-          "serialno": 123
+          "issuedTo": "wse3.cer",
+          "issuedBy": "CMCer Co.",
+          "expiresOn": "05/12/2020",
+          "serialNo": "3290987430397347663253146859345987923675",
+          "value": "3290987430397347663253146859345987923675"
         },
         {
-          "value": "wse3.tiff",
-          "issueBy": "Baud Co.",
-          "expires": "07/12/2019",
-          "serialno": 456
+          "issuedTo": "wse3.tiff",
+          "issuedBy": "Baud Co.",
+          "expiresOn": "07/12/2019",
+          "serialNo": "4568394275703292938475938427598234798327",
+          "value": "4568394275703292938475938427598234798327"
         },
         {
-          "value": "some.dude",
-          "issueBy": "Con-spire",
-          "expires": "N/A",
-          "serialno": 789
-        },
-        {
-          "value": "sna0manual.SAQA.local",
-          "issueBy": "CN=Go Daddy Secure Certificate Authority",
-          "expires": "03/07/2019",
-          "serialno": "7236450875863451065713537430659753059342"
+          "issuedTo": "sna0manual.SAQA.local",
+          "issuedBy": "CN=Go Daddy Secure Certificate Authority",
+          "expiresOn": "03/07/2019",
+          "serialNo": "7236450875863451065713537430659753059342",
+          "value": "7236450875863451065713537430659753059342"
         }
       ]
     },
@@ -521,7 +518,7 @@
       "clickAction": "signingCertModalOpen"
     },
     "signingCertName": {
-      "content:in": "%{_.signingCertOptions.signingCert.value}&nbsp;&nbsp;&nbsp;",
+      "content:in": "%{_.signingCertOptions.signingCert.issuedTo}&nbsp;&nbsp;&nbsp;",
       "staticType": "body",
       "after": "signingCertLink"
     },
@@ -535,7 +532,7 @@
       ]
     },
     "signingCertSerialNo": {
-      "content:t": "_.signingCertOptions.signingCert.serialno",
+      "content:t": "_.signingCertOptions.signingCert.serialNo",
       "staticType": "body"
     },
     "signingCertSerialNoFieldset": {
@@ -585,7 +582,7 @@
   "others": {
     "signingCertCopy": {
       "otherType": "copytoclipboard",
-      "copy:t": "_.signingCertOptions.signingCert.serialno"
+      "copy:t": "_.signingCertOptions.signingCert.serialNo"
     }
   },
   "windows": {
