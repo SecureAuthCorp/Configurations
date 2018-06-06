@@ -16,12 +16,14 @@
     "applicationName": {
       "defaultValue:t": "$.title",
       "controlType": "input",
+      "dataModelName": "name",
       "label": "Application Name",
       "stack": "medium",
       "stack@review": null
     },
     "applicationDescription": {
       "controlType": "input",
+      "dataModelName": "description",
       "label": "Application Description"
     },
     "applicationLogo": {
@@ -29,6 +31,7 @@
       "label@review": "Application Logo",
       "displayOnly@review": false,
       "controlType": "custom",
+      "dataModelName": "logo",
       "componentId": "imageUpload",
       "stack": ":medium",
       "stack@review": null,
@@ -394,7 +397,7 @@
       "stack": "::medium"
     },
     "attributeDeleteButton": {
-      "content": "Delete",
+      "content": "Delete Attribute",
       "type": "destructive",
       "clickAction:i": "attributeItemDelete%{local.name}",
       "alignment": "right",
