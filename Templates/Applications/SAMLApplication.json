@@ -84,23 +84,20 @@
       "extras": null
     },
     "attributeName": {
-      "label": "Name",
+      "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "defaultValue": "Attribute Name"
+      "dataModelName": "name"
     },
     "attributeNamespace": {
-      "label": "Namespace",
+      "label": "Namespace (1.1)",
       "controlType": "input",
-      "dataModelName": "namespace",
-      "defaultValue": "https://scemas.xmlsoap.org/claims/UPN",
-      "displayOnly": true
+      "dataModelName": "namespace"
     },
     "attributeProfileField": {
-      "label": "Profile Field",
+      "label": "Data Store Property",
       "controlType": "select",
-      "dataModelName": "profileField",
-      "emptyOption": "(Select)",
+      "dataModelName": "property",
+      "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions"
     },
     "audience": {
@@ -391,14 +388,8 @@
     },
     "attributeCallout": {
       "after": [
-        {
-          "name": "attributeName",
-          "visible": false
-        },
-        "attributeNameDisplay",
-        "attributeProfileField",
-        "attributeNamespace",
-        "attributeDeleteButton"
+        "attributeInfo",
+        "attributeNamespace"
       ],
       "stack": "::medium"
     },
@@ -415,15 +406,6 @@
           "disabled": false
         }
       }
-    },
-    "attributeNameDisplay": {
-      "after": {
-        "name": "static:_color",
-        "content:t": "local._.name",
-        "color": "tertiary"
-      },
-      "staticType": "headline",
-      "stack": "::medium"
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
@@ -576,6 +558,19 @@
           "applicationName",
           "applicationDescription"
         ]
+      }
+    },
+    "attributeInfo": {
+      "layoutType": "grid",
+      "columns": {
+        "attributeProfile": {
+          "small": 8,
+          "order": [
+            "attributeName",
+            "attributeProfileField"
+          ]
+        },
+        "attributeActions": "attributeDeleteButton"
       }
     }
   },
