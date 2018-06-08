@@ -440,10 +440,15 @@
       "stack": "::medium"
     },
     "attributeDeleteButton": {
-      "content": "Delete Attribute",
+      "content": " Delete Attribute",
+      "before": {
+        "name": "static:icon",
+        "icon": "remove",
+        "type": "destructive",
+        "size": "medium"
+      },
       "type": "destructive",
-      "clickAction:i": "attributeItemDelete%{local.name}",
-      "alignment": "right",
+      "dashed": true,
       "modify": {
         "attributeItemDisableDelete": {
           "disabled": true
@@ -616,11 +621,20 @@
             "attributeProfileField"
           ]
         },
-        "attributeActions": "attributeDeleteButton"
+        "attributeActions": {
+          "align": "right",
+          "order": "attributeDeleteTooltipConfirm"
+        }
       }
     }
   },
   "others": {
+    "attributeDeleteTooltipConfirm": {
+      "trigger": "attributeDeleteButton",
+      "message": "Are you sure you want to delete this attribute?",
+      "action:i": "attributeItemDelete%{local.name}",
+      "placement": "top-end"
+    },
     "signingCertCopy": {
       "otherType": "copytoclipboard",
       "copy:t": "_.signingCertOptions.signingCert.serialNo"
