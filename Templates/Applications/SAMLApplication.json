@@ -137,15 +137,27 @@
       "width": 3
     },
     "assertionValidHours": {
-      "label": "Number of hours assertion will be valid",
       "controlType": "input",
       "type": "number",
       "extras": [
         "&nbsp;&nbsp;Hours&nbsp;",
-        "assertionValidHoursTooltip"
       ],
       "extrasAt": "field",
-      "width": 3
+      "width": 9,
+      "inline": true,
+      "stack": "small"
+    },
+    "assertionValidMinutes": {
+      "controlType": "input",
+      "type": "number",
+      "extras": [
+        "&nbsp;&nbsp;Minutes&nbsp;",
+        "assertionValidHoursTooltip",
+      ],
+      "extrasAt": "field",
+      "width": 9,
+      "inline": true,
+      "stack": "small"
     },
     "attributeName": {
       "label": "Attribute Name",
@@ -737,6 +749,17 @@
         "keyEncryptionMethod"
       ]
     },
+    "assertionWillBeValid": {
+      "inline": true,
+      "order": [
+        {
+          "name": "static:label",
+          "content": "Assertion will be valid for:"
+        },
+        "assertionValidHours",
+        "assertionValidMinutes"
+      ]
+    },
     "providerUrls": {
       "logical": true,
       "source": "value:applicationProviderInfo",
@@ -820,7 +843,7 @@
         "recipient",
         "audience",
         "spLoginUrl",
-        "assertionValidHours",
+        "assertionWillBeValid",
         "assertionOffsetMinutes",
         "signSamlElements",
         "encryptSamlAssertion",
