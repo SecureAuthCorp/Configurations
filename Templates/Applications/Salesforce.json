@@ -116,40 +116,70 @@
                 }
             }
         },
-        "RedirectType":
-        {
-            "label": "Authenticated User Redirect",
+        "initiationType": {
+            "label": "Connection Type",
             "controlType": "select",
-            "defaultValue": "Saml2IdpInitiated",
-            "width": 5,
+            "defaultValue": "sp",
+            "width": 7,
+            "noMargin": true,
             "options": [
-            {
-                "value": "Saml2SpInitiated",
-                "display": "SAML 2.0 (SP Initiated) Assertion"
-            },
-            {
-                "value": "Saml2IdpInitiated",
-                "display": "SAML 2.0 (SP Initiated) Assertion"
-            },
-            {
-                "value": "Saml2SpInitiatedByPost",
-                "display": "SAML 2.0 (SP Initiated) Assertion"
-            }]
+                {
+                "value": "sp",
+                "display": "SP Initiated"
+                },
+                {
+                "value": "idp",
+                "display": "IdP Initiated"
+                }
+            ],
+            "notify": {
+                "initiationTypeSP": "sp",
+                "initiationTypeIdP": "idp"
+            }
         },
-        "WsFedReplyTo_SamlTargetUrl":
+        "initiationBy": {
+            "controlType": "radiogroup",
+            "defaultValue": "redirect",
+            "noFieldset": true,
+            "stack": "small",
+            "properties": {
+                "inline": true,
+                "alignment": ":middle",
+                "stack": ":medium"
+            },
+            "options": [
+                {
+                "value": "redirect",
+                "display": "By Redirect"
+                },
+                {
+                "value": "post",
+                "display": "By Post",
+                "extras": "initiationByTooltip"
+                }
+            ],
+            "modify": {
+                "initiationTypeSP": {
+                "visible": true
+                },
+                "initiationTypeIdP": {
+                "visible": false
+                }
+            }
+        },
+        "wsFedReplyTo_SamlTargetUrl":
         {
             "label": "SAML Target URL",
             "visible": false,
             "controlType": "input",
             "defaultValue": "https://saml.salesforce.com"
         },
-        "SAMLAudience":
+        "audience":
         {
             "label": "SAML Audience",
             "visible": false,
             "controlType": "input",
-            "defaultValue": "https://saml.salesforce.com",
-            "dataModelName": "audience"
+            "defaultValue": "https://saml.salesforce.com"
         },
         "xxxConsumerID":
         {
@@ -169,21 +199,19 @@
             "stack@providersInfo": "medium",
             "noMargin@providersInfo": true
         },
-        "SAMLConsumerURL":
+        "assertionConsumerService":
         {
             "label": "SAML Consumer URL",
             "visible": false,
             "controlType": "input",
-            "fixedValue": "https://login.salesforce.com?so=%{_.xxxConsumerID}",
-            "dataModelName": "assertionConsumerService"
+            "fixedValue:i": "https://login.salesforce.com?so=%{_.xxxConsumerID}"
         },
-        "SAMLRecipient":
+        "recipient":
         {
             "label": "SAML Recipient URL",
             "visible": false,
             "controlType": "input",
-            "fixedValue": "https://login.salesforce.com?so=%{_.xxxConsumerID}",
-            "dataModelName": "recipient"
+            "fixedValue:i": "https://login.salesforce.com?so=%{_.xxxConsumerID}"
         }
     },
     "statics":
@@ -267,6 +295,10 @@
             "small": true,
             "stack": "large"
         },
+        "defaultHeader": {
+            "small": true,
+            "stack": "large"
+        },
         "downloadIcon": {
             "staticType": "icon",
             "icon": "upload",
@@ -284,6 +316,12 @@
         "editIcon": {
             "icon": "pencil",
             "size": "medium"
+        },
+        "initiationByTooltip": {
+            "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
+            "inline": true,
+            "width": "medium",
+            "pad": ":::small"
         },
         "nameForSummary": {
             "content:t": "_.name",
@@ -309,6 +347,11 @@
                 "providersCalloutHeader",
                 "providersCalloutDescription"
             ]
+        },
+        "settingsHeader": {
+            "content": "CONFIGURE CONNECTION",
+            "small": true,
+            "stack": "large"
         },
         "settingsCallout": {
             "after": [
@@ -421,14 +464,20 @@
         },
         "templateRoot": {
             "order": [
-                "RedirectType",
-                "WsFedReplyTo_SamlTargetUrl",
-                "SAMLAudience",
+                "settingsHeader",
+                "initiationType",
+                "initiationBy",
+                "wsFedReplyTo_SamlTargetUrl",
+                "audience",
+                {
+                    "name": "defaultHeader",
+                    "content": "SAML ASSERTION"
+                },
                 "xxxConsumerID",
                 "issuer",
                 "assertionWillBeValid",
-                "SAMLConsumerURL",
-                "SAMLRecipient",
+                "assertionConsumerService",
+                "recipient",
                 "attributesHeader",
                 "attributeItem",
                 "attributeAddButton"              
