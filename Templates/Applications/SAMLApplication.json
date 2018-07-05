@@ -463,7 +463,11 @@
     "dataStoresAndGroupsHeader": {
       "content": "USER DATA STORES AND GROUPS",
       "contentEast": {
-        "name": "editIcon"
+        "name": "editIcon",
+        "clickAction": {
+            "actions": "edit groups",
+            "sendToParent": true
+        }
       },
       "small": true,
       "stack": "large"
@@ -480,7 +484,11 @@
     "connectionSettingsHeader": {
       "content": "CONNECTION SETTINGS",
       "contentEast": {
-        "name": "editIcon"
+        "name": "editIcon",
+        "clickAction": {
+            "actions": "edit groups",
+            "sendToParent": true
+        }
       },
       "small": true,
       "stack": "large"
@@ -673,7 +681,17 @@
         "appSummary": [
           "nameForSummary",
           "descriptionForSummary"
-        ]
+        ],
+        "edition":{
+          "width": "auto",
+          "order": [{
+            "name": "editIcon",
+            "clickAction": {
+                "actions": "edit details",
+                "sendToParent": true
+            }          
+          }]
+        }
       }
     },
     "attributeInfo": {
@@ -877,6 +895,14 @@
         "idpIssuer",
         "idpIssuerCopy",
         "signingCertDownload"
+      ],
+      "order@updateGroups": [
+          "dataStores",
+          "groups",
+          "allowAllGroups"        
+      ],
+      "order@updateDetails": [
+          "applicationInputs"
       ]
     }
   },
