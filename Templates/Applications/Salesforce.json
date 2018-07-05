@@ -22,7 +22,8 @@
             "controlType": "input",
             "dataModelName": "name",
             "label": "Application Name",
-            "stack": "medium"
+            "stack": "medium",
+            "emptyValue:t": "$.title"
         },
         "applicationDescription": {
             "controlType": "input",
@@ -99,7 +100,8 @@
             "allowDuplicates": false,
             "stack": "medium",
             "width": 6,
-            "source": "data:dataStores:dataStoreInputList"
+            "source": "data:dataStores:dataStoreInputList",
+            "validate": "is.required"
         },
         "groups": {
             "controlType": "pills",
@@ -109,10 +111,12 @@
             "width": 6,
             "modify": {
                 "allGroupsAllowed": {
-                    "enabled": false
+                    "enabled": false,
+                    "validate": "not.required"
                 },
                 "selectGroupsAllowed": {
-                    "enabled": true
+                    "enabled": true,
+                    "validate": "is.required"
                 }
             }
         },
