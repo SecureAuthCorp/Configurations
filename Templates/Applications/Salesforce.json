@@ -365,6 +365,16 @@
       "icon": "pencil",
       "size": "medium"
     },
+    "idpSigningCertificateDownloadDesc": {
+      "staticType": "color",
+      "color": "disabled",
+      "content:t": "_.signingCertOptions.signingCert.issuedTo",
+      "wrappers": "body"
+    },
+    "idpSigningCertificateDownloadHeader": {
+      "staticType": "label",
+      "content": "Idp Signing Certificate"
+    },
     "initiationByTooltip": {
       "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
       "inline": true,
@@ -562,6 +572,13 @@
         "assertionValidMinutes"
       ]
     },
+    "signingCertDownload": {
+      "order": [
+        "idpSigningCertificateDownloadHeader",
+        "idpSigningCertificateDownloadDesc"
+      ],
+      "stack": "medium"
+    },
     "signingCertOptions": {
       "logical": true,
       "order": [
@@ -643,7 +660,8 @@
       "order@providersInfo": [
         "providerUrls",
         "issuer",
-        "issuerCopy"
+        "issuerCopy",
+        "signingCertDownload"
       ],
       "order@summary": [
         "settingsCallout",
