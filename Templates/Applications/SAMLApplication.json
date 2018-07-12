@@ -131,7 +131,10 @@
       "controlType": "input",
       "type": "number",
       "extras": [
-        { "name": "static:body", "content:n": "&nbsp;&nbsp;Minutes&nbsp;"},
+        {
+          "name": "static:body",
+          "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
+        },
         "assertionOffsetMinutesTooltip"
       ],
       "extrasAt": "field",
@@ -141,7 +144,10 @@
       "controlType": "input",
       "type": "number",
       "extras": [
-        { "name": "static:body", "content:n": "&nbsp;&nbsp;Hours&nbsp;"}
+        {
+          "name": "static:body",
+          "content:n": "&nbsp;&nbsp;Hours&nbsp;"
+        }
       ],
       "extrasAt": "field",
       "width": 9,
@@ -152,7 +158,10 @@
       "controlType": "input",
       "type": "number",
       "extras": [
-        { "name": "static:body", "content:n": "&nbsp;&nbsp;Minutes&nbsp;"},
+        {
+          "name": "static:body",
+          "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
+        },
         "assertionValidHoursTooltip"
       ],
       "extrasAt": "field",
@@ -349,6 +358,7 @@
         "serialNo": "No Certificate Selected"
       },
       "width": 12,
+      "emptyContent": "noCertificatesAvailable",
       "columns": [
         "issuedTo",
         "issuedBy",
@@ -469,8 +479,8 @@
       "contentEast": {
         "name": "editIcon",
         "clickAction": {
-            "actions": "edit groups",
-            "sendToParent": true
+          "actions": "edit groups",
+          "sendToParent": true
         }
       },
       "small": true,
@@ -490,8 +500,8 @@
       "contentEast": {
         "name": "editIcon",
         "clickAction": {
-            "actions": "edit groups",
-            "sendToParent": true
+          "actions": "edit groups",
+          "sendToParent": true
         }
       },
       "small": true,
@@ -686,15 +696,17 @@
           "nameForSummary",
           "descriptionForSummary"
         ],
-        "edition":{
+        "edition": {
           "width": "auto",
-          "order": [{
-            "name": "editIcon",
-            "clickAction": {
+          "order": [
+            {
+              "name": "editIcon",
+              "clickAction": {
                 "actions": "edit details",
                 "sendToParent": true
-            }          
-          }]
+              }
+            }
+          ]
         }
       }
     },
@@ -734,6 +746,11 @@
     "logoutUrlCopy": {
       "otherType": "copytoclipboard",
       "copy:t": "_.providerUrls.logoutURL"
+    },
+    "noCertificatesAvailable": {
+      "otherType": "statemessage",
+      "message": "There are no certificates available on the SecureAuth appliance.",
+      "info": "Certificates must be managed and uploaded using the Windows Certificates Console on this appliance."
     },
     "signingCertCopy": {
       "otherType": "copytoclipboard",
@@ -901,12 +918,12 @@
         "signingCertDownload"
       ],
       "order@updateGroups": [
-          "dataStores",
-          "groups",
-          "allowAllGroups"        
+        "dataStores",
+        "groups",
+        "allowAllGroups"
       ],
       "order@updateDetails": [
-          "applicationInputs"
+        "applicationInputs"
       ]
     }
   },
