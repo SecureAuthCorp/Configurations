@@ -203,6 +203,11 @@
       "label": "Data Stores",
       "description": "Select the datastores for this application.  Only users in these data stores can access this application.",
       "description@summary": null,
+      "extras": {
+        "name": "other:importance",
+        "pad": ":::small",
+        "inline": true
+      },
       "allowDuplicates": false,
       "stack": "medium",
       "width": 6,
@@ -235,10 +240,16 @@
       "modify": {
         "allGroupsAllowed": {
           "enabled": false,
+          "extras": null,
           "validate": "not.required"
         },
         "selectGroupsAllowed": {
           "enabled": true,
+          "extras": {
+            "name": "other:importance",
+            "pad": ":::small",
+            "inline": true
+          },
           "validate": "is.required"
         }
       }
