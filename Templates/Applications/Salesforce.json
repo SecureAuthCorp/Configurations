@@ -623,7 +623,6 @@
     },
     "providerUrls": {
       "logical": true,
-      "source": "value:applicationProviderInfo",
       "order": [
         {
           "name": "static:label",
@@ -633,7 +632,7 @@
         {
           "name": "static:color",
           "color": "disabled",
-          "content:t": "_.providerUrls.loginURL"
+          "content:t": "_.loginURL"
         },
         "loginUrlCopy",
         {
@@ -644,7 +643,7 @@
         {
           "name": "static:color",
           "color": "disabled",
-          "content:t": "_.providerUrls.logoutURL"
+          "content:t": "_.logoutURL"
         },
         "logoutUrlCopy"
       ]
@@ -714,11 +713,11 @@
     },
     "loginUrlCopy": {
       "otherType": "copytoclipboard",
-      "copy:t": "_.providerUrls.loginURL"
+      "copy:t": "_.loginURL"
     },
     "logoutUrlCopy": {
       "otherType": "copytoclipboard",
-      "copy:t": "_.providerUrls.logoutURL"
+      "copy:t": "_.logoutURL"
     },
     "noCertificatesAvailable": {
       "otherType": "statemessage",
