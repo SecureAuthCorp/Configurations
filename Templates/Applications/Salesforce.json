@@ -287,7 +287,8 @@
         "attributeItemEnableAdd": {
           "disabled": false
         }
-      }
+      },
+      "stack": "::small"
     },
     "attributeAddIcon": {
       "icon": "add",
@@ -374,6 +375,11 @@
       "staticType": "text",
       "content": " Upload"
     },
+    "domain": {
+      "staticType": "color",
+      "color": "info",
+      "content:t": "_.domainLabel"
+    },
     "descriptionForSummary": {
       "content:t": "_.description",
       "staticType": "color",
@@ -382,6 +388,27 @@
     "editIcon": {
       "icon": "pencil",
       "size": "medium"
+    },
+    "emptyAttributesInfoIcon": {
+      "staticType": "color",
+      "align": "center",
+      "stack": "::small",
+      "after": {
+        "name": "static:icon",
+        "icon": "info",
+        "type": "disabled",
+        "size": "xlarge"
+      }
+    },
+    "emptyAttributesInfoText": {
+      "staticType": "label",
+      "align": "center",
+      "stack": "::large",
+      "after": {
+        "name": "static:color",
+        "content": "Add SAML Attributes for your connection",
+        "color": "disabled"
+      }
     },
     "idpSigningCertificateDownloadDesc": {
       "staticType": "color",
@@ -519,6 +546,7 @@
         "appSummary": [
           "nameForSummary",
           "descriptionForSummary",
+          "domain",
           "realmInfo"
         ],
         "edition": {
@@ -576,6 +604,10 @@
     "attributeItem": {
       "logical": true,
       "dataModelName": "attributes",
+      "notify": {
+        "samlEmpty": "attributeItemEmpty",
+        "samlNotEmpty": "attributeItemNotEmpty"
+      },
       "repeat": {
         "max": 10
       },
@@ -594,6 +626,16 @@
         },
         "assertionValidHours",
         "assertionValidMinutes"
+      ]
+    },
+    "emptyAttributeInfo": {
+      "modify": {
+        "attributeItemEmpty": { "visible": true },
+        "attributeItemNotEmpty": { "visible": false} 
+      },
+      "order": [
+        "emptyAttributesInfoIcon",
+        "emptyAttributesInfoText"
       ]
     },
     "signingCertDownload": {
@@ -671,8 +713,9 @@
         "assertionConsumerService",
         "recipient",
         "attributesHeader",
-        "attributeItem",
-        "attributeAddButton"
+        "emptyAttributeInfo",
+        "attributeAddButton",
+        "attributeItem"
       ],
       "order@details": [
         "applicationInputs",
