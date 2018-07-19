@@ -570,27 +570,6 @@
       "icon": "pencil",
       "size": "medium"
     },
-    "emptyAttributesInfoIcon": {
-      "staticType": "color",
-      "align": "center",
-      "stack": "::small",
-      "after": {
-        "name": "static:icon",
-        "icon": "info",
-        "type": "disabled",
-        "size": "xlarge"
-      }
-    },
-    "emptyAttributesInfoText": {
-      "staticType": "label",
-      "align": "center",
-      "stack": "::large",
-      "after": {
-        "name": "static:color",
-        "content": "Add SAML Attributes for your connection",
-        "color": "disabled"
-      }
-    },
     "idpSigningCertificateDownloadDesc": {
       "staticType": "color",
       "color": "disabled",
@@ -805,6 +784,14 @@
       "message": "There are no certificates available on the SecureAuth appliance.",
       "info": "Certificates must be managed and uploaded using the Windows Certificates Console on this appliance."
     },
+    "noSAMLAttributes": {
+      "otherType": "statemessage",
+      "message": "Add SAML Attributes for your connection",
+      "modify": {
+        "attributeItemEmpty": { "visible": true },
+        "attributeItemNotEmpty": { "visible": false} 
+      }
+    },
     "signingCertCopy": {
       "otherType": "copytoclipboard",
       "copy:t": "_.signingCertOptions.signingCert.serialNo"
@@ -834,10 +821,6 @@
     "attributeItem": {
       "logical": true,
       "dataModelName": "attributes",
-      "notify": {
-        "samlEmpty": "attributeItemEmpty",
-        "samlNotEmpty": "attributeItemNotEmpty"
-      },
       "repeat": {
         "max": 10
       },
@@ -859,16 +842,6 @@
         },
         "assertionValidHours",
         "assertionValidMinutes"
-      ]
-    },
-    "emptyAttributeInfo": {
-      "modify": {
-        "attributeItemEmpty": { "visible": true },
-        "attributeItemNotEmpty": { "visible": false} 
-      },
-      "order": [
-        "emptyAttributesInfoIcon",
-        "emptyAttributesInfoText"
       ]
     },
     "providerUrls": {
@@ -958,7 +931,7 @@
         "signSamlElements",
         "encryptSamlAssertion",
         "attributesHeader",
-        "emptyAttributeInfo",
+        "noSAMLAttributes",
         "attributeAddButton",
         "attributeItem"
       ],
