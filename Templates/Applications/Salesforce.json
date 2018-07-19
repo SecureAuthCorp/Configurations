@@ -287,7 +287,8 @@
         "attributeItemEnableAdd": {
           "disabled": false
         }
-      }
+      },
+      "stack": "::small"
     },
     "attributeAddIcon": {
       "icon": "add",
@@ -374,6 +375,11 @@
       "staticType": "text",
       "content": " Upload"
     },
+    "domain": {
+      "staticType": "color",
+      "color": "info",
+      "content:t": "_.domainLabel"
+    },
     "descriptionForSummary": {
       "content:t": "_.description",
       "staticType": "color",
@@ -423,6 +429,11 @@
         "providersCalloutHeader",
         "providersCalloutDescription"
       ]
+    },
+    "realmInfo": {
+      "content:im": "**Realm:** Secureauth %{_.realmNumber}",
+      "color": "disabled",
+      "staticType": "color"
     },
     "settingsHeader": {
       "content": "CONFIGURE CONNECTION",
@@ -513,7 +524,9 @@
         },
         "appSummary": [
           "nameForSummary",
-          "descriptionForSummary"
+          "descriptionForSummary",
+          "domain",
+          "realmInfo"
         ],
         "edition": {
           "width": "auto",
@@ -665,8 +678,9 @@
         "assertionConsumerService",
         "recipient",
         "attributesHeader",
-        "attributeItem",
-        "attributeAddButton"
+        "noSAMLAttributes",
+        "attributeAddButton",
+        "attributeItem"
       ],
       "order@details": [
         "applicationInputs",
@@ -723,6 +737,14 @@
       "otherType": "statemessage",
       "message": "There are no certificates available on the SecureAuth appliance.",
       "info": "Certificates must be managed and uploaded using the Windows Certificates Console on this appliance."
+    },
+    "noSAMLAttributes": {
+      "otherType": "statemessage",
+      "message": "Add SAML Attributes for your connection",
+      "modify": {
+        "attributeItemEmpty": { "visible": true },
+        "attributeItemNotEmpty": { "visible": false} 
+      }
     },
     "signingCertCopy": {
       "otherType": "copytoclipboard",
