@@ -261,7 +261,7 @@
       "modify": null,
       "extras": null
     },
-    "idpIssuer": {
+    "issuer": {
       "label": "IdP Issuer",
       "controlType": "input",
       "hint": "sample-issuer",
@@ -768,7 +768,7 @@
     },
     "idpIssuerCopy": {
       "otherType": "copytoclipboard",
-      "copy:t": "_.idpIssuer",
+      "copy:t": "_.issuer",
       "stack": "medium"
     },
     "loginUrlCopy": {
@@ -789,7 +789,7 @@
       "message": "Add SAML Attributes for your connection",
       "modify": {
         "attributeItemEmpty": { "visible": true },
-        "attributeItemNotEmpty": { "visible": false} 
+        "attributeItemNotEmpty": { "visible": false}
       }
     },
     "signingCertCopy": {
@@ -920,7 +920,7 @@
           "name": "defaultHeader",
           "content": "SAML ASSERTION"
         },
-        "idpIssuer",
+        "issuer",
         "assertionConsumerService",
         "relayState",
         "recipient",
@@ -953,7 +953,7 @@
       ],
       "order@providersInfo": [
         "providerUrls",
-        "idpIssuer",
+        "issuer",
         "idpIssuerCopy",
         "signingCertDownload"
       ],
