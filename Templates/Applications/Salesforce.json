@@ -104,7 +104,7 @@
       "dataModelName": "property",
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "email_1"
+      "defaultValue": "authenticated_user_id"
     },
     "audience": {
       "label": "SAML Audience",
@@ -269,6 +269,12 @@
         "signSamlElementsOn": true
       }
     },
+    "userIdProfileField": {
+			"label": "User ID Profile Field",
+			"visible": false,
+			"controlType": "input",
+			"fixedValue": "email1"
+		},
     "xxxConsumerID": {
       "label": "SAML Consumer URL ID ",
       "controlType": "input",
@@ -683,7 +689,8 @@
         "attributesHeader",
         "noSAMLAttributes",
         "attributeAddButton",
-        "attributeItem"
+        "attributeItem",
+        "userIdProfileField"
       ],
       "order@details": [
         "applicationInputs",
