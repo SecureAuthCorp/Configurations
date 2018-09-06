@@ -269,6 +269,20 @@
         "signSamlElementsOn": true
       }
     },
+    "spLoginUrl": {
+      "controlType": "input",
+      "label": "Application URL",
+      "extras": "spLoginUrlToolTip",
+      "width": 5,
+      "modify": {
+        "initiationTypeSP": {
+          "visible": true
+        },
+        "initiationTypeIdP": {
+          "visible": false
+        }
+      }
+    },
     "userIdProfileField": {
 			"label": "User ID Profile Field",
 			"visible": false,
@@ -503,6 +517,9 @@
         }
       }
     },
+    "spLoginUrlToolTip" : {
+      "content": "The Application URL is the URL to the login page for the application you are connecting."
+    },
     "xxxConsumerIDTooltip": {
       "content": "Customer's Salesforce ID number (can be found in the Salesforce admin console, in the Endpoints section of the Security Controls --> Single Sign-On Settings)"
     }
@@ -681,6 +698,7 @@
           "content": "SAML ASSERTION"
         },
         "xxxConsumerID",
+        "spLoginUrl",
         "issuer",
         "assertionWillBeValid",
         "signSamlElements",
