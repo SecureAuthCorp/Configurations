@@ -58,7 +58,7 @@
       "label": "SAML Consumer URL",
       "visible": false,
       "controlType": "input",
-      "fixedValue:i": "https://login.salesforce.com?so=%{_.xxxConsumerID}"
+      "fixedValue:t": "_.spLoginUrl"
     },
     "assertionValidHours": {
       "controlType": "input",
@@ -223,7 +223,7 @@
       "label": "SAML Recipient URL",
       "visible": false,
       "controlType": "input",
-      "fixedValue:i": "https://login.salesforce.com?so=%{_.xxxConsumerID}"
+      "fixedValue:t": "_.spLoginUrl"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -271,30 +271,16 @@
     },
     "spLoginUrl": {
       "controlType": "input",
-      "label": "Application URL",
+      "label": "Salesforce Login URL",
       "extras": "spLoginUrlToolTip",
-      "width": 5,
-      "modify": {
-        "initiationTypeSP": {
-          "visible": true
-        },
-        "initiationTypeIdP": {
-          "visible": false
-        }
-      }
+      "width": 5
     },
     "userIdProfileField": {
 			"label": "User ID Profile Field",
 			"visible": false,
 			"controlType": "input",
 			"fixedValue": "Email1"
-		},
-    "xxxConsumerID": {
-      "label": "SAML Consumer URL ID ",
-      "controlType": "input",
-      "extras": "xxxConsumerIDTooltip",
-      "width": 5
-    }
+		}
   },
   "statics": {
     "attributeAddButton": {
@@ -518,10 +504,7 @@
       }
     },
     "spLoginUrlToolTip" : {
-      "content": "The Application URL is the URL to the login page for the application you are connecting."
-    },
-    "xxxConsumerIDTooltip": {
-      "content": "Customer's Salesforce ID number (can be found in the Salesforce admin console, in the Endpoints section of the Security Controls --> Single Sign-On Settings)"
+      "content": "Find this setting in the Salesforce admin console under the Endpoints section of the Security Controls > Single Sign-On Settings."
     }
   },
   "layouts": {
@@ -697,7 +680,6 @@
           "name": "defaultHeader",
           "content": "SAML ASSERTION"
         },
-        "xxxConsumerID",
         "spLoginUrl",
         "issuer",
         "assertionWillBeValid",
