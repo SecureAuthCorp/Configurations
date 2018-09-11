@@ -414,6 +414,26 @@
       "width": "medium",
       "pad": ":::small"
     },
+    "initiationTypeInfo": {
+      "staticType": "fieldset",
+      "content": " - ",
+      "before": [
+        "initiationTypeLabel",
+        {
+          "name": "initiationType",
+          "noFieldset": true,
+          "inline": true
+        }
+      ],
+      "after": {
+        "name": "initiationBy",
+        "inline": true
+      },
+      "markdown": "inline"
+    },
+    "initiationTypeLabel": {
+      "content": "Connection Type"
+    },
     "nameForSummary": {
       "content:t": "_.name",
       "staticType": "headline",
@@ -711,6 +731,7 @@
         "dataStores",
         "groups",
         "connectionSettingsHeader",
+        "initiationTypeInfo",
         "providersCallout"
       ],
       "order@updateGroups": [
