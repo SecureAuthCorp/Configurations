@@ -65,12 +65,11 @@
         "downloadLabel"
       ]
     },
-    "assertionConsumerService":
+    "spLoginUrl":
     {
-      "label": "SAML Consumer URL",
       "visible": false,
       "controlType": "input",
-      "fixedValue:t": "_.spLoginUrl"
+      "fixedValue:t": "_.assertionConsumerService"
     },
     "assertionValidHours":
     {
@@ -264,7 +263,7 @@
       "label": "SAML Recipient URL",
       "visible": false,
       "controlType": "input",
-      "fixedValue:t": "_.spLoginUrl"
+      "fixedValue:t": "_.assertionConsumerService"
     },
     "signingAlgorithm":
     {
@@ -319,7 +318,7 @@
         "signSamlElementsOn": true
       }
     },
-    "spLoginUrl":
+    "assertionConsumerService":
     {
       "controlType": "input",
       "label": "Salesforce Login URL",
@@ -863,11 +862,11 @@
           "name": "defaultHeader",
           "content": "SAML ASSERTION"
         },
-        "spLoginUrl",
+        "assertionConsumerService",
         "issuer",
         "assertionWillBeValid",
         "signSamlElements",
-        "assertionConsumerService",
+        "spLoginUrl",
         "recipient",
         "attributesHeader",
         "noSAMLAttributes",
