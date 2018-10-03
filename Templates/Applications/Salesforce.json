@@ -440,18 +440,6 @@
       "icon": "pencil",
       "size": "medium"
     },
-    "idpSigningCertificateDownloadDesc":
-    {
-      "staticType": "color",
-      "color": "disabled",
-      "content:t": "_.signingCertOptions.signingCert.serialNo",
-      "wrappers": "body"
-    },
-    "idpSigningCertificateDownloadHeader":
-    {
-      "staticType": "label",
-      "content": "Idp Signing Certificate"
-    },
     "initiationTypeInfo":
     {
       "staticType": "fieldset",
@@ -532,10 +520,29 @@
         "applicationSettings"
       ]
     },
+    "signingCertDownloadAction":
+    {
+      "staticType": "text",
+      "content": " Download",
+      "className": "sa-vertical-align-middle",
+      "wrappers": "link",
+      "before":
+      {
+        "name": "static:icon",
+        "icon": "download",
+        "size": "small"
+      },
+      "clickAction":
+      {
+        "actions": "download certificate",
+        "sendToParent": true
+      }
+    },
     "signingCertSerialNo":
     {
       "content:t": "_.signingCertOptions.signingCert.serialNo",
-      "staticType": "body"
+      "staticType": "body",
+      "className@providersInfo": "sa-color-gray-60"
     },
     "signingCertAcceptButton":
     {
@@ -570,10 +577,11 @@
       [
         {
           "name": "static:label",
-          "content": "IdP Signing Certificate Serial Number"
+          "content": "IdP Signing Certificate Serial Number",
+          "content@providersInfo": "IdP Signing Certificate"
         },
         "signingCertSerialNo",
-        "signingCertCopy"
+        "signingCertDownloadAction"
       ],
       "stack@providersInfo": "medium"
     },
@@ -734,15 +742,6 @@
         "assertionValidMinutes"
       ]
     },
-    "signingCertDownload":
-    {
-      "order":
-      [
-        "idpSigningCertificateDownloadHeader",
-        "idpSigningCertificateDownloadDesc"
-      ],
-      "stack": "medium"
-    },
     "signingCertOptions":
     {
       "logical": true,
@@ -837,7 +836,7 @@
         "providerUrls",
         "issuer",
         "issuerCopy",
-        "signingCertDownload"
+        "signingCertSerialNoFieldset"
       ],
       "order@summary":
       [
