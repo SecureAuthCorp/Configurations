@@ -573,7 +573,7 @@
     },
     "signingCertSerialNoFieldset":
     {
-      "after":
+      "before":
       [
         {
           "name": "static:label",
@@ -581,8 +581,9 @@
           "content@providersInfo": "IdP Signing Certificate"
         },
         "signingCertSerialNo",
-        "signingCertDownloadAction"
+        "signingCertCopy"
       ],
+      "after@providersInfo": ["&nbsp;&nbsp;&bull;&nbsp;&nbsp;", "signingCertDownloadAction"],
       "stack@providersInfo": "medium"
     },
     "signSamlElementsCallout":
