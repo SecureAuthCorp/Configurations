@@ -686,12 +686,32 @@
       "staticType": "color",
       "color": "disabled",
       "content:t": "_.signingCertOptions.signingCert.serialNo",
-      "wrappers": "body"
+      "wrappers": "body",
+      "pad": "small"
     },
     "idpSigningCertificateDownloadHeader":
     {
       "staticType": "label",
       "content": "Idp Signing Certificate"
+    },
+    "idpDownloadCertificateAction":
+    {
+      "staticType": "color",
+      "content": "Download",
+      "color": "info",
+      "pad": "small",
+      "before": {
+        "name": "static:icon",
+        "icon": "download",
+        "inline": true,
+        "pad": ":small",
+        "size": "medium"
+      },
+      "clickAction":
+      {
+        "actions": "download certificate",
+        "sendToParent": true
+      }
     },
     "initiationByTooltip":
     {
@@ -1085,11 +1105,11 @@
     },
     "signingCertDownload":
     {
-      "logical": true,
       "order":
       [
         "idpSigningCertificateDownloadHeader",
-        "idpSigningCertificateDownloadDesc"
+        "idpSigningCertificateDownloadDesc",
+        "idpDownloadCertificateAction"
       ],
       "stack": "medium"
     },
