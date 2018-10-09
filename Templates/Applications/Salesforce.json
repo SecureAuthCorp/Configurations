@@ -122,7 +122,7 @@
       "dataModelName": "property",
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "authenticated_user_id"
+      "defaultValue": "AuthenticatedUserId"
     },
     "audience":
     {
@@ -296,9 +296,12 @@
     "userIdProfileField":
     {
       "label": "User ID Profile Field",
-      "visible": false,
-      "controlType": "input",
-      "fixedValue": "Email1"
+      "controlType": "select",
+      "description": "Select the profile field in your data store that contains your users' IDs.",
+      "width": 7,
+      "emptyOption": "",
+      "source": "options:dataStoreProperties:dataStoreOptions",
+      "defaultValue": "authenticated_user_id"
     }
   },
   "statics":
@@ -818,6 +821,11 @@
         "settingsHeader",
         "initiationType",
         "initiationBy",
+        {
+          "name": "defaultHeader",
+          "content": "USER ID MAPPING"
+        },
+        "userIdProfileField",
         "audience",
         {
           "name": "defaultHeader",
@@ -832,8 +840,7 @@
         "attributesHeader",
         "noSAMLAttributes",
         "attributeAddButton",
-        "attributeItem",
-        "userIdProfileField"
+        "attributeItem"
       ],
       "order@details":
       [
