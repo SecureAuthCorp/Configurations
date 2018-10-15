@@ -216,7 +216,7 @@
       "dataModelName": "property",
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "authenticated_user_id"
+      "defaultValue": "AuthenticatedUserId"
     },
     "audience":
     {
@@ -507,7 +507,7 @@
       "width": 7,
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "authenticated_user_id"
+      "defaultValue": "AuthenticatedUserId"
     }
   },
   "statics":
@@ -701,17 +701,14 @@
     },
     "idpDownloadCertificateAction":
     {
-      "staticType": "color",
-      "content": "Download",
-      "color": "info",
-      "pad": "small",
+      "staticType": "link",
+      "content": " Download",
+      "className": "sa-vertical-align-middle",
       "before":
       {
         "name": "static:icon",
         "icon": "download",
-        "inline": true,
-        "pad": ":small",
-        "size": "medium"
+        "size": "small"
       },
       "clickAction":
       {
