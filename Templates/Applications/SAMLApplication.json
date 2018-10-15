@@ -284,13 +284,13 @@
       "description@summary": null,
       "delimiter": "  ",
       "width": 6,
+      "validate": "allowAllGroups:false and is.required or allowAllGroups:true",
       "modify":
       {
         "allGroupsAllowed":
         {
           "enabled": false,
-          "extras": null,
-          "unset": "validate"
+          "extras": null
         },
         "selectGroupsAllowed":
         {
@@ -300,8 +300,7 @@
             "name": "other:importance",
             "pad": ":::small",
             "inline": true
-          },
-          "validate": "is.required"
+          }
         }
       }
     },
@@ -752,7 +751,10 @@
       "staticType": "color",
       "content": "Info for service providers",
       "after": "chevronIconRight",
-      "style": { "cursor": "pointer" },
+      "style":
+      {
+        "cursor": "pointer"
+      },
       "clickAction":
       {
         "actions": "see providers",
