@@ -284,13 +284,13 @@
       "description@summary": null,
       "delimiter": "  ",
       "width": 6,
+      "validate": "allowAllGroups:false and is.required or allowAllGroups:true",
       "modify":
       {
         "allGroupsAllowed":
         {
           "enabled": false,
           "extras": null,
-          "unset": "validate"
         },
         "selectGroupsAllowed":
         {
@@ -301,7 +301,6 @@
             "pad": ":::small",
             "inline": true
           },
-          "validate": "is.required"
         }
       }
     },
