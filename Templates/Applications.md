@@ -27,4 +27,56 @@ Can users upload data into this template?  This defines whether or not an admin 
 - `__devOnly__` boolean  
 Hide this template in production?  Setting this to `true` prevents this template from displaying in the New UI.
 
+##  Templates views
 
+Each template consist in 6 views that will be render inside sparkles
+
+- `default` string
+This one is the connection settings page of sparkles, is considered the default view of every template, so you will see that is has no `@` identifier.
+This page consist on the connection information necessary for each particular application.
+
+- `details`
+In here the user can upload a custom image logo, the application name and description if necessary, the Data Stores for the application connection, and Groups.
+
+- `summary`
+This page will have the resume of the connection and details view in read only mode. From here you can go to each `update view`.
+
+- `providersInfo`
+This page will have the information of Login and Logout URL as well as the issuer and certificate information.
+
+- `updateGroups`
+In this page the user can edit the Data Stores and Groups for an already created application.
+
+- `updateDetails`
+In this page the user can edit the Application name, description and logo for an already created application.
+
+
+## Data Sourcing
+Templates can pull data from the server using the `source` property on elements that support it.
+
+- `data:dataStores:dataStoreInputList`
+Get a list of `Data Stores` availables to be used be the application.
+
+- `options:applianceCertificates:certificateOptions`
+Get a list of cerficates availables in the appliance.
+
+- `options:dataStoreProperties:dataStoreOption`
+Get a list of profile fields.
+
+## Messages to sparkles
+The templates can send specific messages to sparkles with the `clickAction` property, each of them will trigger a specific action in the application.
+
+- **edit groups** `{"actions": "edit groups", "sendToParent": true}` 
+Send the message to open the `updateGroups` view of the template
+
+- **see providers** `{"actions": "see providers", "sendToParent": true}` 
+Send the message to open the `providersInfo` view
+
+- **edit connection** `{"actions": "edit connection", "sendToParent": true}` 
+Send the message to open the `default view` to update connection settings
+
+- **download certificate** `{"actions": "download certificate", "sendToParent": true}` 
+Send the message to download the certificate
+
+- **edit details** `{"actions": "edit details", "sendToParent": true}` 
+Send the message to open the `updateDetails` view.
