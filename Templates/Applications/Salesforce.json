@@ -85,7 +85,13 @@
       "extrasAt": "field",
       "width": 9,
       "inline": true,
-      "stack": "small"
+      "stack": "small",
+      "emptyValue": "0",
+      "modify": {
+        "minutesAreZero": {
+          "value": "1"
+        }
+      }
     },
     "assertionValidMinutes":
     {
@@ -101,7 +107,8 @@
       "extrasAt": "field",
       "width": 9,
       "inline": true,
-      "stack": "small"
+      "stack": "small",
+      "emptyValue": "0"
     },
     "attributeName":
     {
@@ -753,7 +760,13 @@
         },
         "assertionValidHours",
         "assertionValidMinutes"
-      ]
+      ],
+      "notify": {
+        "minutesAreZero": {
+          "value.assertionValidMinutes": "0",
+          "value.assertionValidHours": "0"
+        }
+      }
     },
     "signingCertOptions":
     {
