@@ -1,6 +1,7 @@
 {
   "id": "SAML1532",
-  "title": "box",
+  "__devOnly__": true,
+  "title": "Box",
   "version": "1.0.0",
   "__devOnly__": true,
   "allowDataUpload": false,
@@ -137,12 +138,6 @@
         "downloadLabel"
       ]
     },
-    "assertionConsumerService":
-    {
-      "label": "Assertion Consumer Service (ACS)",
-      "controlType": "input",
-      "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
-    },
     "assertionOffsetMinutes":
     {
       "label": "Offset Minutes",
@@ -173,7 +168,13 @@
       "extrasAt": "field",
       "width": 9,
       "inline": true,
-      "stack": "small"
+      "stack": "small",
+      "emptyValue": "0",
+      "modify": {
+        "minutesAreZero": {
+          "value": "1"
+        }
+      }
     },
     "assertionValidMinutes":
     {
@@ -190,19 +191,8 @@
       "extrasAt": "field",
       "width": 9,
       "inline": true,
-      "stack": "small"
-    },
-    "attributeName":
-    {
-      "label": "Attribute Name",
-      "controlType": "input",
-      "dataModelName": "name"
-    },
-    "attributeNamespace":
-    {
-      "label": "Namespace (1.1)",
-      "controlType": "input",
-      "dataModelName": "namespace"
+      "stack": "small",
+      "emptyValue": "0"
     },
     "attributeNumber":
     {
@@ -217,14 +207,7 @@
       "dataModelName": "property",
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "authenticated_user_id"
-    },
-    "audience":
-    {
-      "label": "Audience",
-      "controlType": "input",
-      "extras": "audienceTooltip",
-      "extrasAt": "field"
+      "defaultValue": "AuthenticatedUserId"
     },
     "dataEncryptionMethod":
     {
@@ -285,13 +268,13 @@
       "description@summary": null,
       "delimiter": "  ",
       "width": 6,
+      "validate": "allowAllGroups:false and is.required or allowAllGroups:true",
       "modify":
       {
         "allGroupsAllowed":
         {
           "enabled": false,
-          "extras": null,
-          "validate": "not.required"
+          "extras": null
         },
         "selectGroupsAllowed":
         {
@@ -301,8 +284,7 @@
             "name": "other:importance",
             "pad": ":::small",
             "inline": true
-          },
-          "validate": "is.required"
+          }
         }
       }
     },
@@ -311,75 +293,6 @@
       "modify": null,
       "extras": null
     },
-    "issuer":
-    {
-      "label": "IdP Issuer",
-      "controlType": "input",
-      "hint": "sample-issuer",
-      "displayOnly@providersInfo": true,
-      "stack@providersInfo": "medium",
-      "noMargin@providersInfo": true
-    },
-    "initiationType":
-    {
-      "label": "Connection Type",
-      "controlType": "select",
-      "defaultValue": "sp",
-      "width": 7,
-      "noMargin": true,
-      "options":
-      [
-        {
-          "value": "sp",
-          "display": "SP Initiated"
-        },
-        {
-          "value": "idp",
-          "display": "IdP Initiated"
-        }
-      ],
-      "notify":
-      {
-        "initiationTypeSP": "sp",
-        "initiationTypeIdP": "idp"
-      }
-    },
-    "initiationBy":
-    {
-      "controlType": "radiogroup",
-      "defaultValue": "redirect",
-      "noFieldset": true,
-      "stack": "small",
-      "properties":
-      {
-        "inline": true,
-        "alignment": ":middle",
-        "stack": ":medium"
-      },
-      "options":
-      [
-        {
-          "value": "redirect",
-          "display": "By Redirect"
-        },
-        {
-          "value": "post",
-          "display": "By Post",
-          "extras": "initiationByTooltip"
-        }
-      ],
-      "modify":
-      {
-        "initiationTypeSP":
-        {
-          "visible": true
-        },
-        "initiationTypeIdP":
-        {
-          "visible": false
-        }
-      }
-    },
     "keyEncryptionMethod":
     {
       "label": "Key Encryption Method",
@@ -387,38 +300,6 @@
       "emptyOption": "",
       "noMargin": true,
       "options:t": "$.vars.encryptOptions"
-    },
-    "nameIdFormat":
-    {
-      "label": "Name ID Format",
-      "controlType": "select",
-      "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-      "width": 11,
-      "options":
-      [
-        "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-        "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-        "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos",
-        "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
-        "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
-        "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName",
-        "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
-      ]
-    },
-    "recipient":
-    {
-      "label": "Recipient",
-      "controlType": "input",
-      "extras": "recipientTooltip",
-      "extrasAt": "field"
-    },
-    "relayState":
-    {
-      "label": "Relay State",
-      "controlType": "input",
-      "description": "User will be directed to this URL after authentication",
-      "extras": "relayStateTooltip",
-      "extrasAt": "field"
     },
     "signingAlgorithm":
     {
@@ -462,30 +343,164 @@
       "optionAsValue": true,
       "source": "options:applianceCertificates:certificateOptions"
     },
-    "signSamlAssertion":
+    "userIdProfileField":
     {
-      "states": "Sign SAML Assertion",
-      "controlType": "switch",
-      "defaultValue": false,
+      "label": "User ID Profile Field",
+      "controlType": "select",
+      "description": "Select the profile field in your data store that contains your users' IDs.",
+      "width": 7,
+      "emptyOption": "",
+      "source": "options:dataStoreProperties:dataStoreOptions",
+      "defaultValue": "AuthenticatedUserId"
+    },
+    "initiationType":
+    {
+      "label": "Connection Type",
+      "controlType": "select",
+      "defaultValue": "sp",
+      "width": 7,
+      "noMargin": true,
+      "options":
+      [
+        {
+          "value": "sp",
+          "display": "SP Initiated"
+        },
+        {
+          "value": "idp",
+          "display": "IdP Initiated"
+        }
+      ],
       "notify":
       {
-        "signSamlElementsOn": true
+        "initiationTypeSP": "sp",
+        "initiationTypeIdP": "idp"
       }
     },
-    "signSamlMessage":
+    "initiationBy":
     {
-      "states": "Sign SAML Message",
-      "controlType": "switch",
-      "defaultValue": false,
-      "order": "signSamlElementsCallout",
-      "notify":
+      "controlType": "radiogroup",
+      "fixedValue": "redirect",
+      "noFieldset": true,
+      "stack": "small",
+      "properties":
       {
-        "signSamlElementsOn": true
+        "inline": true,
+        "alignment": ":middle",
+        "stack": ":medium"
+      },
+      "options":
+      [
+        {
+          "value": "redirect",
+          "visible": false,
+          "display": "By Redirect"
+        },
+        {
+          "value": "post",
+          "visible": false,
+          "display": "By Post",
+          "extras": "initiationByTooltip"
+        }
+      ],
+      "modify":
+      {
+        "initiationTypeSP":
+        {
+          "visible": true
+        },
+        "initiationTypeIdP":
+        {
+          "visible": false
+        }
+      }
+    },
+    "nameIdFormat":
+    {
+      "label": "Name ID Format",
+      "controlType": "select",
+      "visible": false,
+      "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+      "width": 11,
+      "options":
+      [
+        "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+        "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+        "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos",
+        "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+        "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+        "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName",
+        "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+      ]
+    },
+    "issuer":
+    {
+      "label": "IdP Issuer",
+      "controlType": "input",
+      "hint": "sample-issuer",
+      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+      "displayOnly@providersInfo": true,
+      "stack@providersInfo": "medium",
+      "noMargin@providersInfo": true
+    },
+    "assertionConsumerService":
+    {
+      "label": "Assertion Consumer Service (ACS)",
+      "controlType": "input",
+      "visible": false,
+      "fixedValue": "https://sso.services.box.net/sp/ACS.saml2",
+      "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
+    },
+    "relayState":
+    {
+      "label": "Relay State",
+      "controlType": "input",
+      "visible": false,
+      "description": "User will be directed to this URL after authentication",
+      "extras": "relayStateTooltip",
+      "extrasAt": "field"
+    },
+    "recipient":
+    {
+      "label": "Recipient",
+      "controlType": "input",
+      "extras": "recipientTooltip",
+      "extrasAt": "field",
+      "modify":
+      {
+        "initiationTypeSP":
+        {
+          "visible": false
+        },
+        "initiationTypeIdP":
+        {
+          "visible": false,
+          "fixedValue": "https://sso.services.box.net/sp/ACS.saml2"
+        }
+      }
+    },
+    "audience":
+    {
+      "label": "Audience",
+      "controlType": "input",
+      "extras": "audienceTooltip",
+      "extrasAt": "field",
+      "modify":
+      {
+        "initiationTypeSP":
+        {
+          "visible": false
+        },
+        "initiationTypeIdP":
+        {
+          "visible": false,
+          "fixedValue": "https://sso.services.box.net/sp/ACS.saml2"
+        }
       }
     },
     "spLoginUrl":
     {
-      "label": "SP Login URL",
+      "label": "Box Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
@@ -501,19 +516,91 @@
         }
       }
     },
-    "userIdProfileField":
+    "signSamlAssertion":
     {
-      "label": "User ID Profile Field",
-      "controlType": "select",
-      "description": "Select the profile field in your data store that contains your users' IDs.",
-      "width": 7,
-      "emptyOption": "",
-      "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "authenticated_user_id"
+      "states": "Sign SAML Assertion",
+      "controlType": "switch",
+      "defaultValue": false,
+      "notify":
+      {
+        "signSamlElementsOn": true
+      }
+    },
+    "signSamlMessage":
+    {
+      "states": "Sign SAML Message",
+      "controlType": "switch",
+      "defaultValue": true,
+      "order": "signSamlElementsCallout",
+      "notify":
+      {
+        "signSamlElementsOn": true
+      }
+    },
+    "encryptSamlAssertion":
+    {
+      "states": "Encrypt SAML Assertion",
+      "controlType": "switch",
+      "defaultValue": false,
+      "modify":
+      {
+        "encryptSamlAssertionOff":
+        {
+          "order": null
+        },
+        "encryptSamlAssertionOn":
+        {
+          "order": "encryptSamlAssertionCallout"
+        }
+      },
+      "notify":
+      {
+        "encryptSamlAssertionOff": false,
+        "encryptSamlAssertionOn": true
+      }
+    },
+    "attributeName":
+    {
+      "label": "Attribute Name",
+      "controlType": "input",
+      "dataModelName": "name"
+    },
+    "attributeNamespace":
+    {
+      "label": "Namespace (1.1)",
+      "controlType": "input",
+      "dataModelName": "namespace"
     }
   },
   "statics":
   {
+    "initiationByTooltip":
+    {
+      "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
+      "inline": true,
+      "width": "medium",
+      "pad": ":::small"
+    },
+    "relayStateTooltip":
+    {
+      "content": "This field is optional for certain applications.",
+      "pad": ":::small"
+    },
+    "recipientTooltip":
+    {
+      "content": "This field is typically the same as the consumer URL. It is optional for certain Service Providers.",
+      "pad": ":::small"
+    },
+    "audienceTooltip":
+    {
+      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID. This field is optional for certain applications.",
+      "pad": ":::small"
+    },
+    "spLoginUrlTooltip":
+    {
+      "content": "The URL for your users to log into your Box instance.",
+      "pad": ":::small"
+    },
     "assertionOffsetMinutesTooltip":
     {
       "content": "This is referred to as \"SAML Not Before\" in the SAML Specification."
@@ -651,11 +738,6 @@
       "staticType": "color",
       "color": "disabled"
     },
-    "audienceTooltip":
-    {
-      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID. This field is optional for certain applications.",
-      "pad": ":::small"
-    },
     "encryptSamlAssertionCallout":
     {
       "after": "encryptSamlAssertionOptions",
@@ -677,12 +759,6 @@
       "staticType": "text",
       "content": " Upload"
     },
-    "domain":
-    {
-      "staticType": "color",
-      "color": "info",
-      "content:t": "_.domainLabel"
-    },
     "editIcon":
     {
       "icon": "pencil",
@@ -703,29 +779,20 @@
     },
     "idpDownloadCertificateAction":
     {
-      "staticType": "color",
-      "content": "Download",
-      "color": "info",
-      "pad": "small",
-      "before": {
+      "staticType": "link",
+      "content": " Download",
+      "className": "sa-vertical-align-middle",
+      "before":
+      {
         "name": "static:icon",
         "icon": "download",
-        "inline": true,
-        "pad": ":small",
-        "size": "medium"
+        "size": "small"
       },
       "clickAction":
       {
         "actions": "download certificate",
         "sendToParent": true
       }
-    },
-    "initiationByTooltip":
-    {
-      "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
-      "inline": true,
-      "width": "medium",
-      "pad": ":::small"
     },
     "initiationTypeInfo":
     {
@@ -750,12 +817,22 @@
     {
       "content": "Connection Type"
     },
+    "loginUrlLink": 
+    {
+      "staticType": "link",
+      "content:t": "_.loginURL",
+      "href:t": "_.loginURL",
+      "target": "_blank"
+    },
     "providersCalloutLabel":
     {
       "staticType": "color",
       "content": "Info for service providers",
       "after": "chevronIconRight",
-      "style": { "cursor": "pointer" },
+      "style":
+      {
+        "cursor": "pointer"
+      },
       "clickAction":
       {
         "actions": "see providers",
@@ -784,16 +861,6 @@
         "providersCalloutHeader",
         "providersCalloutDescription"
       ]
-    },
-    "recipientTooltip":
-    {
-      "content": "This field is typically the same as the consumer URL. It is optional for certain Service Providers.",
-      "pad": ":::small"
-    },
-    "relayStateTooltip":
-    {
-      "content": "This field is optional for certain applications.",
-      "pad": ":::small"
     },
     "realmInfo":
     {
@@ -867,11 +934,6 @@
           "visible": true
         }
       }
-    },
-    "spLoginUrlTooltip":
-    {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
-      "pad": ":::small"
     }
   },
   "layouts":
@@ -910,7 +972,7 @@
         [
           "nameForSummary",
           "descriptionForSummary",
-          "domain",
+          "loginUrlLink",
           "realmInfo"
         ],
         "edition":
@@ -1064,7 +1126,13 @@
         },
         "assertionValidHours",
         "assertionValidMinutes"
-      ]
+      ],
+      "notify": {
+        "minutesAreZero": {
+          "value.assertionValidMinutes": "0",
+          "value.assertionValidHours": "0"
+        }
+      }
     },
     "providerUrls":
     {
@@ -1077,9 +1145,12 @@
           "content": "Login URL"
         },
         {
-          "name": "static:color",
-          "color": "disabled",
-          "content:t": "_.loginURL"
+          "name": "static:paragraph",
+          "after": {
+            "name": "static:color",
+            "color": "disabled",
+            "content:t": "_.loginURL"
+          }
         },
         "loginUrlCopy",
         {
@@ -1088,9 +1159,12 @@
           "content": "Logout URL"
         },
         {
-          "name": "static:color",
-          "color": "disabled",
-          "content:t": "_.logoutURL"
+          "name": "static:paragraph",
+          "after": {
+            "name": "static:color",
+            "color": "disabled",
+            "content:t": "_.logoutURL"
+          }
         },
         "logoutUrlCopy"
       ]
@@ -1163,11 +1237,7 @@
         "assertionWillBeValid",
         "assertionOffsetMinutes",
         "signSamlElements",
-        "encryptSamlAssertion",
-        "attributesHeader",
-        "noSAMLAttributes",
-        "attributeAddButton",
-        "attributeItem"
+        "encryptSamlAssertion"
       ],
       "order@details":
       [
