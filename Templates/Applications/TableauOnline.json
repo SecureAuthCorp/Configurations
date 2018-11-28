@@ -1,5 +1,5 @@
 {
-  "id": "SAML419",
+  "id": "TABLEAU",
   "title": "Tableau Online",
   "version": "1.0.0",
   "__devOnly__": true,
@@ -383,18 +383,63 @@
       "label": "Connection Type",
       "controlType": "select",
       "defaultValue": "sp",
-      "visible": false,
+      "width": 7,
+      "noMargin": true,
+      "enabled": false,
       "options":
       [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Post"
         },
         {
           "value": "idp",
           "display": "IdP Initiated"
         }
-      ]
+      ],
+      "notify":
+      {
+        "initiationTypeSP": "sp",
+        "initiationTypeIdP": "idp"
+      }
+    },
+    "initiationBy":
+    {
+      "controlType": "radiogroup",
+      "fixedValue": "post",
+      "noFieldset": true,
+      "stack": "small",
+      "properties":
+      {
+        "inline": true,
+        "alignment": ":middle",
+        "stack": ":medium"
+      },
+      "options":
+      [
+        {
+          "value": "redirect",
+          "visible": false,
+          "display": "By Redirect"
+        },
+        {
+          "value": "post",
+          "visible": false,
+          "display": "By Post",
+          "extras": "initiationByTooltip"
+        }
+      ],
+      "modify":
+      {
+        "initiationTypeSP":
+        {
+          "visible": true
+        },
+        "initiationTypeIdP":
+        {
+          "visible": false
+        }
+      }
     },
     "nameIdFormat":
     {
@@ -968,10 +1013,14 @@
       "dataModelName": "attributes",
       "repeat":
       {
-        "min": 2,
+        "min": 3,
         "max": 10,
         "match":
         {
+        "email":
+        {
+        "name": "email"
+        },
           "firstName":
           {
             "name": "firstName"
@@ -1097,7 +1146,9 @@
     {
       "order":
       [
+        "settingsHeader",
         "initiationType",
+        "initiationBy",
         {
           "name": "defaultHeader",
           "content": "USER ID MAPPING"
