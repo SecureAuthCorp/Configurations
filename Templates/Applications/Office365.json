@@ -258,7 +258,7 @@
     },
     "encryptSamlAssertion":
     {
-      "states": "Encrypt SAML Assertion",
+      "states": "Encrypt Assertion",
       "controlType": "switch",
       "defaultValue": false,
       "modify":
@@ -357,7 +357,7 @@
       "visible": false,
       "controlType": "input",
       "defaultValue": "urn:federation:MicrosoftOnline"
-    },    
+    },
     "signingAlgorithm":
     {
       "label": "Signing Algorithm",
@@ -402,10 +402,9 @@
     },
     "signSamlAssertion":
     {
-      "states": "Sign SAML Assertion",
+      "states": "Sign WS-Fed Assertion",
       "controlType": "switch",
       "defaultValue": true,
-      "visible": false,
       "notify":
       {
         "signSamlElementsOn": true
@@ -413,10 +412,9 @@
     },
     "signSamlMessage":
     {
-      "states": "Sign SAML Message",
+      "states": "Sign WS-Fed Message",
       "controlType": "switch",
       "defaultValue": false,
-      "visible": false,
       "order": "signSamlElementsCallout",
       "notify":
       {
@@ -441,10 +439,57 @@
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
       "defaultValue": "AuxId1"
+    },
+    "wsTrustHostName":
+    {
+      "controlType": "input",
+      "inline": true,
+      "noFieldset": true
+    },
+    "endpointSwitch": {
+      "controlType": "switch",
+      "states": "Enable Endpoints",
+      "pad": "small"
     }
   },
   "statics":
   {
+    "endpointSwitchLabel": {
+      "staticType": "label",
+      "content": "Enable O365 Desktop Endpoints"
+    },
+    "endpointSwitchDescription": {
+      "staticType": "color",
+      "color": "disabled",
+      "content": "Enable these endpoints if you are using the desktop version of O365",
+      "wrappers": "body",
+      "pad": "small"
+    },
+    "hostNameFieldSet":
+    {
+      "before": "urlLabel",
+      "after":
+      [
+        {
+          "name": "static:paragraph",
+          "content": "https://",
+          "pad": ":small",
+          "inline": true
+        },
+        "wsTrustHostName",
+        "urlTooltip"
+      ]
+    },
+    "urlLabel":
+    {
+      "content": "WS-Trust Host Name"
+    },
+    "urlTooltip":
+    {
+      "content": "Tooltip!",
+      "stack": ":::small",
+      "inline": true
+    },
     "assertionOffsetMinutesTooltip":
     {
       "content": "This is referred to as \"SAML Not Before\" in the SAML Specification."
@@ -455,7 +500,7 @@
     },
     "attributeAddButton":
     {
-      "content:n": "&nbsp;&nbsp;Add SAML Attribute",
+      "content:n": "&nbsp;&nbsp;Add WS-Fed Attribute",
       "before": "attributeAddIcon",
       "dashed": true,
       "expand": true,
@@ -513,7 +558,7 @@
     },
     "attributesHeader":
     {
-      "content": "SAML ATTRIBUTES",
+      "content": "WS FEDERATION ATTRIBUTES",
       "small": true,
       "stack": "large"
     },
@@ -879,7 +924,7 @@
     "noSAMLAttributes":
     {
       "otherType": "statemessage",
-      "message": "Please add attributes for IDPEmail and ImmutableID.",
+      "message": "Add Attributes for your connection",
       "modify":
       {
         "attributeItemEmpty":
@@ -1038,7 +1083,7 @@
         "nameIdFormat",
         {
           "name": "defaultHeader",
-          "content": "WS-FED ASSERTION"
+          "content": "WS FEDERATION"
         },
         "issuer",
         "assertionConsumerService",
@@ -1050,6 +1095,14 @@
         "assertionOffsetMinutes",
         "signSamlElements",
         "encryptSamlAssertion",
+        {
+          "name": "defaultHeader",
+          "content": "WS-TRUST ENDPOINTS"
+        },
+        "hostNameFieldSet",
+        "endpointSwitchLabel",
+        "endpointSwitchDescription",
+        "endpointSwitch",
         "attributesHeader",
         "noSAMLAttributes",
         "attributeAddButton",
