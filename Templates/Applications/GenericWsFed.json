@@ -79,7 +79,7 @@
       }
     ]
   },
-  "applicationType": "WSFED",
+  "applicationType": "wsfed",
   "templateName": "WSFED",
   "entries":
   {
@@ -438,10 +438,133 @@
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
       "defaultValue": "AuthenticatedUserId"
+    },
+    "wsTrustHostName":
+    {
+      "controlType": "input",
+      "inline": true,
+      "noFieldset": true,
+      "width": 6
+    },
+    "usernameMixed05": {
+      "controlType": "switch",
+      "states": "/2005/usernamemixed",
+      "pad": "small",
+      "extras": [
+        {
+          "name": "static:tooltip",
+          "content:m": "***Authentication Type:*** Password&nbsp;&nbsp; ***Security Mode:*** Mixed&nbsp;&nbsp; ***Type:*** WS-Trust 2005",
+          "inline": true,
+          "pad": ":::small"
+        }
+      ],
+      "extrasAt": "field"
+    },
+    "windowsTransport05": {
+      "controlType": "switch",
+      "states": "/2005/windowstransport",
+      "pad": "small",
+      "extras": [
+        {
+          "name": "static:tooltip",
+          "content:m": "***Authentication Type:*** Windows&nbsp;&nbsp;***Security Mode:*** Transport&nbsp;&nbsp;***Type:*** WS-Trust 1.3",
+          "inline": true,
+          "pad": ":::small"
+        }
+      ],
+      "extrasAt": "field"
+    },
+    "issuedTo05": {
+      "controlType": "switch",
+      "states": "/2005/issuedtokenmixedasymmetricbasic256",
+      "pad": "small",
+      "extras": [
+        {
+          "name": "static:tooltip",
+          "content:m": "***Authentication Type:*** SAML Token (Asymmetric)&nbsp;&nbsp; ***Security Mode:*** Mixed&nbsp;&nbsp; ***Type:*** WS-Trust 2005",
+          "inline": true,
+          "pad": ":::small"
+        }
+      ],
+      "extrasAt": "field"
+    },
+    "usernameMixed13": {
+      "controlType": "switch",
+      "states": "/13/usernamemixed",
+      "pad": "small",
+      "extras": [
+        {
+          "name": "static:tooltip",
+          "content:m": "***Authentication Type:*** Password&nbsp;&nbsp; ***Security Mode:*** Mixed&nbsp;&nbsp; ***Type:*** WS-Trust 1.3",
+          "inline": true,
+          "pad": ":::small"
+        }
+      ],
+      "extrasAt": "field"
+    },
+    "windowsTransport13": {
+      "controlType": "switch",
+      "states": "/13/windowstransport",
+      "pad": "small",
+      "extras": [
+        {
+          "name": "static:tooltip",
+          "content:m": "***Authentication Type:*** Windows&nbsp;&nbsp;***Security Mode:*** Transport&nbsp;&nbsp;***Type:*** WS-Trust 1.3",
+          "inline": true,
+          "pad": ":::small"
+        }
+      ],
+      "extrasAt": "field"
+    },
+    "issuedTo13": {
+      "controlType": "switch",
+      "states": "/13/issuedtokenmixedasymmetricbasic256",
+      "pad": "small",
+      "extras": [
+        {
+          "name": "static:tooltip",
+          "content:m": "***Authentication Type:*** SAML Token (Asymmetric)&nbsp;&nbsp; ***Security Mode:*** Mixed&nbsp;&nbsp; ***Type:*** WS-Trust 1.3",
+          "inline": true,
+          "pad": ":::small"
+        }
+      ],
+      "extrasAt": "field"
     }
   },
   "statics":
   {
+    "endpointSwitchDescription": {
+      "staticType": "label",
+      "content": "Enable the WS-Trust Endpoints that will be necesary for your application.",
+      "wrappers": "body",
+      "pad": "::small"
+    },
+    "hostNameFieldSet":
+    {
+      "before": "urlLabel",
+      "after":
+      [
+        {
+          "name": "static:paragraph",
+          "content": "https://",
+          "pad": ":small",
+          "inline": true
+        },
+        "wsTrustHostName",
+        "urlTooltip"
+      ],
+      "width": 7
+    },
+    "urlLabel":
+    {
+      "content": "WS-Trust Host Name"
+    },
+    "urlTooltip":
+    {
+      "content": "Tooltip!",
+      "stack": ":::small",
+      "inline": true
+    },
     "assertionOffsetMinutesTooltip":
     {
       "content": "This is referred to as \"SAML Not Before\" in the SAML Specification."
@@ -946,6 +1069,17 @@
         "keyEncryptionMethod"
       ]
     },
+    "endpointsList": {
+      "order":
+      [
+        "usernameMixed05",
+        "windowsTransport05",
+        "issuedTo05",
+        "usernameMixed13",
+        "windowsTransport13",
+        "issuedTo13"
+      ]
+    },
     "assertionWillBeValid":
     {
       "inline": true,
@@ -1054,6 +1188,13 @@
         "assertionOffsetMinutes",
         "signSamlElements",
         "encryptSamlAssertion",
+        {
+          "name": "defaultHeader",
+          "content": "WS-TRUST ENDPOINTS"
+        },
+        "hostNameFieldSet",
+        "endpointSwitchDescription",
+        "endpointsList",
         "attributesHeader",
         "noSAMLAttributes",
         "attributeAddButton",
