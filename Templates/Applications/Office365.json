@@ -197,7 +197,18 @@
     {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name"
+      "dataModelName": "name",
+      "modify:c":
+      {
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "enabled": true
+        }
+      }
     },
     "attributeNamespace":
     {
@@ -544,7 +555,7 @@
       },
       "type": "destructive",
       "dashed": true,
-      "modify":
+      "modify:c":
       {
         "attributeItemDisableDelete":
         {
@@ -553,6 +564,14 @@
         "attributeItemEnableDelete":
         {
           "disabled": false
+        },
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "visible": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "visible": true
         }
       }
     },
@@ -977,7 +996,19 @@
       "dataModelName": "attributes",
       "repeat":
       {
-        "max": 10
+        "min": 2,
+        "max": 10,
+        "match":
+        {
+          "IDPEmail":
+          {
+            "name": "IDPEmail"
+          },
+          "ImmutableID":
+            {
+              "name": "ImmutableID"
+            }
+        }
       },
       "order": "attributeCallout"
     },
