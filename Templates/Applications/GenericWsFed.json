@@ -79,7 +79,7 @@
       }
     ]
   },
-  "applicationType": "wsfed",
+  "applicationType": "WSFED",
   "templateName": "WSFED",
   "entries":
   {
@@ -192,6 +192,16 @@
       "inline": true,
       "stack": "small"
     },
+    "attributeFormat": {
+      "label": "Format",
+      "controlType": "input",
+      "dataModelName": "format"
+    },
+    "attributeFilterGroup": {
+      "label": "Filtered Group",
+      "controlType": "input",
+      "dataModelName": "filterGroup"
+    },
     "attributeName":
     {
       "label": "Attribute Name",
@@ -254,6 +264,11 @@
     "dataStores@summary":
     {
       "extras": null
+    },
+    "encodeToBase64": {
+      "controlType": "switch",
+      "states": "Encode to Base64",
+      "defaultValue": false
     },
     "encryptSamlAssertion":
     {
@@ -533,39 +548,39 @@
   },
   "statics":
   {
-    "endpointSwitchDescription": {
-      "staticType": "label",
-      "content": "Enable the WS-Trust Endpoints that will be necesary for your application.",
-      "wrappers": "body",
-      "pad": "::small"
-    },
-    "hostNameFieldSet":
-    {
-      "before": "urlLabel",
-      "after":
-      [
-        {
-          "name": "static:paragraph",
-          "content": "https://",
-          "pad": ":small",
-          "inline": true
-        },
-        "wsTrustHostName",
-        "urlTooltip"
-      ],
-      "width": 7
-    },
-    "urlLabel":
-    {
-      "content": "WS-Trust Host Name"
-    },
-    "urlTooltip":
-    {
-      "content": "Tooltip!",
-      "stack": ":::small",
-      "inline": true
-    },
-    "assertionOffsetMinutesTooltip":
+  "endpointSwitchDescription": {
+    "staticType": "label",
+    "content": "Enable the WS-Trust Endpoints that will be necesary for your application.",
+    "wrappers": "body",
+    "pad": "::small"
+  },
+  "hostNameFieldSet":
+  {
+    "before": "urlLabel",
+    "after":
+    [
+      {
+        "name": "static:paragraph",
+        "content": "https://",
+        "pad": ":small",
+        "inline": true
+      },
+      "wsTrustHostName",
+      "urlTooltip"
+    ],
+    "width": 7
+  },
+  "urlLabel":
+  {
+    "content": "WS-Trust Host Name"
+  },
+  "urlTooltip":
+  {
+    "content": "Tooltip!",
+    "stack": ":::small",
+    "inline": true
+  },
+  "assertionOffsetMinutesTooltip":
     {
       "content": "This is referred to as \"SAML Not Before\" in the SAML Specification."
     },
@@ -603,7 +618,9 @@
       "after":
       [
         "attributeInfo",
-        "attributeNamespace"
+        "attributeNamespace",
+        "attributeFormat",
+        "attributeFilterGroup"
       ],
       "stack": "::medium"
     },
@@ -1174,6 +1191,7 @@
         },
         "userIdProfileField",
         "nameIdFormat",
+        "encodeToBase64",
         {
           "name": "defaultHeader",
           "content": "WS FEDERATION"
