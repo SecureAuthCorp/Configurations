@@ -193,6 +193,16 @@
       "inline": true,
       "stack": "small"
     },
+    "attributeFormat": {
+      "label": "Format",
+      "controlType": "input",
+      "dataModelName": "format"
+    },
+    "attributeFilterGroup": {
+      "label": "Filtered Group",
+      "controlType": "input",
+      "dataModelName": "filterGroup"
+    },
     "attributeName":
     {
       "label": "Attribute Name",
@@ -266,6 +276,11 @@
     "dataStores@summary":
     {
       "extras": null
+    },
+    "encodeToBase64": {
+      "controlType": "switch",
+      "states": "Encode to Base64",
+      "defaultValue": false
     },
     "encryptSamlAssertion":
     {
@@ -539,7 +554,9 @@
       "after":
       [
         "attributeInfo",
-        "attributeNamespace"
+        "attributeNamespace",
+        "attributeFormat",
+        "attributeFilterGroup"
       ],
       "stack": "::medium"
     },
@@ -1111,6 +1128,7 @@
       [
         "settingsHeader",
         "userIdProfileField",
+        "encodeToBase64",
         "nameIdFormat",
         {
           "name": "defaultHeader",
