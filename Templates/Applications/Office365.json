@@ -196,7 +196,8 @@
     "attributeFormat": {
       "label": "Format",
       "controlType": "input",
-      "dataModelName": "format"
+      "dataModelName": "format",
+      "defaultValue": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -475,7 +476,8 @@
     "endpointSwitch": {
       "controlType": "switch",
       "states": "Enable Endpoints",
-      "pad": "small"
+      "pad": "small",
+      "defaultValue": false
     }
   },
   "statics":
@@ -1128,7 +1130,6 @@
       [
         "settingsHeader",
         "userIdProfileField",
-        "encodeToBase64",
         "nameIdFormat",
         "encodeToBase64",
         {
