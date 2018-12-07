@@ -473,6 +473,17 @@
       "inline": true,
       "noFieldset": true
     },
+    "wsFedVersion": {
+      "label": "WS-Fed Version",
+      "controlType": "select",
+      "width": 5,
+      "defaultValue": "1.3",
+      "options":
+        [
+          "1.2",
+          "1.3"
+        ]
+    },
     "endpointSwitch": {
       "controlType": "switch",
       "states": "Enable Endpoints",
@@ -1142,6 +1153,7 @@
         "recipient",
         "audience",
         "spLoginUrl",
+        "wsFedVersion",
         "assertionWillBeValid",
         "assertionOffsetMinutes",
         "signSamlElements",
