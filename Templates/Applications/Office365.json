@@ -247,7 +247,14 @@
       "label": "Audience",
       "visible": true,
       "controlType": "input",
-      "defaultValue": "urn:federation:MicrosoftOnline"
+      "defaultValue": "urn:federation:MicrosoftOnline",
+      "validate": "is.required",
+      "extras":
+      {
+        "name": "other:importance",
+        "pad": ":::small", 
+        "inline": true
+      }
     },
     "dataEncryptionMethod":
     {
@@ -383,7 +390,14 @@
       "label": "Relay State",
       "visible": true,
       "controlType": "input",
-      "defaultValue": "urn:federation:MicrosoftOnline"
+      "defaultValue": "urn:federation:MicrosoftOnline",
+      "validate": "is.required",
+      "extras":
+      {
+        "name": "other:importance",
+        "pad": ":::small", 
+        "inline": true
+      }
     },
     "signingAlgorithm":
     {
@@ -446,7 +460,8 @@
       "notify":
       {
         "signSamlElementsOn": true
-      }
+      },
+      "validate": "(#false and signSamlAssertion:#false) or signingCertOptions:@requireSigningCert"
     },
     "spLoginUrl":
     {
@@ -471,7 +486,8 @@
     {
       "controlType": "input",
       "inline": true,
-      "noFieldset": true
+      "noFieldset": true,
+      "validate": "is.required"
     },
     "wsFedVersion": {
       "label": "WS-Fed Version",
@@ -488,7 +504,7 @@
       "controlType": "switch",
       "states": "Enable Endpoints",
       "pad": "small",
-      "defaultValue": false
+      "defaultValue": true
     }
   },
   "statics":
@@ -521,7 +537,13 @@
     },
     "urlLabel":
     {
-      "content": "WS-Trust Host Name"
+      "content": "WS-Trust Host Name",
+      "after": 
+      {
+        "name": "other:importance",
+        "pad": ":::small", 
+        "inline": true        
+      }
     },
     "urlTooltip":
     {
@@ -815,7 +837,13 @@
       [
         {
           "name": "static:label",
-          "content": "IdP Signing Certificate"
+          "content": "IdP Signing Certificate",
+          "inline": true,
+          "pad": ":small"
+        },
+        {
+          "name": "other:importance",
+          "inline": true
         },
         "signingCertName"
       ]
@@ -1014,6 +1042,26 @@
         "signingCertModalOpen":
         {
           "isOpened": true
+        }
+      }
+    }
+  },
+  "validation":
+  {
+    "requireSigningCert":
+    {
+      "constrain":
+      {
+        "signingCert": "is.required"
+      },
+      "nested":
+      {
+        "signingCert":
+        {
+          "constrain":
+          {
+            "value": "is.required"
+          }
         }
       }
     }
