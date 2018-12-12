@@ -248,14 +248,13 @@
       "visible": true,
       "controlType": "input",
       "defaultValue": "urn:federation:MicrosoftOnline",
-      "validate:i": 
-      [
-        {
-          "test": "is.required",
-          "params": "_.value",
-          "message": "Required"
-        }
-      ]
+      "validate": "is.required",
+      "extras":
+      {
+        "name": "other:importance",
+        "pad": ":::small", 
+        "inline": true
+      }
     },
     "dataEncryptionMethod":
     {
@@ -392,14 +391,13 @@
       "visible": true,
       "controlType": "input",
       "defaultValue": "urn:federation:MicrosoftOnline",
-      "validate:i": 
-      [
-        {
-          "test": "is.required",
-          "params": "_.value",
-          "message": "Required"
-        }
-      ]
+      "validate": "is.required",
+      "extras":
+      {
+        "name": "other:importance",
+        "pad": ":::small", 
+        "inline": true
+      }
     },
     "signingAlgorithm":
     {
@@ -489,15 +487,7 @@
       "controlType": "input",
       "inline": true,
       "noFieldset": true,
-      "validate:i": 
-      [
-        {
-          "test": "is.required",
-          "params": "_.value",
-          "message": "Required"
-        }
-      ],
-      "defaultValue": ""
+      "validate": "is.required"
     },
     "wsFedVersion": {
       "label": "WS-Fed Version",
@@ -547,7 +537,13 @@
     },
     "urlLabel":
     {
-      "content": "WS-Trust Host Name"
+      "content": "WS-Trust Host Name",
+      "after": 
+      {
+        "name": "other:importance",
+        "pad": ":::small", 
+        "inline": true        
+      }
     },
     "urlTooltip":
     {
@@ -846,9 +842,7 @@
           "pad": ":small"
         },
         {
-          "name": "static:color",
-          "content": "Required",
-          "color": "destructive",
+          "name": "other:importance",
           "inline": true
         },
         "signingCertName"
