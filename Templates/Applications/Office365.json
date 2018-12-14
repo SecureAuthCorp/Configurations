@@ -196,8 +196,7 @@
     "attributeFormat": {
       "label": "Format",
       "controlType": "input",
-      "dataModelName": "format",
-      "defaultValue": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+      "dataModelName": "format"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -1080,11 +1079,13 @@
         {
           "IDPEmail":
           {
-            "name": "IDPEmail"
+            "name": "IDPEmail",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
           },
           "ImmutableID":
             {
-              "name": "ImmutableID"
+              "name": "ImmutableID",
+              "format": "Based64Encoded"
             }
         }
       },
