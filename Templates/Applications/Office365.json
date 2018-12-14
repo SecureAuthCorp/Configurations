@@ -465,7 +465,7 @@
     },
     "spLoginUrl":
     {
-      "label": "SP Login URL",
+      "label": "Start URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
@@ -511,12 +511,12 @@
   {
     "endpointSwitchLabel": {
       "staticType": "label",
-      "content": "Enable O365 Desktop Endpoints"
+      "content": "Enable O365 Legacy Endpoints"
     },
     "endpointSwitchDescription": {
       "staticType": "color",
       "color": "disabled",
-      "content": "Enable these endpoints if you are using the desktop version of O365",
+      "content": "Enable these endpoints if you are using the legacy version of O365",
       "wrappers": "body",
       "pad": "small"
     },
@@ -1195,10 +1195,7 @@
           "name": "defaultHeader",
           "content": "WS FEDERATION"
         },
-        "issuer",
-        "assertionConsumerService",
         "relayState",
-        "recipient",
         "audience",
         "spLoginUrl",
         "wsFedVersion",
