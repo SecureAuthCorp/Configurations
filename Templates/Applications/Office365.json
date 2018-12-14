@@ -195,8 +195,16 @@
     },
     "attributeFormat": {
       "label": "Format",
-      "controlType": "input",
-      "dataModelName": "format"
+      "dataModelName": "format",
+      "controlType": "select",
+      "options":
+      [
+        "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+        "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+        "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+        "Base64Encoded",
+        "GroupList"
+      ]
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -1085,7 +1093,7 @@
           "ImmutableID":
             {
               "name": "ImmutableID",
-              "format": "Based64Encoded"
+              "format": "Base64Encoded"
             }
         }
       },
