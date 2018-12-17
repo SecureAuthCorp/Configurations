@@ -174,7 +174,8 @@
       "extrasAt": "field",
       "width": 9,
       "inline": true,
-      "stack": "small"
+      "stack": "small",
+      "defaultValue": 8
     },
     "assertionValidMinutes":
     {
@@ -295,7 +296,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false
+      "defaultValue": true
     },
     "encryptSamlAssertion":
     {
@@ -494,7 +495,8 @@
       "controlType": "input",
       "inline": true,
       "noFieldset": true,
-      "validate": "is.required"
+      "validate": "is.required",
+      "width": 7
     },
     "wsFedVersion": {
       "label": "WS-Fed Version",
@@ -529,6 +531,7 @@
     },
     "hostNameFieldSet":
     {
+      "staticType": "fieldset",
       "before": "urlLabel",
       "after":
       [
@@ -554,7 +557,7 @@
     },
     "urlTooltip":
     {
-      "content": "Tooltip!",
+      "content": "Host Name is the fully qualified domain name for your SecureAuth appliance (for example, qaportal.gosecureauth.com)",
       "stack": ":::small",
       "inline": true
     },
