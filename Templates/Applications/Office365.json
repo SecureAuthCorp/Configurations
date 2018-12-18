@@ -154,8 +154,7 @@
         {
           "name": "static:body",
           "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
-        },
-        "assertionOffsetMinutesTooltip"
+        }
       ],
       "extrasAt": "field",
       "width": 3
@@ -186,8 +185,7 @@
         {
           "name": "static:body",
           "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
-        },
-        "assertionValidHoursTooltip"
+        }
       ],
       "extrasAt": "field",
       "width": 9,
@@ -411,7 +409,7 @@
     {
       "label": "Signing Algorithm",
       "controlType": "radiogroup",
-      "defaultValue": "SHA1",
+      "defaultValue": "SHA2",
       "noMargin": true,
       "properties":
       {
@@ -473,7 +471,7 @@
     },
     "spLoginUrl":
     {
-      "label": "Start URL",
+      "label": "SP Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
@@ -484,11 +482,11 @@
     {
       "label": "User ID Profile Field",
       "controlType": "select",
-      "description": "Select the property in your data store that is mapped to userPrincipalName",
+      "description": "Select the property in your data store that is mapped to objectGUID",
       "width": 7,
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "AuxId1"
+      "defaultValue": "AuxId2"
     },
     "wsTrustHostName":
     {
@@ -496,7 +494,10 @@
       "inline": true,
       "noFieldset": true,
       "validate": "is.required",
-      "width": 7
+      "width": 7,
+      "style": {
+        "margin-right": "200px"
+      }
     },
     "wsFedVersion": {
       "label": "WS-Fed Version",
@@ -901,7 +902,7 @@
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "This is the login URL of the Service Provider (SP)",
       "pad": ":::small"
     }
   },
