@@ -77,6 +77,29 @@
         "value": "http://www.w3.org/2001/04/xmlenc#tripledes-cbc",
         "display": "XmlEncTripleDESUrl"
       }
+    ],
+    "attributeFormatsList":
+    [
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+        "display": "Basic"
+      },
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+        "display": "URI"
+      },
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+        "display": "Unspecified"
+      },
+      {
+        "value": "Base64Encoded",
+        "display": "Base64 Encoded"
+      },
+      {
+        "value": "GroupList",
+        "display": "Group List"
+      }
     ]
   },
   "applicationType": "WSFED",
@@ -196,14 +219,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options":
-      [
-        "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
-        "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
-        "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
-        "Base64Encoded",
-        "GroupList"
-      ]
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
