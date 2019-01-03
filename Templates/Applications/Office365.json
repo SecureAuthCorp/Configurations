@@ -543,6 +543,17 @@
         "1.2",
         "1.3"
       ]
+    },
+    "wsFedSigningAlgorithm": {
+      "label": "WS-Fed Signing Algorithm",
+      "controlType": "radiogroup",
+      "defaultValue": "SHA2",
+      "options":
+      [
+        "SHA1",
+        "SHA2"
+      ],
+      "visible": false
     }
   },
   "statics":
@@ -1248,6 +1259,7 @@
         "audience",
         "spLoginUrl",
         "wsFedVersion",
+        "wsFedSigningAlgorithm",
         "assertionWillBeValid",
         "assertionOffsetMinutes",
         "signSamlElements",
