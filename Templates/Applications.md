@@ -18,6 +18,9 @@ A URL or base64 image icon value.  This value will be used to visually identify 
 - `templateName` string  
 An internal name for the template.  An Application created in the New UI will be associated with this name so that the correct template can be used to edit the application.
 
+- `isGeneric` boolean  
+Identifies the template as a generic template.  This affects sort-order in the UI.
+
 - `applicationType` string  
 The generic type for this template.  If a template defines an interface for a subset of the configuration fields of another application type then specify that application type here.
 
@@ -66,17 +69,17 @@ Get a list of profile fields.
 ## Messages to sparkles
 The templates can send specific messages to sparkles with the `clickAction` property, each of them will trigger a specific action in the application.
 
-- **edit groups** `{"actions": "edit groups", "sendToParent": true}` 
+- **edit groups** `{"actions": "edit groups", "sendToParent": true}`
 Send the message to open the `updateGroups` view of the template
 
-- **see providers** `{"actions": "see providers", "sendToParent": true}` 
+- **see providers** `{"actions": "see providers", "sendToParent": true}`
 Send the message to open the `providersInfo` view
 
-- **edit connection** `{"actions": "edit connection", "sendToParent": true}` 
+- **edit connection** `{"actions": "edit connection", "sendToParent": true}`
 Send the message to open the `default view` to update connection settings
 
-- **download certificate** `{"actions": "download certificate", "sendToParent": true}` 
+- **download certificate** `{"actions": "download certificate", "sendToParent": true}`
 Send the message to download the certificate
 
-- **edit details** `{"actions": "edit details", "sendToParent": true}` 
+- **edit details** `{"actions": "edit details", "sendToParent": true}`
 Send the message to open the `updateDetails` view.
