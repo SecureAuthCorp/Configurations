@@ -545,15 +545,20 @@
       ]
     },
     "wsFedSigningAlgorithm": {
-      "label": "WS-Fed Signing Algorithm",
+      "label": "Signing Algorithm",
       "controlType": "radiogroup",
       "defaultValue": "SHA2",
+      "noMargin": true,
+      "properties":
+      {
+        "inline": true,
+        "stack": "small:medium:small"
+      },
       "options":
       [
         "SHA1",
         "SHA2"
-      ],
-      "visible": false
+      ]
     }
   },
   "statics":
@@ -1247,7 +1252,7 @@
         },
         "signingCertNameFieldset",
         "signingCertSerialNoFieldset",
-        "signingAlgorithm"
+        "wsFedSigningAlgorithm"
       ]
     },
     "templateRoot":
@@ -1267,11 +1272,9 @@
         "audience",
         "spLoginUrl",
         "wsFedVersion",
-        "wsFedSigningAlgorithm",
         "assertionWillBeValid",
         "assertionOffsetMinutes",
         "signSamlElements",
-        "encryptSamlAssertion",
         {
           "name": "defaultHeader",
           "content": "WS-TRUST ENDPOINTS"
