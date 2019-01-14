@@ -1088,7 +1088,7 @@
     },
     "powerShellScriptCopy": {
       "otherType": "copytoclipboard",
-      "copy:i": "Connect-MsolService \n$dom = \"< O365 DOMAIN NAME >\" \n$ura = \"https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}/webservice/wstrust.svc/2005/usernamemixed\"\n$url = \"https://%%{_.wsTrustHostName}/Secureauth%{_.realmNumber}/\" \n$uri = \"https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}\" \n$logouturl = \"%https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}/wsfedsignout.aspx\" \n$metadata = \"https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}/webservice/wstrust.svc/mex\" \n$cert = \"< CERT VALUE >\" \nSet-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $url -ActiveLogonUri $ura -MetadataExchangeUri $metadata -SigningCertificate $cert -IssuerUri $uri -LogOffUri $logouturl -PreferredAuthenticationProtocol WsFed"
+      "copy:i": "Connect-MsolService \n$dom = \"< O365 DOMAIN NAME >\" \n$ura = \"https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}/webservice/wstrust.svc/2005/usernamemixed\"\n$url = \"https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}/\" \n$uri = \"https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}\" \n$logouturl = \"https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}/wsfedsignout.aspx\" \n$metadata = \"https://%{_.wsTrustHostName}/Secureauth%{_.realmNumber}/webservice/wstrust.svc/mex\" \n$cert = \"< CERT VALUE >\" \nSet-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $url -ActiveLogonUri $ura -MetadataExchangeUri $metadata -SigningCertificate $cert -IssuerUri $uri -LogOffUri $logouturl -PreferredAuthenticationProtocol WsFed"
     },
     "signingCertCopy":
     {
