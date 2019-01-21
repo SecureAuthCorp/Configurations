@@ -78,6 +78,29 @@
         "value": "http://www.w3.org/2001/04/xmlenc#tripledes-cbc",
         "display": "XmlEncTripleDESUrl"
       }
+    ],
+    "attributeFormatsList":
+    [
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+        "display": "Basic"
+      },
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+        "display": "URI"
+      },
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+        "display": "Unspecified"
+      },
+      {
+        "value": "Base64Encoded",
+        "display": "Base64 Encoded"
+      },
+      {
+        "value": "GroupList",
+        "display": "Group List"
+      }
     ]
   },
   "applicationType": "WSFED",
@@ -142,7 +165,7 @@
     {
       "label": "Context",
       "controlType": "input",
-      "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
+      "description": "This URL, provided by the service provider, is used to accept an assertion"
     },
     "assertionOffsetMinutes":
     {
@@ -154,8 +177,7 @@
         {
           "name": "static:body",
           "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
-        },
-        "assertionOffsetMinutesTooltip"
+        }
       ],
       "extrasAt": "field",
       "width": 3
@@ -193,10 +215,12 @@
       "inline": true,
       "stack": "small"
     },
-    "attributeFormat": {
+    "attributeFormat":
+    {
       "label": "Format",
-      "controlType": "input",
-      "dataModelName": "format"
+      "dataModelName": "format",
+      "controlType": "select",
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -234,7 +258,6 @@
     {
       "label": "WT Realm",
       "controlType": "input",
-      "extras": "audienceTooltip",
       "extrasAt": "field"
     },
     "dataEncryptionMethod":
@@ -375,7 +398,7 @@
       "extras": "relayStateTooltip",
       "extrasAt": "field"
     },
-    "wsFedSigningAlgorithm":
+    "signingAlgorithm":
     {
       "label": "Signing Algorithm",
       "controlType": "radiogroup",
@@ -460,7 +483,12 @@
       "controlType": "input",
       "inline": true,
       "noFieldset": true,
-      "width": 6
+      "validate": "is.required",
+      "width": 7,
+      "style":
+      {
+        "marginRight": "200px"
+      }
     },
     "wsFedVersion": {
       "label": "WS-Fed Version",
@@ -480,9 +508,10 @@
       "extras": [
         {
           "name": "static:tooltip",
-          "content:m": "***Authentication Type:*** Password&nbsp;&nbsp; ***Security Mode:*** Mixed&nbsp;&nbsp; ***Type:*** WS-Trust 2005",
+          "content:m": "***Authentication Type:*** Password</br>***Security Mode:*** Mixed</br>***Type:*** WS-Trust 2005",
           "inline": true,
-          "pad": ":::small"
+          "pad": ":::small",
+          "width": "300px"
         }
       ],
       "extrasAt": "field"
@@ -494,9 +523,10 @@
       "extras": [
         {
           "name": "static:tooltip",
-          "content:m": "***Authentication Type:*** Windows&nbsp;&nbsp;***Security Mode:*** Transport&nbsp;&nbsp;***Type:*** WS-Trust 1.3",
+          "content:m": "***Authentication Type:*** Windows</br>***Security Mode:*** Transport</br>***Type:*** WS-Trust 1.3",
           "inline": true,
-          "pad": ":::small"
+          "pad": ":::small",
+          "width": "300px"
         }
       ],
       "extrasAt": "field"
@@ -508,9 +538,10 @@
       "extras": [
         {
           "name": "static:tooltip",
-          "content:m": "***Authentication Type:*** SAML Token (Asymmetric)&nbsp;&nbsp; ***Security Mode:*** Mixed&nbsp;&nbsp; ***Type:*** WS-Trust 2005",
+          "content:m": "***Authentication Type:*** SAML Token (Asymmetric)</br> ***Security Mode:*** Mixed</br> ***Type:*** WS-Trust 2005",
           "inline": true,
-          "pad": ":::small"
+          "pad": ":::small",
+          "width": "300px"
         }
       ],
       "extrasAt": "field"
@@ -522,9 +553,10 @@
       "extras": [
         {
           "name": "static:tooltip",
-          "content:m": "***Authentication Type:*** Password&nbsp;&nbsp; ***Security Mode:*** Mixed&nbsp;&nbsp; ***Type:*** WS-Trust 1.3",
+          "content:m": "***Authentication Type:*** Password</br> ***Security Mode:*** Mixed</br> ***Type:*** WS-Trust 1.3",
           "inline": true,
-          "pad": ":::small"
+          "pad": ":::small",
+          "width": "300px"
         }
       ],
       "extrasAt": "field"
@@ -536,9 +568,10 @@
       "extras": [
         {
           "name": "static:tooltip",
-          "content:m": "***Authentication Type:*** Windows&nbsp;&nbsp;***Security Mode:*** Transport&nbsp;&nbsp;***Type:*** WS-Trust 1.3",
+          "content:m": "***Authentication Type:*** Windows</br>***Security Mode:*** Transport</br>***Type:*** WS-Trust 1.3",
           "inline": true,
-          "pad": ":::small"
+          "pad": ":::small",
+          "width": "300px"
         }
       ],
       "extrasAt": "field"
@@ -550,9 +583,10 @@
       "extras": [
         {
           "name": "static:tooltip",
-          "content:m": "***Authentication Type:*** SAML Token (Asymmetric)&nbsp;&nbsp; ***Security Mode:*** Mixed&nbsp;&nbsp; ***Type:*** WS-Trust 1.3",
+          "content:m": "***Authentication Type:*** SAML Token (Asymmetric)</br> ***Security Mode:*** Mixed</br> ***Type:*** WS-Trust 1.3",
           "inline": true,
-          "pad": ":::small"
+          "pad": ":::small",
+          "width": "300px"
         }
       ],
       "extrasAt": "field"
@@ -562,7 +596,7 @@
   {
   "endpointSwitchDescription": {
     "staticType": "label",
-    "content": "Enable the WS-Trust Endpoints that will be necesary for your application.",
+    "content": "Enable the WS-Trust Endpoints that will be necessary for your application.",
     "wrappers": "body",
     "pad": "::small"
   },
@@ -588,17 +622,13 @@
   },
   "urlTooltip":
   {
-    "content": "Tooltip!",
+    "content": "Host Name is the fully qualified domain name for your SecureAuth appliance (for example, company.secureauth.com)",
     "stack": ":::small",
     "inline": true
   },
-  "assertionOffsetMinutesTooltip":
-    {
-      "content": "This is referred to as \"SAML Not Before\" in the SAML Specification."
-    },
     "assertionValidHoursTooltip":
     {
-      "content": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+      "content": "This is the time period in which an Assertion is valid."
     },
     "attributeAddButton":
     {
@@ -731,11 +761,6 @@
       "staticType": "color",
       "color": "disabled"
     },
-    "audienceTooltip":
-    {
-      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID. This field is optional for certain applications.",
-      "pad": ":::small"
-    },
     "encryptSamlAssertionCallout":
     {
       "after": "encryptSamlAssertionOptions",
@@ -756,12 +781,6 @@
     {
       "staticType": "text",
       "content": " Upload"
-    },
-    "domain":
-    {
-      "staticType": "color",
-      "color": "info",
-      "content:t": "_.domainLabel"
     },
     "editIcon":
     {
@@ -797,6 +816,13 @@
         "actions": "download certificate",
         "sendToParent": true
       }
+    },
+    "loginUrlLink":
+    {
+      "staticType": "link",
+      "content:t": "_.loginURL",
+      "href:t": "_.loginURL",
+      "target": "_blank"
     },
     "providersCalloutLabel":
     {
@@ -955,7 +981,7 @@
         [
           "nameForSummary",
           "descriptionForSummary",
-          "domain",
+          "loginUrlLink",
           "realmInfo"
         ],
         "edition":
@@ -1190,7 +1216,7 @@
         },
         "signingCertNameFieldset",
         "signingCertSerialNoFieldset",
-        "wsFedSigningAlgorithm"
+        "signingAlgorithm"
       ]
     },
     "templateRoot":
