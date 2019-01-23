@@ -115,6 +115,40 @@
         "selectGroupsAllowed": false
       }
     },
+    "enableMFA":
+    {
+      "states": "Enable authentication for access to this application.",
+      "controlType": "switch",
+      "pad": "small",
+      "extras": "authToolTip",
+      "extrasAt": "field",
+      "modify":
+      {
+        "authEnabled":
+        {
+          "value": true,
+          "enabled": false
+        },
+        "authDisabled":
+        {
+        "enabled": true
+        }
+      }
+    },
+    "enableAA":
+    {
+      "states": "Enable adaptive authentication for access to this application.",
+      "controlType": "switch",
+      "pad": "small",
+      "extras": "aaToolTip",
+      "extrasAt": "field",
+      "defaultValue": false,
+      "notify":
+      {
+        "authEnabled": true,
+        "authDisabled": false
+      }
+    },
     "applicationName":
     {
       "defaultValue:t": "$.title",
@@ -170,6 +204,7 @@
       "label": "Offset Minutes",
       "controlType": "input",
       "type": "number",
+      "defaultValue": "5",
       "extras":
       [
         {
@@ -575,6 +610,18 @@
       "wrappers": "body",
       "pad": "small"
     },
+    "mfaSwitchLabel":
+    {
+      "staticType": "label",
+      "content": "Multi-factor Authentication",
+      "pad": "small"
+    },
+    "aaSwitchLabel":
+    {
+      "staticType": "label",
+      "pad": "small",
+      "content": "Adaptive Authentication"
+    },
     "hostNameFieldSet":
     {
       "staticType": "fieldset",
@@ -604,6 +651,18 @@
     "urlTooltip":
     {
       "content": "Host Name is the fully qualified domain name for your SecureAuth appliance (for example, company.secureauth.com)",
+      "stack": ":::small",
+      "inline": true
+    },
+    "authToolTip":
+    {
+      "content": "Based on the methods enabled in the Multi-Factor Methods section.",
+      "stack": ":::small",
+      "inline": true
+    },
+    "aaToolTip":
+    {
+      "content": "Based on the rules configured in the Policies section.",
       "stack": ":::small",
       "inline": true
     },
@@ -710,6 +769,50 @@
       },
       "small": true,
       "stack": "large"
+    },
+    "adaptiveAuthHeader":
+    {
+      "content": "ADAPTIVE AUTHENTICATION",
+      "contentEast":
+      {
+        "name": "editIcon"
+      },
+      "small": true,
+      "stack": "large"
+    },
+    "policyLabel":
+    {
+      "staticType": "label",
+      "content": "Enabled Adaptive Modules",
+      "pad": "small"
+    },
+    "policiesDescription":
+    {
+    "staticType": "body",
+    "content": "Geo-velocity, Last MFA, MFA Status, Threat Type",
+    "pad": "small"
+    },
+    "mfaSummaryHeader":
+    {
+      "content": "MULTI-FACTOR AUTHENTICATION",
+      "contentEast":
+      {
+        "name": "editIcon"
+      },
+      "small": true,
+      "stack": "large"
+    },
+    "methodsLabel":
+    {
+      "staticType": "label",
+      "content": "Enabled Authentication Methods",
+      "pad": "small"
+    },
+    "methodsDescription":
+    {
+    "staticType": "body",
+    "content": "Mobile App TOTP, Text Link-to-Accept, Email Link-to-Accept",
+    "pad": "small"
     },
     "chevronIconRight":
     {
@@ -1297,9 +1400,17 @@
       "order@details":
       [
         "applicationInputs",
+        {
+        "name": "defaultHeader",
+        "content": "AUTHENTICATION & ACCESS"
+        },
         "dataStores",
         "groups",
-        "allowAllGroups"
+        "allowAllGroups",
+        "aaSwitchLabel",
+        "enableAA",
+        "mfaSwitchLabel",
+        "enableMFA"
       ],
       "order@summary":
       [
@@ -1308,6 +1419,12 @@
         "dataStoresAndGroupsHeader",
         "dataStores",
         "groups",
+        "adaptiveAuthHeader",
+        "policyLabel",
+        "policiesDescription",
+        "mfaSummaryHeader",
+        "methodsLabel",
+        "methodsDescription",
         "connectionSettingsHeader",
         "providersCallout"
       ],
