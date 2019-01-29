@@ -474,22 +474,13 @@
     {
       "states": "Sign SAML Assertion",
       "controlType": "switch",
-      "defaultValue": false,
-      "notify":
-      {
-        "signSamlElementsOn": true
-      }
+      "defaultValue": false
     },
     "signSamlMessage":
     {
       "states": "Sign SAML Message",
       "controlType": "switch",
-      "defaultValue": false,
-      "order": "signSamlElementsCallout",
-      "notify":
-      {
-        "signSamlElementsOn": true
-      }
+      "defaultValue": false
     },
     "spLoginUrl":
     {
@@ -839,7 +830,13 @@
       [
         {
           "name": "static:label",
-          "content": "IdP Signing Certificate"
+          "content": "IdP Signing Certificate",
+          "inline": true,
+          "pad": ":small"
+        },
+        {
+          "name": "other:importance",
+          "inline": true
         },
         "signingCertName"
       ]
@@ -861,22 +858,6 @@
         "signingCertCopy"
       ],
       "stack@providersInfo": "medium"
-    },
-    "signSamlElementsCallout":
-    {
-      "after": "signingCertOptions",
-      "stack": "small",
-      "modify":
-      {
-        "signSamlElementsOff":
-        {
-          "visible": false
-        },
-        "signSamlElementsOn":
-        {
-          "visible": true
-        }
-      }
     },
     "spLoginUrlTooltip":
     {
@@ -1042,6 +1023,26 @@
       }
     }
   },
+  "validation":
+  {
+    "requireSigningCert":
+    {
+      "constrain":
+      {
+        "signingCert": "is.required"
+      },
+      "nested":
+      {
+        "signingCert":
+        {
+          "constrain":
+          {
+            "value": "is.required"
+          }
+        }
+      }
+    }
+  },
   "groups":
   {
     "attributeItem":
@@ -1119,14 +1120,6 @@
     },
     "signSamlElements":
     {
-      "notify":
-      {
-        "signSamlElementsOff":
-        {
-          "value.signSamlAssertion": false,
-          "value.signSamlMessage": false
-        }
-      },
       "order":
       [
         "signSamlAssertion",
@@ -1157,7 +1150,9 @@
         "signingCertNameFieldset",
         "signingCertSerialNoFieldset",
         "signingAlgorithm"
-      ]
+      ],
+      "pad": "::small",
+      "validate": "requireSigningCert"
     },
     "templateRoot":
     {
@@ -1184,6 +1179,7 @@
         "spLoginUrl",
         "assertionWillBeValid",
         "assertionOffsetMinutes",
+        "signingCertOptions",
         "signSamlElements",
         "encryptSamlAssertion",
         "attributesHeader",
