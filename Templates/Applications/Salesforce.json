@@ -285,12 +285,7 @@
     {
       "states": "Sign SAML Message",
       "controlType": "switch",
-      "defaultValue": false,
-      "order": "signSamlElementsCallout",
-      "notify":
-      {
-        "signSamlElementsOn": true
-      }
+      "defaultValue": false
     },
     "assertionConsumerService":
     {
@@ -581,7 +576,13 @@
       [
         {
           "name": "static:label",
-          "content": "IdP Signing Certificate"
+          "content": "IdP Signing Certificate",
+          "inline": true,
+          "pad": ":small"
+        },
+        {
+          "name": "other:importance",
+          "inline": true
         },
         "signingCertName"
       ]
@@ -604,22 +605,6 @@
         "signingCertDownloadAction"
       ],
       "stack@providersInfo": "medium"
-    },
-    "signSamlElementsCallout":
-    {
-      "after": "signingCertOptions",
-      "stack": "small",
-      "modify":
-      {
-        "signSamlElementsOff":
-        {
-          "visible": false
-        },
-        "signSamlElementsOn":
-        {
-          "visible": true
-        }
-      }
     },
     "spLoginUrlToolTip":
     {
@@ -733,6 +718,26 @@
       }
     }
   },
+  "validation":
+  {
+    "requireSigningCert":
+    {
+      "constrain":
+      {
+        "signingCert": "is.required"
+      },
+      "nested":
+      {
+        "signingCert":
+        {
+          "constrain":
+          {
+            "value": "is.required"
+          }
+        }
+      }
+    }
+  },
   "groups":
   {
     "attributeItem":
@@ -782,17 +787,12 @@
         "signingCertNameFieldset",
         "signingCertSerialNoFieldset",
         "signingAlgorithm"
-      ]
+      ],
+      "pad": "::small",
+      "validate": "requireSigningCert"
     },
     "signSamlElements":
     {
-      "notify":
-      {
-        "signSamlElementsOff":
-        {
-          "value.signSamlMessage": false
-        }
-      },
       "order":
       [
         "signSamlMessage"
@@ -854,6 +854,7 @@
         "issuer",
         "assertionWillBeValid",
         "signSamlElements",
+        "signingCertOptions",
         "spLoginUrl",
         "recipient",
         "attributesHeader",

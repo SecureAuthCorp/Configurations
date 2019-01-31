@@ -483,23 +483,13 @@
     {
       "states": "Sign WS-Fed Assertion",
       "controlType": "switch",
-      "defaultValue": true,
-      "notify":
-      {
-        "signSamlElementsOn": true
-      }
+      "defaultValue": true
     },
     "signSamlMessage":
     {
       "states": "Sign WS-Fed Message",
       "controlType": "switch",
-      "defaultValue": false,
-      "order": "signSamlElementsCallout",
-      "notify":
-      {
-        "signSamlElementsOn": true
-      },
-      "validate": "(#false and signSamlAssertion:#false) or signingCertOptions:@requireSigningCert"
+      "defaultValue": false
     },
     "spLoginUrl":
     {
@@ -936,22 +926,6 @@
       ],
       "stack@providersInfo": "medium"
     },
-    "signSamlElementsCallout":
-    {
-      "after": "signingCertOptions",
-      "stack": "small",
-      "modify":
-      {
-        "signSamlElementsOff":
-        {
-          "visible": false
-        },
-        "signSamlElementsOn":
-        {
-          "visible": true
-        }
-      }
-    },
     "spLoginUrlTooltip":
     {
       "content": "The O365 Login URL is optional.",
@@ -1222,14 +1196,6 @@
     },
     "signSamlElements":
     {
-      "notify":
-      {
-        "signSamlElementsOff":
-        {
-          "value.signSamlAssertion": false,
-          "value.signSamlMessage": false
-        }
-      },
       "order":
       [
         "signSamlAssertion",
@@ -1260,7 +1226,9 @@
         "signingCertNameFieldset",
         "signingCertSerialNoFieldset",
         "wsFedSigningAlgorithm"
-      ]
+      ],
+      "pad": "::small",
+      "validate": "requireSigningCert"
     },
     "templateRoot":
     {
@@ -1281,6 +1249,7 @@
         "wsFedVersion",
         "assertionWillBeValid",
         "assertionOffsetMinutes",
+        "signingCertOptions",
         "signSamlElements",
         {
           "name": "defaultHeader",
