@@ -363,7 +363,7 @@
       [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Redirect"
         },
         {
           "value": "idp",
@@ -436,7 +436,7 @@
     {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "https://fqdn_secureauth/SecureAuthXX",
+      "hint": "sample-issuer",
       "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
       "displayOnly@providersInfo": true,
       "stack@providersInfo": "medium",
@@ -456,6 +456,7 @@
     {
       "label": "Relay State",
       "controlType": "input",
+      "hint": "",
       "description": "User will be directed to this URL after authentication",
       "extras": "relayStateTooltip",
       "extrasAt": "field",
@@ -465,18 +466,20 @@
     "recipient":
     {
       "label": "Recipient",
-      "visible": false,
       "controlType": "input",
+      "hint": "",
       "extras": "recipientTooltip",
-      "extrasAt": "field"
+      "extrasAt": "field",
+       "visible": false
     },
     "audience":
     {
       "label": "Audience",
       "controlType": "input",
-      "visible": false,
+      "hint": "",
       "extras": "audienceTooltip",
-      "extrasAt": "field"
+      "extrasAt": "field",
+      "visible": false
     },
     "spLoginUrl":
     {

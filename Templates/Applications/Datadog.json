@@ -369,7 +369,6 @@
     {
       "label": "User ID Profile Field",
       "controlType": "select",
-      "fixedValue": "AuthenticatedUserId",
       "description": "Select the profile field in your data store that contains your users' IDs.",
       "width": 7,
       "emptyOption": "",
@@ -388,7 +387,7 @@
       [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Redirect"
         },
         {
           "value": "idp",
@@ -417,11 +416,13 @@
       [
         {
           "value": "redirect",
-          "display": "By Redirect"
+          "display": "By Redirect",
+          "visible": false
         },
         {
           "value": "post",
           "display": "By Post",
+          "visible": false,
           "extras": "initiationByTooltip"
         }
       ],
@@ -433,7 +434,7 @@
         },
         "initiationTypeIdP":
         {
-          "visible": true
+          "visible": false
         }
       }
     },
@@ -441,6 +442,7 @@
     {
       "label": "Name ID Format",
       "controlType": "select",
+      "visible": false,
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
       "options":
@@ -458,8 +460,8 @@
     {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "https://FQDN_SA_IdP/SecureAuthXX",
-      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+      "hint": "sample-issuer",
+      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
       "displayOnly@providersInfo": true,
       "stack@providersInfo": "medium",
       "noMargin@providersInfo": true
@@ -480,21 +482,25 @@
       "controlType": "input",
       "description": "User will be directed to this URL after authentication",
       "extras": "relayStateTooltip",
-      "extrasAt": "field"
+      "extrasAt": "field",
+      "visible": false
     },
 
     "recipient":
     {
       "label": "Recipient",
-      "controlType": "input",
       "hint": "",
+      "controlType": "input",
       "extras": "recipientTooltip",
-      "extrasAt": "field"
+      "extrasAt": "field",
+      "visible": false
     },
     "audience":
     {
       "label": "Audience",
       "controlType": "input",
+      "hint": "",
+      "description": "Value given by the Datadog Metadata",
       "extras": "audienceTooltip",
       "extrasAt": "field"
     },
@@ -502,7 +508,7 @@
     {
       "label": "SP Login URL",
       "controlType": "input",
-      "hint": "https://app.datadoghq.com/account/login/id/xxxxxxxxx",
+      "hint": "",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
       "modify":
@@ -521,22 +527,13 @@
     {
       "states": "Sign SAML Assertion",
       "controlType": "switch",
-      "defaultValue": true,
-      "notify":
-      {
-        "signSamlElementsOn": true
-      }
+      "defaultValue": true
     },
     "signSamlMessage":
     {
       "states": "Sign SAML Message",
       "controlType": "switch",
-      "defaultValue": true,
-      "order": "signSamlElementsCallout",
-      "notify":
-      {
-        "signSamlElementsOn": true
-      }
+      "defaultValue": true
     },
     "encryptSamlAssertion":
     {
@@ -564,18 +561,7 @@
     {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c":
-      {
-        "attributeItemMatch%{local.repeat.index}":
-        {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}":
-        {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace":
     {
@@ -600,25 +586,13 @@
           "enabled": true
         }
       }
-    },
-    "attributeFilterGroup":
-    {
-      "label": "Filtered Group",
-      "controlType": "input",
-      "dataModelName": "filterGroup"
-    },
-    "attributeValue":
-    {
-      "label": "Value",
-      "controlType": "input",
-      "dataModelName": "value"
     }
   },
   "statics":
   {
     "initiationByTooltip":
     {
-      "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
+      "content": "The SAML specification allows for Datadog to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your Datadog's configuration or metadata will tell you what is used for the authentication request.",
       "inline": true,
       "width": "medium",
       "pad": ":::small"
@@ -635,17 +609,17 @@
     },
     "audienceTooltip":
     {
-      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID. This field is optional for certain applications.",
+      "content": "Audience is a unique string that identifies the Service Provider (Datadog). Typically this is the Datadog’s entity ID. This field is optional for certain applications.",
       "pad": ":::small"
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "This is the login URL of the Service Provider (Datadog). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
       "pad": ":::small"
     },
     "acsTooltip":
     {
-      "content": "Sample provided is the URL format",
+      "content": "Locate this value in DataDog Admin Console > UserName Profile > Configure SAML.",
       "pad": ":::small"
     },
     "assertionOffsetMinutesTooltip":
@@ -687,9 +661,7 @@
       [
         "attributeInfo",
         "attributeNamespace",
-        "attributeFormat",
-        "attributeValue",
-        "attributeFilterGroup"
+        "attributeFormat"
       ],
       "stack": "::medium"
     },
@@ -788,11 +760,6 @@
       "staticType": "color",
       "color": "disabled"
     },
-    "audienceTooltip":
-    {
-      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID. This field is optional for certain applications.",
-      "pad": ":::small"
-    },
     "encryptSamlAssertionCallout":
     {
       "after": "encryptSamlAssertionOptions",
@@ -848,13 +815,6 @@
         "actions": "download certificate",
         "sendToParent": true
       }
-    },
-    "initiationByTooltip":
-    {
-      "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
-      "inline": true,
-      "width": "medium",
-      "pad": ":::small"
     },
     "initiationTypeInfo":
     {
@@ -924,16 +884,6 @@
         "providersCalloutDescription"
       ]
     },
-    "recipientTooltip":
-    {
-      "content": "This field is typically the same as the consumer URL. It is optional for certain Service Providers.",
-      "pad": ":::small"
-    },
-    "relayStateTooltip":
-    {
-      "content": "This field is optional for certain applications.",
-      "pad": ":::small"
-    },
     "realmInfo":
     {
       "content:im": "**Realm:** Secureauth %{_.realmNumber}",
@@ -968,7 +918,13 @@
       [
         {
           "name": "static:label",
-          "content": "IdP Signing Certificate"
+          "content": "IdP Signing Certificate",
+          "inline": true,
+          "pad": ":small"
+        },
+        {
+          "name": "other:importance",
+          "inline": true
         },
         "signingCertName"
       ]
@@ -990,27 +946,6 @@
         "signingCertCopy"
       ],
       "stack@providersInfo": "medium"
-    },
-    "signSamlElementsCallout":
-    {
-      "after": "signingCertOptions",
-      "stack": "small",
-      "modify":
-      {
-        "signSamlElementsOff":
-        {
-          "visible": false
-        },
-        "signSamlElementsOn":
-        {
-          "visible": true
-        }
-      }
-    },
-    "spLoginUrlTooltip":
-    {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
-      "pad": ":::small"
     }
   },
   "layouts":
@@ -1171,6 +1106,26 @@
       }
     }
   },
+  "validation":
+  {
+    "requireSigningCert":
+    {
+      "constrain":
+      {
+        "signingCert": "is.required"
+      },
+      "nested":
+      {
+        "signingCert":
+        {
+          "constrain":
+          {
+            "value": "is.required"
+          }
+        }
+      }
+    }
+  },
   "groups":
   {
     "attributeItem":
@@ -1186,23 +1141,17 @@
           "urn:oid:2.5.4.4":
           {
             "name": "urn:oid:2.5.4.4",
-            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
-            "value": "Last Name",
-            "filterGroup": ".*"
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
           },
           "urn:oid:2.5.4.42":
           {
             "name": "urn:oid:2.5.4.42",
-            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
-            "value": "First Name",
-            "filterGroup": ".*"
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
           },
           "urn:oid:1.3.6.1.4.1.5923.1.1.1.6":
           {
             "name": "urn:oid:1.3.6.1.4.1.5923.1.1.1.6",
-            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
-            "value": "Email 1",
-            "filterGroup": ".*"
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
           }
         }
       },
@@ -1273,14 +1222,6 @@
     },
     "signSamlElements":
     {
-      "notify":
-      {
-        "signSamlElementsOff":
-        {
-          "value.signSamlAssertion": false,
-          "value.signSamlMessage": false
-        }
-      },
       "order":
       [
         "signSamlAssertion",
@@ -1311,7 +1252,9 @@
         "signingCertNameFieldset",
         "signingCertSerialNoFieldset",
         "signingAlgorithm"
-      ]
+      ],
+      "pad": "::small",
+      "validate": "requireSigningCert"
     },
     "templateRoot":
     {
@@ -1338,6 +1281,7 @@
         "spLoginUrl",
         "assertionWillBeValid",
         "assertionOffsetMinutes",
+        "signingCertOptions",
         "signSamlElements",
         "encryptSamlAssertion",
         "attributesHeader",
