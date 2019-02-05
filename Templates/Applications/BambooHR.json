@@ -1,5 +1,5 @@
 {
-  "id": "BambooHR ",
+  "id": "BambooHR",
   "title": "BambooHR",
   "version": "1.0",
   "__devOnly__": true,
@@ -346,7 +346,6 @@
     {
       "label": "User ID Profile Field",
       "controlType": "select",
-      "fixedValue": "AuthenticatedUserId",
       "description": "Select the profile field in your data store that contains your users' IDs.",
       "width": 7,
       "emptyOption": "",
@@ -365,7 +364,7 @@
       [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Redirect"
         },
         {
           "value": "idp",
@@ -394,11 +393,13 @@
       [
         {
           "value": "redirect",
-          "display": "By Redirect"
+          "display": "By Redirect",
+          "visible": false
         },
         {
           "value": "post",
           "display": "By Post",
+          "visible": false,
           "extras": "initiationByTooltip"
         }
       ],
@@ -418,6 +419,7 @@
     {
       "label": "Name ID Format",
       "controlType": "select",
+      "visible": false,
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
       "width": 11,
       "options":
@@ -431,13 +433,12 @@
         "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
       ]
     },
-
     "issuer":
     {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "BambooHR",
-      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+      "hint": "sample-issuer",
+      "description": "This value must matches up on the BambooHR end.",
       "displayOnly@providersInfo": true,
       "stack@providersInfo": "medium",
       "noMargin@providersInfo": true
@@ -458,7 +459,8 @@
       "controlType": "input",
       "description": "User will be directed to this URL after authentication",
       "extras": "relayStateTooltip",
-      "extrasAt": "field"
+      "extrasAt": "field",
+      "visible": false
     },
 
     "recipient":
@@ -487,7 +489,7 @@
       {
         "initiationTypeSP":
         {
-          "visible": true
+          "visible": false
         },
         "initiationTypeIdP":
         {
@@ -499,22 +501,13 @@
     {
       "states": "Sign SAML Assertion",
       "controlType": "switch",
-      "defaultValue": true,
-      "notify":
-      {
-        "signSamlElementsOn": true
-      }
+      "defaultValue": true
     },
     "signSamlMessage":
     {
       "states": "Sign SAML Message",
       "controlType": "switch",
-      "defaultValue": true,
-      "order": "signSamlElementsCallout",
-      "notify":
-      {
-        "signSamlElementsOn": true
-      }
+      "defaultValue": true
     },
     "encryptSamlAssertion":
     {
@@ -555,7 +548,7 @@
   {
     "initiationByTooltip":
     {
-      "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
+      "content": "The SAML specification allows for BambooHR to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your BambooHR's configuration or metadata will tell you what is used for the authentication request.",
       "inline": true,
       "width": "medium",
       "pad": ":::small"
@@ -572,17 +565,17 @@
     },
     "audienceTooltip":
     {
-      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID. This field is optional for certain applications.",
+      "content": "Audience is a unique string that identifies the Service Provider (BambooHR). Typically this is the BambooHR’s entity ID. This field is optional for certain applications.",
       "pad": ":::small"
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "This is the login URL of the Service Provider (BambooHR). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
       "pad": ":::small"
     },
     "acsTooltip":
     {
-      "content": "Sample provided is the URL format",
+      "content": "Locate this value in BambooHR Admin > Single Sign-On.",
       "pad": ":::small"
     },
     "assertionOffsetMinutesTooltip":
@@ -722,11 +715,6 @@
       "staticType": "color",
       "color": "disabled"
     },
-    "audienceTooltip":
-    {
-      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID. This field is optional for certain applications.",
-      "pad": ":::small"
-    },
     "encryptSamlAssertionCallout":
     {
       "after": "encryptSamlAssertionOptions",
@@ -782,13 +770,6 @@
         "actions": "download certificate",
         "sendToParent": true
       }
-    },
-    "initiationByTooltip":
-    {
-      "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
-      "inline": true,
-      "width": "medium",
-      "pad": ":::small"
     },
     "initiationTypeInfo":
     {
@@ -858,16 +839,6 @@
         "providersCalloutDescription"
       ]
     },
-    "recipientTooltip":
-    {
-      "content": "This field is typically the same as the consumer URL. It is optional for certain Service Providers.",
-      "pad": ":::small"
-    },
-    "relayStateTooltip":
-    {
-      "content": "This field is optional for certain applications.",
-      "pad": ":::small"
-    },
     "realmInfo":
     {
       "content:im": "**Realm:** Secureauth %{_.realmNumber}",
@@ -902,7 +873,13 @@
       [
         {
           "name": "static:label",
-          "content": "IdP Signing Certificate"
+          "content": "IdP Signing Certificate",
+          "inline": true,
+          "pad": ":small"
+        },
+        {
+          "name": "other:importance",
+          "inline": true
         },
         "signingCertName"
       ]
@@ -924,27 +901,6 @@
         "signingCertCopy"
       ],
       "stack@providersInfo": "medium"
-    },
-    "signSamlElementsCallout":
-    {
-      "after": "signingCertOptions",
-      "stack": "small",
-      "modify":
-      {
-        "signSamlElementsOff":
-        {
-          "visible": false
-        },
-        "signSamlElementsOn":
-        {
-          "visible": true
-        }
-      }
-    },
-    "spLoginUrlTooltip":
-    {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
-      "pad": ":::small"
     }
   },
   "layouts":
@@ -1105,6 +1061,26 @@
       }
     }
   },
+  "validation":
+  {
+    "requireSigningCert":
+    {
+      "constrain":
+      {
+        "signingCert": "is.required"
+      },
+      "nested":
+      {
+        "signingCert":
+        {
+          "constrain":
+          {
+            "value": "is.required"
+          }
+        }
+      }
+    }
+  },
   "groups":
   {
     "attributeItem":
@@ -1182,14 +1158,6 @@
     },
     "signSamlElements":
     {
-      "notify":
-      {
-        "signSamlElementsOff":
-        {
-          "value.signSamlAssertion": false,
-          "value.signSamlMessage": false
-        }
-      },
       "order":
       [
         "signSamlAssertion",
@@ -1220,7 +1188,9 @@
         "signingCertNameFieldset",
         "signingCertSerialNoFieldset",
         "signingAlgorithm"
-      ]
+      ],
+      "pad": "::small",
+      "validate": "requireSigningCert"
     },
     "templateRoot":
     {
@@ -1247,12 +1217,9 @@
         "spLoginUrl",
         "assertionWillBeValid",
         "assertionOffsetMinutes",
+        "signingCertOptions",
         "signSamlElements",
-        "encryptSamlAssertion",
-        "attributesHeader",
-        "noSAMLAttributes",
-        "attributeAddButton",
-        "attributeItem"
+        "encryptSamlAssertion"
       ],
       "order@details":
       [
