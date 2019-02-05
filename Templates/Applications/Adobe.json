@@ -77,6 +77,29 @@
         "value": "http://www.w3.org/2001/04/xmlenc#tripledes-cbc",
         "display": "XmlEncTripleDESUrl"
       }
+    ],
+    "attributeFormatsList":
+    [
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+        "display": "Basic"
+      },
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+        "display": "URI"
+      },
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+        "display": "Unspecified"
+      },
+      {
+        "value": "Base64Encoded",
+        "display": "Base64 Encoded"
+      },
+      {
+        "value": "GroupList",
+        "display": "Group List"
+      }
     ]
   },
   "applicationType": "SAML",
@@ -142,6 +165,7 @@
       "label": "Offset Minutes",
       "controlType": "input",
       "type": "number",
+      "defaultValue": 5,
       "extras":
       [
         {
@@ -192,6 +216,31 @@
       "inline": true,
       "stack": "small",
       "emptyValue": "0"
+    },
+    "attributeFormat":
+    {
+      "label": "Format",
+      "dataModelName": "format",
+      "controlType": "select",
+      "options:t": "$.vars.attributeFormatsList",
+      "modify:c":
+      {
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "enabled": true
+        }
+      }
+    },
+    "attributeFilterGroup":
+    {
+      "label": "Filtered Group",
+      "controlType": "input",
+      "visible": false,
+      "dataModelName": "filterGroup"
     },
     "attributeNumber":
     {
@@ -346,7 +395,7 @@
     {
       "label": "User ID Profile Field",
       "controlType": "select",
-      "fixedValue": "AuthenticatedUserId",
+      "defaultValue": "AuthenticatedUserId",
       "description": "Select the profile field in your data store that contains your users' IDs.",
       "width": 7,
       "emptyOption": "",
@@ -365,7 +414,7 @@
       [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Redirect"
         },
         {
           "value": "idp",
@@ -381,8 +430,9 @@
     "initiationBy":
     {
       "controlType": "radiogroup",
-      "defaultValue": "redirect",
+      "fixedValue": "redirect",
       "noFieldset": true,
+      "visible": false,
       "stack": "small",
       "properties":
       {
@@ -394,11 +444,13 @@
       [
         {
           "value": "redirect",
+          "visible": false,
           "display": "By Redirect"
         },
         {
           "value": "post",
           "display": "By Post",
+          "visible": false,
           "extras": "initiationByTooltip"
         }
       ],
@@ -418,7 +470,8 @@
     {
       "label": "Name ID Format",
       "controlType": "select",
-      "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+      "visible": false,
+      "fixedValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
       "width": 11,
       "options":
       [
@@ -431,23 +484,21 @@
         "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
       ]
     },
-
     "issuer":
     {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "http://echosign.com Or https://auth.adobe.com",
+      "hint": "http://echosign.com OR https://auth.adobe.com",
       "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
       "displayOnly@providersInfo": true,
       "stack@providersInfo": "medium",
       "noMargin@providersInfo": true
     },
-
     "assertionConsumerService":
     {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-      "hint": "https://adobesubdomain.echosign.com/public/samlConsume",
+      "hint": "https://<adobesubdomain.echosign.com>/public/samlConsume",
       "description": "This URL, provided by Adobe, is used to accept a SAML assertion",
       "extras": "acsTooltip",
       "extrasAt": "field"
@@ -458,16 +509,17 @@
       "controlType": "input",
       "description": "User will be directed to this URL after authentication",
       "extras": "relayStateTooltip",
+      "visible": false,
       "extrasAt": "field"
     },
-
     "recipient":
     {
       "label": "Recipient",
-      "visible": false,
       "controlType": "input",
       "extras": "recipientTooltip",
-      "extrasAt": "field"
+      "fixedValue:i": "%{_.assertionConsumerService}",
+      "extrasAt": "field",
+      "visible": false
     },
     "audience":
     {
@@ -479,9 +531,9 @@
     },
     "spLoginUrl":
     {
-      "label": "SP Login URL",
+      "label": "Adobe Login URL",
       "controlType": "input",
-      "hint": "https://adobesubdomain.echosign.com/public/samlLogin",
+      "hint": "https://<adobesubdomain.echosign.com>/public/samlLogin",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
       "modify":
@@ -543,13 +595,35 @@
     {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name"
+      "dataModelName": "name",
+      "modify:c":
+      {
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "enabled": true
+        }
+      }
     },
     "attributeNamespace":
     {
       "label": "Namespace (1.1)",
       "controlType": "input",
-      "dataModelName": "namespace"
+      "dataModelName": "namespace",
+      "modify:c":
+      {
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "enabled": true
+        }
+      }
     }
   },
   "statics":
@@ -578,12 +652,12 @@
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "The URL for your users to log into your Adobe instance.",
       "pad": ":::small"
     },
     "acsTooltip":
     {
-      "content": "Sample provided is the URL format",
+      "content": "Sample provided is the URL format.",
       "pad": ":::small"
     },
     "assertionOffsetMinutesTooltip":
@@ -619,13 +693,13 @@
       "icon": "add",
       "size": "medium"
     },
-    "attributeCallout":
-    {
-      "after":
-      [
+    "attributeCallout": {
+      "after": [
         "attributeInfo",
-        "attributeNamespace"
-      ],
+        "attributeNamespace",
+        "attributeFormat",
+        "attributeFilterGroup"
+        ],
       "stack": "::medium"
     },
     "attributeDeleteButton":
@@ -640,7 +714,7 @@
       },
       "type": "destructive",
       "dashed": true,
-      "modify":
+      "modify:c":
       {
         "attributeItemDisableDelete":
         {
@@ -649,6 +723,14 @@
         "attributeItemEnableDelete":
         {
           "disabled": false
+        },
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "visible": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "visible": true
         }
       }
     },
@@ -1087,7 +1169,29 @@
       "dataModelName": "attributes",
       "repeat":
       {
-        "max": 10
+        "min": 3,
+        "max": 10,
+        "match":
+        {
+          "email":
+          {
+            "name": "Email",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+            "namespace": "http://www.w3.org/2001/XMLSchema"
+          },
+          "firstName":
+          {
+            "name": "FirstName",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+            "namespace": "http://www.w3.org/2001/XMLSchema"
+          },
+          "lastName":
+          {
+            "name": "LastName",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+            "namespace": "http://www.w3.org/2001/XMLSchema"
+          }
+        }
       },
       "order": "attributeCallout"
     },
