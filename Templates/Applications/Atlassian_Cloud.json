@@ -141,6 +141,7 @@
       "label": "Offset Minutes",
       "controlType": "input",
       "type": "number",
+      "defaultValue": 5,
       "extras":
       [
         {
@@ -437,7 +438,7 @@
       "label": "IdP Issuer",
       "controlType": "input",
       "hint": "sample-issuer",
-      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
       "displayOnly@providersInfo": true,
       "stack@providersInfo": "medium",
       "noMargin@providersInfo": true
@@ -445,9 +446,9 @@
 
     "assertionConsumerService":
     {
-      "label": "Assertion Consumer Service (ACS)",
+      "label": "SP Assertion Consumer Service URL",
       "controlType": "input",
-      "hint": "https://auth.atlassian.com/login/callback?connection=xxxxxxxxxxxx",
+      "hint": "https://auth.atlassian.com/login/callback?connection=XXXXX",
       "description": "This URL, provided by Atlassian Cloud, is used to accept a SAML assertion",
       "extras": "acsTooltip",
       "extrasAt": "field"
@@ -473,17 +474,17 @@
     },
     "audience":
     {
-      "label": "Audience",
+      "label": "SP Entity ID",
       "controlType": "input",
-      "hint": "https://auth.atlassian.com/saml/xxxx",
+      "hint": "https://auth.atlassian.com/saml/XXXXX",
       "extras": "audienceTooltip",
       "extrasAt": "field"
     },
     "spLoginUrl":
     {
-      "label": "SP Login URL",
+      "label": "Atlassian Cloud Login URL",
       "controlType": "input",
-      "hint": "https://xxxxx.atalassian.net",
+      "hint": "https://XXXXX.atlassian.net",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
       "modify":
@@ -566,17 +567,17 @@
     },
     "audienceTooltip":
     {
-      "content": "Audience is a unique string that identifies the Service Provider (Atlassian Cloud). Typically this is the Atlassian Cloud’s entity ID. This field is optional for certain applications.",
+      "content": "Locate this value in the Atlassian Cloud Admin under SAML Configuration Settings.",
       "pad": ":::small"
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (Atlassian Cloud). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "The URL for your users to log into your Atlassian Cloud instance.",
       "pad": ":::small"
     },
     "acsTooltip":
     {
-      "content": "Locate this value in Atlassian Cloud Admin under SAML Configuration Settings.",
+      "content": "Locate this value in the Atlassian Cloud Admin under SAML Configuration Settings.",
       "pad": ":::small"
     },
     "assertionOffsetMinutesTooltip":
