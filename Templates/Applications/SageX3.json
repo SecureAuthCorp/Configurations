@@ -240,7 +240,15 @@
 		"attributeNamespace": {
 			"label": "Namespace (1.1)",
 			"controlType": "input",
-			"dataModelName": "namespace"
+			"dataModelName": "namespace",
+      "modify:c": {
+				"attributeItemMatch%{local.repeat.index}": {
+					"enabled": false
+				},
+				"attributeItemUnmatch%{local.repeat.index}": {
+					"enabled": true
+				}
+			}
 		},
 		"attributeNumber": {
 			"controlType": "input",
