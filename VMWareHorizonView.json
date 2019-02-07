@@ -416,7 +416,8 @@
         },
         "recipient": {
             "label": "Recipient",
-			"hint": "https://<FQDNVMWare/SAAS>/auth/samlresponse",
+			"fixedValue:i": "%{_.assertionConsumerService}",
+			"visible": false,
             "controlType": "input"
         },
         "relayState": {

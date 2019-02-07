@@ -163,7 +163,7 @@
     {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint":"https://<Mangoapps.domain,com>/saml/consume",	
+	  "hint":"https://<Mangoapps.domain.com>/saml/consume",	
       "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
     },
     "assertionOffsetMinutes":
@@ -271,7 +271,8 @@
     {
       "label": "Audience",
       "controlType": "input",
-	  "hint":"https://<Mangoapps.domain,com>/saml/consume",	
+	  "fixedValue:i": "%{_.assertionConsumerService}",
+	  "visible": false,	
       "extras": "audienceTooltip",
       "extrasAt": "field"
     },

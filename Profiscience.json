@@ -148,7 +148,7 @@
         },
         "assertionConsumerService": {
             "label": "Assertion Consumer Service (ACS)",
-			"hint": "https://<companyname.university.com>/UniversitySite<com- panyname>/saml/assertionconsumerservice.aspx",
+			"hint": "https://<companyname.university.com>/UniversitySite<com-panyname>/saml/assertionconsumerservice.aspx",
             "controlType": "input"
         },
         "assertionOffsetMinutes": {
@@ -256,7 +256,8 @@
         },
         "audience": {
             "label": "Audience",
-			"hint": "https://<companyname.university.com>/UniversitySite<com- panyname>",
+			"fixedValue:i": "%{_.spLoginUrl}",
+            "visible": false, 
             "controlType": "input"
         },
         "dataEncryptionMethod": {
@@ -287,6 +288,7 @@
         "encryptSamlAssertion": {
             "states": "Encrypt SAML Assertion",
             "controlType": "switch",
+			"visible": false,
             "defaultValue": true,
             "modify": {
                 "encryptSamlAssertionOff": {

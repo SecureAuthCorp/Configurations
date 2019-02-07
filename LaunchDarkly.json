@@ -256,7 +256,8 @@
         },
         "audience": {
             "label": "Audience",
-			"hint": "https://<domain.launchdarkly.com>/trust/saml2/acs/xxxxxxxxxxxx",
+			"fixedValue:i": "%{_.assertionConsumerService}",
+			"visible": false,
             "controlType": "input"
         },
         "dataEncryptionMethod": {

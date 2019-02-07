@@ -464,7 +464,8 @@
     {
       "label": "Recipient",
       "controlType": "input",
-	  "hint": "https://login.salesforce.com?ID=XXXXXXXXXXX",	
+	  "fixedValue:i": "%{_.assertionConsumerService}",
+	  "visible": false,
       "extras": "recipientTooltip",
       "extrasAt": "field"
     },
@@ -472,7 +473,8 @@
     {
       "label": "Relay State",
       "controlType": "input",
-	  "hint":  "https://saml.salesforce.com",
+	  "fixedValue:i": "%{_.audience}",
+	  "visible": false,	
       "description": "User will be directed to this URL after authentication",
       "extras": "relayStateTooltip",
       "extrasAt": "field"

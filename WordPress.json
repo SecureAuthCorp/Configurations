@@ -416,7 +416,8 @@
         },
         "recipient": {
             "label": "Recipient",
-			"hint": "https://<domainname.wordpress.com>/wp-content/plugins/miniorange-saml-20-single-sign-on/",
+			"fixedValue:i": "%{_.audience}",
+			"visible": false,
             "controlType": "input"
         },
         "relayState": {

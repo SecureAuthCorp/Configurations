@@ -273,7 +273,8 @@
     {
       "label": "Audience",
       "controlType": "input",
-	  "hint":"https://<Litmos.domain.com>/integration/splogin",	
+	  "fixedValue:i": "%{_.assertionConsumerService}",	
+	  "visible": false,
       "extras": "audienceTooltip",
       "extrasAt": "field"
     },
@@ -464,7 +465,8 @@
     {
       "label": "Recipient",
       "controlType": "input",
-	  "hint":"https://<Litmos.domain.com>/integration/splogin",		
+	  "fixedValue:i": "%{_.assertionConsumerService}",	
+	  "visible": false,
       "extras": "recipientTooltip",
       "extrasAt": "field"
     },
