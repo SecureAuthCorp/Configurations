@@ -164,6 +164,7 @@
       "label": "Offset Minutes",
       "controlType": "input",
       "type": "number",
+      "defaultValue": 5,
       "extras":
       [
         {
@@ -471,7 +472,7 @@
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
       "hint": "https://<jenkins.domain.com>/securityRealm/finishLogin",
-      "description": "This URL, provided by Jenkins, is used to accept a SAML assertion",
+      "description": "This URL, provided by Jenkins, is used to accept a SAML assertion.",
       "extras": "acsTooltip",
       "extrasAt": "field"
     },
@@ -488,7 +489,6 @@
     "recipient":
     {
       "label": "Recipient",
-      "hint": "",
       "controlType": "input",
       "extras": "recipientTooltip",
       "extrasAt": "field",
@@ -498,7 +498,7 @@
     {
       "label": "Audience",
       "controlType": "input",
-      "hint": "<https://jenkins.domain.com/>",
+      "hint": "https://<jenkins.domain.com/>",
       "description": "Value given by the Jenkins Metadata",
       "extras": "audienceTooltip",
       "extrasAt": "field"
@@ -507,7 +507,6 @@
     {
       "label": "Jenkins Login URL",
       "controlType": "input",
-      "hint": "",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
       "modify":
@@ -556,16 +555,24 @@
         "encryptSamlAssertionOn": true
       }
     },
-    "attributeName":
-    {
-      "label": "Attribute Name",
-      "controlType": "input",
-      "dataModelName": "name"
+    "attributeName": {
+            "label": "Attribute Name",
+            "controlType": "input",
+            "dataModelName": "name",
+            "modify:c": {
+                "attributeItemMatch%{local.repeat.index}": {
+                    "enabled": false
+                },
+                "attributeItemUnmatch%{local.repeat.index}": {
+                    "enabled": true
+                }
+            }
     },
     "attributeNamespace":
     {
       "label": "Namespace (1.1)",
       "controlType": "input",
+      "visible": false,
       "dataModelName": "namespace"
     },
     "attributeFormat":
@@ -608,17 +615,17 @@
     },
     "audienceTooltip":
     {
-      "content": "Audience is a unique string that identifies the Service Provider (Jenkins). Typically this is the Jenkins’s entity ID. This field is optional for certain applications.",
+      "content": "Locate this value in the Jenkins metadata.",
       "pad": ":::small"
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (Jenkins). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "The URL for your users to log into your Jenkins instance.",
       "pad": ":::small"
     },
     "acsTooltip":
     {
-      "content": "Locate this value in Jenkins Administration Console > Manage Jenkins > Configure Global Security.",
+      "content": "Locate this value in the Jenkins Administration Console > Manage Jenkins > Configure Global Security.",
       "pad": ":::small"
     },
     "assertionOffsetMinutesTooltip":
@@ -1150,7 +1157,7 @@
           "Groups":
           {
             "name": "Groups",
-            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+            "format": "GroupList"
           }
         }
       },
