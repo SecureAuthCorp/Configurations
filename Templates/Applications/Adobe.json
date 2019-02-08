@@ -164,6 +164,7 @@
       "label": "Offset Minutes",
       "controlType": "input",
       "type": "number",
+      "defaultValue": 5,
       "extras":
       [
         {
@@ -214,6 +215,31 @@
       "inline": true,
       "stack": "small",
       "emptyValue": "0"
+    },
+    "attributeFormat":
+    {
+      "label": "Format",
+      "dataModelName": "format",
+      "controlType": "select",
+      "options:t": "$.vars.attributeFormatsList",
+      "modify:c":
+      {
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "enabled": true
+        }
+      }
+    },
+    "attributeFilterGroup":
+    {
+      "label": "Filtered Group",
+      "controlType": "input",
+      "visible": false,
+      "dataModelName": "filterGroup"
     },
     "attributeNumber":
     {
@@ -402,8 +428,9 @@
     "initiationBy":
     {
       "controlType": "radiogroup",
-      "defaultValue": "redirect",
+      "fixedValue": "redirect",
       "noFieldset": true,
+      "visible": false,
       "stack": "small",
       "properties":
       {
@@ -415,8 +442,8 @@
       [
         {
           "value": "redirect",
-          "display": "By Redirect",
-          "visible": false
+          "visible": false,
+          "display": "By Redirect"
         },
         {
           "value": "post",
@@ -442,7 +469,7 @@
       "label": "Name ID Format",
       "controlType": "select",
       "visible": false,
-      "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+      "fixedValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
       "width": 11,
       "options":
       [
@@ -459,18 +486,17 @@
     {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "sample-issuer",
-      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.This value must matches up on the Adobe end.",
+      "hint": "http://echosign.com OR https://auth.adobe.com",
+      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
       "displayOnly@providersInfo": true,
       "stack@providersInfo": "medium",
       "noMargin@providersInfo": true
     },
-
     "assertionConsumerService":
     {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-      "hint": "https://adobesubdomain.echosign.com/public/samlConsume",
+      "hint": "https://<adobesubdomain.echosign.com>/public/samlConsume",
       "description": "This URL, provided by Adobe, is used to accept a SAML assertion",
       "extras": "acsTooltip",
       "extrasAt": "field"
@@ -484,14 +510,15 @@
       "extrasAt": "field",
       "visible": false
     },
-
     "recipient":
     {
       "label": "Recipient",
       "hint": "https://adobesubdomain.echosign.com/public/samlConsume",
       "controlType": "input",
       "extras": "recipientTooltip",
-      "extrasAt": "field"
+      "fixedValue:i": "%{_.assertionConsumerService}",
+      "extrasAt": "field",
+      "visible": false
     },
     "audience":
     {
@@ -503,9 +530,9 @@
     },
     "spLoginUrl":
     {
-      "label": "SP Login URL",
+      "label": "Adobe Login URL",
       "controlType": "input",
-      "hint": "https://adobesubdomain.echosign.com/public/samlConsume",
+      "hint": "https://<adobesubdomain.echosign.com>/public/samlLogin",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
       "modify":
@@ -558,7 +585,18 @@
     {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name"
+      "dataModelName": "name",
+      "modify:c":
+      {
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "enabled": true
+        }
+      }
     },
     "attributeNamespace":
     {
@@ -611,7 +649,7 @@
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (Adobe). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "The URL for your users to log into your Adobe instance.",
       "pad": ":::small"
     },
     "acsTooltip":
@@ -652,14 +690,13 @@
       "icon": "add",
       "size": "medium"
     },
-    "attributeCallout":
-    {
-      "after":
-      [
+    "attributeCallout": {
+      "after": [
         "attributeInfo",
         "attributeNamespace",
-        "attributeFormat"
-      ],
+        "attributeFormat",
+        "attributeFilterGroup"
+        ],
       "stack": "::medium"
     },
     "attributeDeleteButton":
@@ -674,7 +711,7 @@
       },
       "type": "destructive",
       "dashed": true,
-      "modify":
+      "modify:c":
       {
         "attributeItemDisableDelete":
         {
@@ -683,6 +720,14 @@
         "attributeItemEnableDelete":
         {
           "disabled": false
+        },
+        "attributeItemMatch%{local.repeat.index}":
+        {
+          "visible": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}":
+        {
+          "visible": true
         }
       }
     },
@@ -1132,22 +1177,22 @@
       "repeat":
       {
         "min": 3,
-        "max": 10,    
+        "max": 10,
         "match":
         {
-          "Email":
+          "email":
           {
-            "name": "IDPEmail",
+            "name": "Email",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
             "namespace": "http://www.w3.org/2001/XMLSchema"
           },
-          "FirstName":
+          "firstName":
           {
             "name": "FirstName",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
             "namespace": "http://www.w3.org/2001/XMLSchema"
           },
-          "LastName":
+          "lastName":
           {
             "name": "LastName",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
