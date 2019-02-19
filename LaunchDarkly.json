@@ -99,7 +99,7 @@
     ]
     },
     "applicationType": "SAML",
-    "templateName": "SAML",
+    "templateName": "LaunchDarkly",
     "entries": {
         "allowAllGroups": {
             "states": "Allow every group in your selected data stores to access this application.",
@@ -280,11 +280,18 @@
             "stack": "medium",
             "width": 6,
             "source": "data:dataStores:dataStoreInputList",
-            "validate": "is.required"
+            "validate": "is.required and is.notEmpty"
         },
         "dataStores@summary": {
             "extras": null
         },
+		
+		"encodeToBase64": {
+		  "controlType": "switch",
+		  "states": "Encode to Base64",
+		  "defaultValue": false,
+		  "visible": false
+		},
         "encryptSamlAssertion": {
             "states": "Encrypt SAML Assertion",
 			"visible": false,
@@ -310,7 +317,7 @@
             "description@summary": null,
             "delimiter": "  ",
             "width": 6,
-            "validate": "allowAllGroups:false and is.required or allowAllGroups:true",
+            "validate": "allowAllGroups:false and is.required and is.notEmpty or allowAllGroups:true",
             "modify": {
                 "allGroupsAllowed": {
                     "enabled": false,
@@ -468,7 +475,7 @@
             "defaultValue": true
         },
         "spLoginUrl": {
-            "label": "<App Name> Login URL",
+            "label": "LaunchDarkly Login URL",
             "controlType": "input",
             "extras": "spLoginUrlTooltip",
             "extrasAt": "field",
@@ -488,7 +495,7 @@
             "width": 7,
             "emptyOption": "",
             "source": "options:dataStoreProperties:dataStoreOptions",
-            "defaultValue": "Email1"
+            "defaultValue": "AuthenticatedUserId "
         }
     },
     "statics": {
@@ -780,7 +787,7 @@
             "stack@providersInfo": "medium"
         },
         "spLoginUrlTooltip": {
-            "content": "The URL for your users to log into your <APP NAME> instance.",
+            "content": "The URL for your users to log into your LaunchDarkly instance.",
             "pad": ":::small"
         }
     },
@@ -914,7 +921,7 @@
             "nested": {
                 "signingCert": {
                     "constrain": {
-                        "value": "is.required"
+                        "serialNo": "is.required"
                     }
                 }
             }
@@ -1025,6 +1032,7 @@
                 },
                 "userIdProfileField",
                 "nameIdFormat",
+				"encodeToBase64",
                 {
                     "name": "defaultHeader",
                     "content": "SAML ASSERTION"

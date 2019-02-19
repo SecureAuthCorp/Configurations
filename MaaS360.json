@@ -102,7 +102,7 @@
     ]
   },
   "applicationType": "SAML",
-  "templateName": "SAML",
+  "templateName": "MaaS360",
   "entries":
   {
     "allowAllGroups":
@@ -170,6 +170,7 @@
     {
       "label": "Offset Minutes",
       "controlType": "input",
+	  "defaultValue": 5,
       "type": "number",
       "extras":
       [
@@ -240,11 +241,24 @@
         }
       }
     },
+    "attributeFilterGroup": {
+      "label": "Filtered Group",
+      "controlType": "input",
+      "dataModelName": "filterGroup"
+    },
     "attributeName":
     {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name"
+      "dataModelName": "name",
+      "modify:c": {
+        "attributeItemMatch%{local.repeat.index}": {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}": {
+          "enabled": true
+        }
+      }
     },
     "attributeNamespace":
     {
@@ -271,7 +285,8 @@
     {
       "label": "Audience",
       "controlType": "input",
-	  "hint": "https://sso.connect.pingidentity.com",
+	  "fixedValue": "https://sso.connect.pingidentity.com",
+	  "visible": false,
       "extras": "audienceTooltip",
       "extrasAt": "field"
     },
@@ -298,11 +313,17 @@
       "stack": "medium",
       "width": 6,
       "source": "data:dataStores:dataStoreInputList",
-      "validate": "is.required"
+      "validate": "is.required and is.notEmpty"
     },
     "dataStores@summary":
     {
       "extras": null
+    },
+	"encodeToBase64": {
+      "controlType": "switch",
+      "states": "Encode to Base64",
+      "defaultValue": false,
+      "visible": false
     },
     "encryptSamlAssertion":
     {
@@ -335,7 +356,7 @@
       "description@summary": null,
       "delimiter": "  ",
       "width": 6,
-      "validate": "allowAllGroups:false and is.required or allowAllGroups:true",
+      "validate": "allowAllGroups:false and is.required and is.notEmpty or allowAllGroups:true",
       "modify":
       {
         "allGroupsAllowed":
@@ -535,7 +556,7 @@
     },
     "spLoginUrl":
     {
-      "label": "<App Name> Login URL",
+      "label": "MaaS360 Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
 	  "hint": "https://m3.maas360.com/login?custID=###",
@@ -560,7 +581,7 @@
       "width": 7,
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "Email1"
+      "defaultValue": "AuthenticatedUserId"
     }
   },
   "statics":
@@ -604,7 +625,8 @@
       [
         "attributeInfo",
         "attributeNamespace",
-        "attributeFormat"
+        "attributeFormat",
+        "attributeFilterGroup"
       ],
       "stack": "::medium"
     },
@@ -629,6 +651,12 @@
         "attributeItemEnableDelete":
         {
           "disabled": false
+        },
+        "attributeItemMatch%{local.repeat.index}": {
+          "visible": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}": {
+          "visible": true
         }
       }
     },
@@ -914,7 +942,7 @@
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "The URL for your users to log into your MaaS360 instance.",
       "pad": ":::small"
     }
   },
@@ -1090,7 +1118,7 @@
         {
           "constrain":
           {
-            "value": "is.required"
+            "serialNo": "is.required"
           }
         }
       }
@@ -1234,6 +1262,7 @@
         },
         "userIdProfileField",
         "nameIdFormat",
+		"encodeToBase64",
         {
           "name": "defaultHeader",
           "content": "SAML ASSERTION"

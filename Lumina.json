@@ -104,7 +104,7 @@
     ]
   },
   "applicationType": "WSFED",
-  "templateName": "WSFED",
+  "templateName": "Lumina",
   "entries":
   {
     "allowAllGroups":
@@ -173,6 +173,7 @@
       "label": "Offset Minutes",
       "controlType": "input",
       "type": "number",
+	  "defaultValue": 5,
       "extras":
       [
         {
@@ -232,7 +233,15 @@
     {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name"
+      "dataModelName": "name",
+      "modify:c": {
+        "attributeItemMatch%{local.repeat.index}": {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}": {
+          "enabled": true
+        }
+      }
     },
     "attributeNamespace":
     {
@@ -285,11 +294,17 @@
       "stack": "medium",
       "width": 6,
       "source": "data:dataStores:dataStoreInputList",
-      "validate": "is.required"
+      "validate": "is.required and is.notEmpty"
     },
     "dataStores@summary":
     {
       "extras": null
+    },
+	"encodeToBase64": {
+      "controlType": "switch",
+      "states": "Encode to Base64",
+      "defaultValue": false,
+      "visible": false
     },
     "encodeToBase64": {
       "controlType": "switch",
@@ -328,7 +343,7 @@
       "description@summary": null,
       "delimiter": "  ",
       "width": 6,
-      "validate": "allowAllGroups:false and is.required or allowAllGroups:true",
+      "validate": "allowAllGroups:false and is.required and is.notEmpty or allowAllGroups:true",
       "modify":
       {
         "allGroupsAllowed":
@@ -1110,7 +1125,7 @@
         {
           "constrain":
           {
-            "value": "is.required"
+            "serialNo": "is.required"
           }
         }
       }

@@ -102,7 +102,7 @@
     ]
   },
   "applicationType": "SAML",
-  "templateName": "SAML",
+  "templateName": "SuccessFactors",
   "entries":
   {
     "allowAllGroups":
@@ -163,7 +163,7 @@
     {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint": " https://<performancemanager4.successfactors.com>/xi/ui/pages/home/home/xhtml",
+	  "hint": "https://<performancemanager4.successfactors.com>/xi/ui/pages/home/home/xhtml",
       "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
     },
     "assertionOffsetMinutes":
@@ -171,6 +171,7 @@
       "label": "Offset Minutes",
       "controlType": "input",
       "type": "number",
+	  "defaultValue": 5,
       "extras":
       [
         {
@@ -240,11 +241,24 @@
         }
       }
     },
+	"attributeFilterGroup": {
+      "label": "Filtered Group",
+      "controlType": "input",
+      "dataModelName": "filterGroup"
+    },
     "attributeName":
     {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name"
+      "dataModelName": "name",
+      "modify:c": {
+        "attributeItemMatch%{local.repeat.index}": {
+          "enabled": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}": {
+          "enabled": true
+        }
+      }
     },
     "attributeNamespace":
     {
@@ -299,11 +313,17 @@
       "stack": "medium",
       "width": 6,
       "source": "data:dataStores:dataStoreInputList",
-      "validate": "is.required"
+      "validate": "is.required and is.notEmpty"
     },
     "dataStores@summary":
     {
       "extras": null
+    },
+	  "encodeToBase64": {
+      "controlType": "switch",
+      "states": "Encode to Base64",
+      "defaultValue": false,
+      "visible": false
     },
     "encryptSamlAssertion":
     {
@@ -336,7 +356,7 @@
       "description@summary": null,
       "delimiter": "  ",
       "width": 6,
-      "validate": "allowAllGroups:false and is.required or allowAllGroups:true",
+      "validate": "allowAllGroups:false and is.required and is.notEmpty or allowAllGroups:true",
       "modify":
       {
         "allGroupsAllowed":
@@ -536,7 +556,7 @@
     },
     "spLoginUrl":
     {
-      "label": "<App Name> Login URL",
+      "label": "SuccessFactors Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
 	  "hint": "https://<service.sumologic.com>/sumo/saml/login/",
@@ -561,7 +581,7 @@
       "width": 7,
       "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "Email1"
+      "defaultValue": "AuthenticatedUserId"
     }
   },
   "statics":
@@ -605,7 +625,8 @@
       [
         "attributeInfo",
         "attributeNamespace",
-        "attributeFormat"
+        "attributeFormat",
+		"attributeFilterGroup"
       ],
       "stack": "::medium"
     },
@@ -630,6 +651,12 @@
         "attributeItemEnableDelete":
         {
           "disabled": false
+        },
+        "attributeItemMatch%{local.repeat.index}": {
+          "visible": false
+        },
+        "attributeItemUnmatch%{local.repeat.index}": {
+          "visible": true
         }
       }
     },
@@ -915,7 +942,7 @@
     },
     "spLoginUrlTooltip":
     {
-      "content": "This is the login URL of the Service Provider (SP). Typically, this is the same address the RelayState or Assertion Consumer Service (ACS) URL.",
+      "content": "The URL for your users to log into your SuccessFactors instance.",
       "pad": ":::small"
     }
   },
@@ -1091,7 +1118,7 @@
         {
           "constrain":
           {
-            "value": "is.required"
+            "serialNo": "is.required"
           }
         }
       }
@@ -1235,6 +1262,7 @@
         },
         "userIdProfileField",
         "nameIdFormat",
+		"encodeToBase64",
         {
           "name": "defaultHeader",
           "content": "SAML ASSERTION"
