@@ -1,5 +1,5 @@
 {
-  "id": "Bpm'online",
+  "id": "Bpmonline",
   "title": "Bpm'online",
   "version": "1.0.0",
   "_devonly_": true,
@@ -103,7 +103,7 @@
     ]
   },
   "applicationType": "SAML",
-  "templateName": "Bpm'online",
+  "templateName": "Bpmonline",
   "entries":
   {
     "allowAllGroups":
@@ -730,7 +730,7 @@
     },
     "audienceTooltip":
     {
-      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID.",
+      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the Bpm'online's entity ID.",
       "pad": ":::small"
     },
     "encryptSamlAssertionCallout":
@@ -1129,7 +1129,7 @@
       "dataModelName": "attributes",
       "repeat":
       {
-        "min": 3,
+        "min": 1,
         "max": 10,
 		"match":
         {
@@ -1137,18 +1137,8 @@
           {
             "name": "emailAddress",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
-          },
-"FirstName":
-{
-"name": "FirstName",
-        "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-        },
-		
-"LastName":
-{
-"name": "LastName",
-         "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-        }
+          }
+
 }  
 		  },
       "order": "attributeCallout"
