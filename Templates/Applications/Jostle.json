@@ -149,7 +149,7 @@
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint": "https://<company Domain>.jostle.us/jostle-prod"
+	  "hint": "https://<Company Domain>.jostle.us/jostle-prod"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -254,7 +254,8 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input"
+      "controlType": "input",
+      "visible" : false
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -334,7 +335,7 @@
     "issuer": {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "sample-issuer",
+      "visible": false,
       "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
       "description@providersInfo": null,
       "displayOnly@providersInfo": true,
@@ -354,7 +355,8 @@
         },
         {
           "value": "idp",
-          "display": "IdP Initiated"
+          "display": "IdP Initiated",
+	  "visible : false
         }
       ],
       "notify": {
@@ -380,7 +382,8 @@
         {
           "value": "post",
           "display": "By Post",
-          "extras": "initiationByTooltip"
+          "extras": "initiationByTooltip",
+	 "visible" : false
         }
       ],
       "modify": {
@@ -785,7 +788,7 @@
       "stack@providersInfo": "medium"
     },
     "spLoginUrlTooltip": {
-      "content": "The URL for your users to log into your Peakon instance.",
+      "content": "The URL for your users to log into your Jostle instance.",
       "pad": ":::small"
     }
   },
