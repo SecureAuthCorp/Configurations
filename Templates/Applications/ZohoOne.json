@@ -254,7 +254,8 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input"
+      "controlType": "input",
+      "visible" : false
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -334,7 +335,7 @@
     "issuer": {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "sample-issuer",
+      "visible": false,
       "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
       "description@providersInfo": null,
       "displayOnly@providersInfo": true,
@@ -354,7 +355,8 @@
         },
         {
           "value": "idp",
-          "display": "IdP Initiated"
+          "display": "IdP Initiated",
+	  "visible" : false
         }
       ],
       "notify": {
@@ -380,7 +382,8 @@
         {
           "value": "post",
           "display": "By Post",
-          "extras": "initiationByTooltip"
+          "extras": "initiationByTooltip",
+	  "visible" : false
         }
       ],
       "modify": {
@@ -417,11 +420,13 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input"
+      "controlType": "input",
+      "visible" : false
     },
     "relayState": {
       "label": "Relay State",
       "controlType": "input"
+      "visible" : false
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -472,13 +477,13 @@
       "label": "Zoho One Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
-      "extrasAt": "field",
+      "extrasAt": "field"
       "modify": {
         "initiationTypeSP": {
-          "visible": false
+          "visible": true
         },
         "initiationTypeIdP": {
-          "visible": true
+          "visible": false
         }
       }
     },
