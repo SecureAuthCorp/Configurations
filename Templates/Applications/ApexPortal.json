@@ -166,7 +166,8 @@
       "controlType": "input",
 
 	  "hint": "https://customer name.apexanalytix.com/saml/sso.aspx",
-	  "description": "Note: These values are not real. Update these values with the actual Identifier and Reply URL. Contact Apex Portal Client support team to get these values."
+	  "extras": "Contact Apex Portal Client support team to get these values.",
+	    "extrasAt": "field"
 
 
     },
@@ -289,7 +290,7 @@
       "label": "Audience",
       "controlType": "input",
 	  "hint": "https://customer name.apexanalytix.com/saml/sso.aspx",
-      "extras": "audienceTooltip",
+      "extras": "Contact Apex Portal Client support team to get these values.",
       "extrasAt": "field"
     },
     "dataEncryptionMethod": {
@@ -489,7 +490,9 @@
     "recipient": {
 
       "label": "Recipient",
-      "controlType": "input"
+      "controlType": "input",
+	    "visible": false
+	    
 
 
 
@@ -568,11 +571,11 @@
       "modify": {
 
         "initiationTypeSP": {
-          "visible": false
+          "visible": true
         },
         "initiationTypeIdP": {
 
-          "visible": true
+          "visible": false
 
 
 
