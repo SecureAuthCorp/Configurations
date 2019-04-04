@@ -553,7 +553,7 @@
     },
     "spLoginUrl":
     {
-      "label": "pluralsight Login URL",
+      "label": "Pluralsight Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
 	  "hint": "https://<instancename>.pluralsight.com/sso/<companyname>/",
@@ -730,7 +730,7 @@
     },
     "audienceTooltip":
     {
-      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID.",
+      "content": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the Pluralsight’s entity ID.",
       "pad": ":::small"
     },
     "encryptSamlAssertionCallout":
@@ -1129,29 +1129,9 @@
       "dataModelName": "attributes",
       "repeat":
       {
-        "min": 3,
-        "max": 10,
-		"match":
-        {
-          "emailAddress":
-          {
-            "name": "emailAddress",
-            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
-          },
-"FirstName":
-{
-"name": "FirstName",
-        "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-        },
-		
-"LastName":
-{
-"name": "LastName",
-         "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-        }
-}  
-		  },
-      "order": "attributeCallout"
+        "min": 0,
+        "max": 10
+		}
     },
     "encryptSamlAssertionOptions":
     {
@@ -1280,11 +1260,7 @@
         "assertionOffsetMinutes",
 		"signingCertOptions",
         "signSamlElements",
-        "encryptSamlAssertion",
-		"attributesHeader",
-		"noSAMLAttributes",
-		"attributeAddButton",
-		"attributeItem"
+        "encryptSamlAssertion"
 	  
 	  
       ],
