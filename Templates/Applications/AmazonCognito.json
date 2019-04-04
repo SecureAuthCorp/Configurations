@@ -257,9 +257,8 @@
     "audience": {
       "label": "Audience",
       "controlType": "input",
-		"hint": "urn:amazon:cognito:sp:<yourUserPoolID>",
-		"extras": "AudienceTooltip",
-		"extrasAt": "field"
+	    "fixedValue:i": "%{_.assertionConsumerService}",
+	    "visible": false
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -347,7 +346,7 @@
       "noMargin@providersInfo": true
     },
     "initiationType": {
-      "label": "Connection Type",
+      "label": "SP Initiated by Redirect",
       "controlType": "select",
       "fixedValue": "sp",
 		"display": "SP Initiated by Redirect",
@@ -742,10 +741,6 @@
       "content": "To configure third-party SAML 2.0 identity provider solutions to work with federation for Amazon Cognito User Pools, you must enter a redirect or sign-in URL. You can find your domain prefix and the region value for your user pool on the Domain name console page of the Amazon Cognito console",
       "pad": ":::small"
     },
-	"AudienceTooltip": {
-      "content": "You can find your user pool ID on the App client settings tab in the Amazon Cognito console.",
-      "pad": ":::small"
-    },
 	"ACSTooltip": {
       "content": "You can find your user pool ID on the App client settings tab in the Amazon Cognito console.",
       "pad": ":::small"
@@ -804,7 +799,7 @@
       "stack@providersInfo": "medium"
     },
     "spLoginUrlTooltip": {
-      "content": "The URL for your users to log into your <APP NAME> instance.",
+      "content": "The URL for your users to log into your Amazon Cognito instance.",
       "pad": ":::small"
     }
   },
