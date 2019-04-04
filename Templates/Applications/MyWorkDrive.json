@@ -255,7 +255,8 @@
     "audience": {
       "label": "Audience",
       "controlType": "input",
-	  "hint": "https://MyWorkDrive.com"
+       "fixedValue": "https://MyWorkDrive.com",
+	"visible": false
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -351,11 +352,13 @@
       "options": [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated",
+	  "visible" : true
         },
         {
           "value": "idp",
-          "display": "IdP Initiated"
+          "display": "IdP Initiated",
+	 "visible" : false
         }
       ],
       "notify": {
@@ -376,12 +379,14 @@
       "options": [
         {
           "value": "redirect",
-          "display": "By Redirect"
+          "display": "By Redirect",
+	 "enabled" : false
         },
         {
           "value": "post",
           "display": "By Post",
-          "extras": "initiationByTooltip"
+          "extras": "initiationByTooltip",
+	  "enabled" : false
         }
       ],
       "modify": {
@@ -405,6 +410,7 @@
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
+      "visible" : false
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
         "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
