@@ -377,13 +377,14 @@
       "options": [
         {
           "value": "redirect",
-          "display": "By Redirect"
+          "display": "By Redirect",
+          "visible" : false
         },
         {
           "value": "post",
           "display": "By Post",
           "extras": "initiationByTooltip",
-	  "visible" : false
+	  "enabled" : false
         }
       ],
       "modify": {
@@ -425,7 +426,7 @@
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input"
+      "controlType": "input",
       "visible" : false
     },
     "signingAlgorithm": {
@@ -476,11 +477,12 @@
     "spLoginUrl": {
       "label": "Zoho One Login URL",
       "controlType": "input",
+      "visible" : false,
       "extras": "spLoginUrlTooltip",
-      "extrasAt": "field"
+      "extrasAt": "field",
+      "visible" : false,
       "modify": {
         "initiationTypeSP": {
-          "visible": true
         },
         "initiationTypeIdP": {
           "visible": false
@@ -788,7 +790,7 @@
       "stack@providersInfo": "medium"
     },
     "spLoginUrlTooltip": {
-      "content": "The URL for your users to log into your <APP NAME> instance.",
+      "content": "The URL for your users to log into your ZohoOne instance.",
       "pad": ":::small"
     }
   },
