@@ -1129,9 +1129,29 @@
       "dataModelName": "attributes",
       "repeat":
       {
-        "min": 0,
-        "max": 10
-		}
+        "min": 3,
+        "max": 10,
+		"match":
+        {
+          "emailAddress":
+          {
+            "name": "emailAddress",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+          },
+"FirstName":
+{
+"name": "FirstName",
+        "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+        },
+		
+"LastName":
+{
+"name": "LastName",
+         "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+        }
+}  
+		  },
+      "order": "attributeCallout"
     },
     "encryptSamlAssertionOptions":
     {
@@ -1260,7 +1280,11 @@
         "assertionOffsetMinutes",
 		"signingCertOptions",
         "signSamlElements",
-        "encryptSamlAssertion"
+        "encryptSamlAssertion",
+		"attributesHeader",
+		"noSAMLAttributes",
+		"attributeAddButton",
+		"attributeItem"
 	  
 	  
       ],
