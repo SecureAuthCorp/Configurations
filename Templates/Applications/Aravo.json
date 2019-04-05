@@ -208,7 +208,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
+	  "options:t": "$.vars.attributeFormatsList",
       "modify:c": {
         "attributeItemMatch%{local.repeat.index}": {
           "enabled": false
@@ -257,9 +257,8 @@
     "audience": {
       "label": "Audience",
       "controlType": "input",
-		"hint": "https://<companyname>.aravo.com/aems/login.do",
-		"extras": "AudienceTooltip",
-		"extrasAt": "field"
+	    "fixedValue:i": "%{_.assertionConsumerService}",
+	    "visible": false
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -429,9 +428,8 @@
     "relayState": {
       "label": "Relay State",
       "controlType": "input",
-		"hint": "https://<companyname>.aravo.com/aems/login.do",
-		"extras": "relayStateTooltip",
-		"extrasAt": "field"
+	    "fixedValue:i": "%{_.assertionConsumerService}",
+	    "visible": false
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -1061,12 +1059,8 @@
         "assertionOffsetMinutes",
         "signingCertOptions",
         "signSamlElements",
-        "encryptSamlAssertion",
-        "attributesHeader",
-        "noSAMLAttributes",
-        "attributeAddButton",
-        "attributeItem"
-      ],
+        "encryptSamlAssertion"
+        ],
       "order@details": [
         "applicationInputs",
         "dataStores",
