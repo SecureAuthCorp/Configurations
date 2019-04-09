@@ -351,12 +351,11 @@
       "options": [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Redirect"
         },
         {
           "value": "idp",
-          "display": "IdP Initiated",
-	  "visible" : false
+          "display": "IdP Initiated"
         }
       ],
       "notify": {
@@ -366,7 +365,7 @@
     },
     "initiationBy": {
       "controlType": "radiogroup",
-      "defaultValue": "redirect",
+      "fixedValue": "redirect",
       "noFieldset": true,
       "stack": "small",
       "properties": {
@@ -377,14 +376,13 @@
       "options": [
         {
           "value": "redirect",
-          "display": "By Redirect",
-          "visible" : false
+          "display": "By Redirect"
         },
         {
           "value": "post",
           "display": "By Post",
-          "extras": "initiationByTooltip",
-	  "enabled" : false
+	 "visible" : false,
+          "extras": "initiationByTooltip"
         }
       ],
       "modify": {
@@ -477,12 +475,11 @@
     "spLoginUrl": {
       "label": "Zoho One Login URL",
       "controlType": "input",
-      "visible" : false,
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
-      "visible" : false,
       "modify": {
         "initiationTypeSP": {
+	  "visible" : true
         },
         "initiationTypeIdP": {
           "visible": false
