@@ -345,18 +345,18 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "defaultValue": "sp",
+      "fixedValue": "sp",
+      "enabled" : false,
       "width": 7,
       "noMargin": true,
       "options": [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Redirect"
         },
         {
           "value": "idp",
-          "display": "IdP Initiated",
-	  "visible : false
+          "display": "IdP Initiated"
         }
       ],
       "notify": {
@@ -366,7 +366,7 @@
     },
     "initiationBy": {
       "controlType": "radiogroup",
-      "defaultValue": "redirect",
+      "fixedValue": "redirect",
       "noFieldset": true,
       "stack": "small",
       "properties": {
@@ -377,7 +377,8 @@
       "options": [
         {
           "value": "redirect",
-          "display": "By Redirect"
+          "display": "By Redirect",
+	 "visible" : false
         },
         {
           "value": "post",
