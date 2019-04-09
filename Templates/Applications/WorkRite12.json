@@ -163,7 +163,7 @@
     {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint": "https://app.workrite.co.uk/securelogin/samlgateway.aspx?id",
+	  "hint": "https://app.workrite.co.uk/securelogin/samlgateway.aspx?xxxx",
       "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
     },
     "assertionOffsetMinutes":
@@ -284,7 +284,8 @@
     {
       "label": "Audience",
       "controlType": "input",
-	  "hint": "https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=xxxx",
+	  "fixedValue:i":"%{_.assertionConsumerService}",
+    "visible": false",
       "extras": "audienceTooltip",
       "extrasAt": "field"
     },
@@ -555,7 +556,8 @@
       "label": "WorkRite Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
-	  "hint": "https://app.workrite.co.uk/securelogin/samlgateway.aspx?id",
+	  "fixedValue:i": "%{_.assertionConsumerService}",
+    "visible": false,
       "extrasAt": "field",
       "modify":
       {
@@ -1142,7 +1144,7 @@
 "name": "UserName",
         "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
         }
-		
+
 }  
 		  },
       "order": "attributeCallout"
@@ -1279,8 +1281,8 @@
 		"noSAMLAttributes",
 		"attributeAddButton",
 		"attributeItem"
-	  
-	  
+
+
       ],
       "order@details":
       [
