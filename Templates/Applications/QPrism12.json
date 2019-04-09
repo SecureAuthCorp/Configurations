@@ -163,7 +163,7 @@
     {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint": "https://<xxxx>.qmyzone.com/login",
+	  "hint": "https://<Company Domain>.qmyzone.com/login",
       "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
     },
     "assertionOffsetMinutes":
@@ -284,7 +284,7 @@
     {
       "label": "Audience",
       "controlType": "input",
-	  "hint": "https://<customer domain>.qmyzone.com/login",
+	  "hint": "https://<Company Domain>.qmyzone.com/login",
       "extras": "audienceTooltip",
       "extrasAt": "field"
     },
@@ -383,7 +383,8 @@
     {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "https://qmyzone.com/login",
+      "fixedValue": "https://qmyzone.com/login",
+	  "visible": false,
       "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
       "description@providersInfo": null,
       "displayOnly@providersInfo": true,
@@ -552,10 +553,10 @@
     },
     "spLoginUrl":
     {
-      "label": "QPrime Login URL",
+      "label": "QPrism Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
-	  "hint": "https://xxxx.qmyzone.com/login/securelogin/samlgateway.aspx?id",
+	  "hint": "https://<Company Domain>.qmyzone.com/login/securelogin/samlgateway.aspx?xxx",
       "extrasAt": "field",
       "modify":
       {
@@ -938,7 +939,7 @@
     },
     "spLoginUrlTooltip":
     {
-      "content": "The URL for your users to log into your Jitbit instance.",
+      "content": "The URL for your users to log into your QPrism instance.",
       "pad": ":::small"
     }
   },
@@ -1128,7 +1129,7 @@
       "dataModelName": "attributes",
       "repeat":
       {
-        "min": 3,
+        "min": 2,
         "max": 10,
 		"match":
         {
