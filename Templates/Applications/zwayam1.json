@@ -164,7 +164,8 @@
     {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint": "https://sso.zwayam.com/zwayam-saml/saml/metadata",
+	  "fixedValue": "https://sso.zwayam.com/zwayam-saml/saml/metadata",
+	  "visible": false,
       "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
     },
     "assertionOffsetMinutes":
@@ -285,7 +286,7 @@
     {
       "label": "Audience",
       "controlType": "input",
-	  "hint": "https://sso.zwayam.com/zwayam-saml/zwayam-saml/saml/login?idp=<SAML Entity ID>",
+	  "hint": "",
       "extras": "audienceTooltip",
       "extrasAt": "field"
     },
