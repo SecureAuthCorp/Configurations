@@ -154,7 +154,7 @@
     "label": "fixedVar",
     "description": "A variable to be used for generating values'",
     "controlType": "input",
-    "defaultValue": "https://<knowledgeBaseID>.Knowledgeowl.com/help/saml-login",
+    "fixedValue": "https://<knowledgeBaseID>.Knowledgeowl.com/help/saml-login",
     "visible": false
   },
     "assertionConsumerService": {
@@ -350,7 +350,7 @@
     "issuer": {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint:i": "%{_.audience}",
+      "hint": "sample-issuer",
       "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
       "description@providersInfo": null,
       "displayOnly@providersInfo": true,
@@ -366,7 +366,7 @@
       "options": [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Redirect"
         },
         {
           "value": "idp",
@@ -391,12 +391,14 @@
       "options": [
         {
           "value": "redirect",
-          "display": "By Redirect"
+          "display": "By Redirect",
+          "visible": false
         },
         {
           "value": "post",
           "display": "By Post",
-          "extras": "initiationByTooltip"
+          "extras": "initiationByTooltip",
+          "visible": false
         }
       ],
       "modify": {
@@ -507,7 +509,7 @@
       "controlType": "select",
       "description": "Select the profile field in your data store that contains your users' IDs.",
       "width": 7,
-      "emptyOption": "AuthenticatedUserId",
+      "emptyOption": "",
       "source": "options:dataStoreProperties:dataStoreOptions",
       "defaultValue": "AuthenticatedUserId"
     }
