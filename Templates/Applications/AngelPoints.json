@@ -279,7 +279,7 @@
             "stack": "medium",
             "width": 6,
             "source": "data:dataStores:dataStoreInputList",
-            "validate": "is.required"
+            "validate": "is.required and is.notEmpty"
         },
         "dataStores@summary": {
             "extras": null
@@ -308,7 +308,7 @@
             "description@summary": null,
             "delimiter": "  ",
             "width": 6,
-            "validate": "allowAllGroups:false and is.required or allowAllGroups:true",
+            "validate": "allowAllGroups:false and is.required and is.notEmpty or allowAllGroups:true",
             "modify": {
                 "allGroupsAllowed": {
                     "enabled": false,
@@ -918,7 +918,7 @@
             "nested": {
                 "signingCert": {
                     "constrain": {
-                        "value": "is.required"
+                        "serialNo": "is.required"
                     }
                 }
             }
