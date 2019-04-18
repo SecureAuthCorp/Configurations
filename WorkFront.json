@@ -149,13 +149,12 @@
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-      "defaultValue": "",
-	  "visible": false
+      "visible": true
 	  },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
       "controlType": "input",
-      "defaultValue": "0",
+      "defaultValue": "5",
       "type": "number",
       "extras": [
         {
@@ -245,7 +244,6 @@
     "audience": {
       "label": "Audience",
       "controlType": "input",
-      "defaultValue": "",
       "visible": false
     },
     "dataEncryptionMethod": {
@@ -321,7 +319,7 @@
     "issuer": {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "UniqueName",
+      "hint": "htps://auth.vijaytest.com/secureauth9/",
       "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
       "description@providersInfo": null,
       "displayOnly@providersInfo": true,
@@ -338,7 +336,7 @@
       "options": [
         {
           "value": "sp",
-          "display": "Sp Initiated"
+          "display": "SP Initiated by Redirect"
         }
       ],
       "notify": {
@@ -403,19 +401,17 @@
     "recipient": {
       "label": "Recipient",
       "controlType": "input",
-      "defaultValue": "",
       "visible": false
     },
     "relayState": {
       "label": "Relay State",
       "controlType": "input",
-      "defaultValue": "",
       "visible": false
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
       "controlType": "radiogroup",
-      "defaultValue": "SHA1",
+      "defaultValue": "SHA2",
       "noMargin": true,
       "properties": {
         "inline": true,
@@ -450,18 +446,18 @@
     "signSamlAssertion": {
       "states": "Sign SAML Assertion",
       "controlType": "switch",
-      "defaultValue": true
+      "defaultValue": false
     },
     "signSamlMessage": {
       "states": "Sign SAML Message",
       "controlType": "switch",
-      "defaultValue": false
+      "defaultValue": true
     },
     "spLoginUrl": {
       "label": "Workfront Login URL",
       "controlType": "input",
 	  "defaultValue": "https://login.workfront.com",
-      "extras": "spLoginUrlTooltip",
+      "extras": "WorkFront",
       "extrasAt": "field",
       "modify": {
         "initiationTypeSP": {
