@@ -162,7 +162,7 @@
     "description": "A variable value for reference",
     "controlType": "input",
     "width": 5,
-    "fixedValue": "https://<tenant>.bamboo.com",
+    "fixedValue": "https://app.getbambu.com",
     "visible": false
   },
     "assertionConsumerService": 
@@ -170,7 +170,7 @@
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
       "visible": true,
-      "hint:i": "%{_.fixedVar}/saml/consume.php"
+      "hint:i": "%{_.fixedVar}/initiate_sso"
     },
     "assertionOffsetMinutes": 
     {
@@ -513,8 +513,8 @@
       "extrasAt": "field",
       "modify": {
         "initiationTypeSP": {
-          "hint:i": "%{_.fixedVar}",
-          "visible": true
+          "hint:i": "%{_.fixedVar}/login/sso",
+          "visible": false
         },
         "initiationTypeIdP": {
           "visible": false
