@@ -149,7 +149,7 @@
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint":"https://saml.proxyclick.com/consume/CO-BZHH787"
+	  "hint":"https://saml.proxyclick/consume/CO-BZHH787/xxxx",
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -255,8 +255,8 @@
     "audience": {
       "label": "Audience",
       "controlType": "input",
-	  "hint": "https://saml.proxyclick/consume/CO-BZHH787",
-      "visible": false	  
+	  "fixedValue:i": "%{_.assertionConsumerService}",
+    "visible": false	  
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -421,13 +421,17 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input"
+      "controlType": "input",
+	  "visible": false,
+	  "extras": "recipientTooltip",
+      "extrasAt": "field"
     },
     "relayState": {
       "label": "Relay State",
       "controlType": "input",
-	  "fixedValue:i": "https://saml.proxyclick.com/consume/CO-BZHH787",
-    "visible": false 
+      "description": "User will be directed to this URL after authentication",
+      "extras": "relayStateTooltip",
+      "extrasAt": "field"
     },
     "signingAlgorithm": 
 	{
@@ -948,7 +952,7 @@
       "dataModelName": "attributes",
       "repeat":
 	  {
-        "min": 3,
+        "min": 2,
         "max": 10,
 		"match":
         {
