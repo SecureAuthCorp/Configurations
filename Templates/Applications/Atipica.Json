@@ -345,12 +345,13 @@
          "noMargin@providersInfo":true
       },
       "initiationType":{  
-         "label":"Connection Type",
-         "controlType":"select",
-         "defaultValue":"sp",
-         "width":7,
-         "noMargin":true,
-         "options":[  
+      "label": "Connection Type",
+      "controlType": "select",
+      "defaultValue": "sp",
+	  "enabled": false,
+      "width": 7,
+      "noMargin": true,
+      "options":[  
             {  
                "value":"sp",
                "display":"SP Initiated"
@@ -930,15 +931,31 @@
          }
       }
    },
-   "groups":{  
-      "attributeItem":{  
-         "logical":true,
-         "dataModelName":"attributes",
-         "repeat":{  
-            "min":1,
-            "max":10,
-            "name":"mail"
-         },
+   "groups":
+  {
+    "attributeItem":
+    {
+      "logical": true,
+      "dataModelName": "attributes",
+      "repeat":
+      {
+        "min": 2,
+        "max": 10,
+		"match":
+        {
+          "emailAddress":
+          {
+            "name": "emailAddress",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+          },
+"UserName":
+{
+"name": "UserName",
+        "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+        }
+		
+}  
+		  },
          "order":"attributeCallout"
       },
       "encryptSamlAssertionOptions":{  
@@ -1102,4 +1119,5 @@
    "order":[  
       "templateRoot"
    ]
-}
+   }
+   
