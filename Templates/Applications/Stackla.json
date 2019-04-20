@@ -148,7 +148,7 @@
       "assertionConsumerService":{  
          "label":"Assertion Consumer Service (ACS)",
          "controlType":"input",
-         "hint" : "https://my.stackla.com/myaccount/sso/acs"
+         "hint" : "https://my.stackla.com/<my account>/sso/acs"
       },
       "assertionOffsetMinutes":{  
          "label":"Offset Minutes",
@@ -353,7 +353,7 @@
          "options":[  
             {  
                "value":"sp",
-               "display":"SP Initiated"
+               "display":"SP Initiated by Redirect"
             },
             {  
                "value":"idp",
@@ -367,7 +367,7 @@
       },
       "initiationBy":{  
          "controlType":"radiogroup",
-         "defaultValue":"redirect",
+         "fixedValue":"redirect",
          "noFieldset":true,
          "stack":"small",
          "properties":{  
@@ -378,7 +378,8 @@
          "options":[  
             {  
                "value":"redirect",
-               "display":"By Redirect"
+               "display":"By Redirect",
+			   "visible":false
             },
             {  
                "value":"post",
@@ -788,7 +789,7 @@
          "stack@providersInfo":"medium"
       },
       "spLoginUrlTooltip":{  
-         "content":"The URL for your users to log into your Atipica instance.",
+         "content":"The URL for your users to log into your Stackla instance.",
          "pad":":::small"
       }
    },
