@@ -148,7 +148,7 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-	  "hint":"https://mambu.CompanyId.com/login",
+	  "hint":"https://mambu.<Company ID>.com/login",
       "controlType": "input"
     },
     "assertionOffsetMinutes": {
@@ -253,10 +253,10 @@
       "defaultValue": "AuthenticatedUserId"
     },
     "audience": {
-      "label": "Audience",
-"controlType": "input",
-"fixedValue:i": "%{_.assertionConsumerService}",
-"visible": false    
+     "label": "Audience",
+     "controlType": "input",
+     "fixedValue:i": "%{_.assertionConsumerService}",
+     "visible": false    
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -346,7 +346,8 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "defaultValue": "sp",
+      "fixedValue": "sp",
+	  "enabled": false,
       "width": 7,
       "noMargin": true,
       "options": [
@@ -405,6 +406,7 @@
       "label": "Name ID Format",
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+	  "visible": false,
       "width": 11,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
@@ -418,11 +420,13 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input"
+      "controlType": "input",
+	  "visible": false,
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input"
+      "controlType": "input",
+	  "visible": false
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -785,7 +789,7 @@
       "stack@providersInfo": "medium"
     },
     "spLoginUrlTooltip": {
-      "content": "The URL for your users to log into your <APP NAME> instance.",
+      "content": "The URL for your users to log into your Mambu instance.",
       "pad": ":::small"
     }
   },
