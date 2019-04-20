@@ -149,8 +149,7 @@
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "fixedvalue":"https://www.ziflow.com/auth/saml/callback?",
-	  "visible": false
+	  "hint":"https://www.ziflow.com/auth/saml/callback?",	  
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -348,7 +347,7 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "fixeValue": "sp",
+      "defaultValue": "sp",
       "width": 7,
       "noMargin": true,
       "options": [
@@ -426,7 +425,11 @@
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input"
+      "controlType": "input",
+	  "visible":false,
+      "description": "User will be directed to this URL after authentication",
+      "extras": "relayStateTooltip",
+      "extrasAt": "field"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -478,8 +481,8 @@
       "label":"Ziflow Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
-	  "hint": "https://www.ziflow.com/auth/saml/callback?",
-	  "fixedValue": false ,
+	  "fixedvalue": "https://www.ziflow.com/auth/saml/callback?",
+	  "visible": false ,
       "extrasAt": "field",
       "modify": {
         "initiationTypeSP": {
@@ -791,7 +794,7 @@
       "stack@providersInfo": "medium"
     },
     "spLoginUrlTooltip": {
-      "content": "The URL for your users to log into your <APP NAME> instance.",
+      "content": "The URL for your users to log into your Ziflow instance.",
       "pad": ":::small"
     }
   },
