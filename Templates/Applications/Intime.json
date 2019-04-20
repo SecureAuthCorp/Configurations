@@ -148,9 +148,8 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-      "controlType": "input",
-	  "fixedvalue":"https://intime.intimesoft.com/mytime/login/login.xhtml",
-	  "visible": false
+	  "hint":"https://intime.intimesoft.com/mytime/login/login.xhtml",
+      "controlType": "input"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -255,10 +254,8 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",
 	  "hint": "https://www.intime.com/web-helpdesk/xxxx",
-      "extras": "audienceTooltip",
-      "extrasAt": "field"
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -338,7 +335,7 @@
     "issuer": {
       "label": "IdP Issuer",
       "controlType": "input",
-      "hint": "https://intime.com/login",
+      "hint": "sample-issuer",
       "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
       "description@providersInfo": null,
       "displayOnly@providersInfo": true,
@@ -354,7 +351,7 @@
       "options": [
         {
           "value": "sp",
-          "display": "SP Initiated"
+          "display": "SP Initiated by Redirect"
         },
         {
           "value": "idp",
@@ -368,21 +365,26 @@
     },
     "initiationBy": {
       "controlType": "radiogroup",
-      "defaultValue": "redirect",
+      "fixedValue": "redirect",
       "noFieldset": true,
       "stack": "small",
-      "properties": {
+      "properties":
+      {
         "inline": true,
         "alignment": ":middle",
         "stack": ":medium"
       },
-      "options": [
+      "options":
+      [
         {
           "value": "redirect",
-          "display": "By Redirect"
+		  "visible": false,	
+          "display": "SP Initiated By Redirect",
+		  "enabled" : false
         },
         {
           "value": "post",
+		  "visible": false,
           "display": "By Post",
           "extras": "initiationByTooltip"
         }
@@ -421,12 +423,12 @@
     },
     "recipient": {
       "label": "Recipient",
-	  "hint": "https://intime.com/login/xxxx",
       "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input"
+      "controlType": "input",
+	  "visible":false
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -473,13 +475,10 @@
       "controlType": "switch",
       "defaultValue": true
     },
-    "spLoginUrl": 
-	{
-     "label":"InTime Login URL",
+    "spLoginUrl": {
+      "label": "InTime Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
-	  "hint": "https://intime.intimesoft.com/mytime/login/login.xhtml",
-	  "fixedValue": false ,
       "extrasAt": "field",
       "modify": {
         "initiationTypeSP": {
@@ -792,8 +791,7 @@
     },
     "spLoginUrlTooltip": {
       "content": "The URL for your users to log into your InTime instance.",
-      "pad": ":::small",
-	  "visible":false
+      "pad": ":::small"
     }
   },
   "layouts": {
@@ -939,8 +937,23 @@
       "logical": true,
       "dataModelName": "attributes",
       "repeat": {
-        "max": 10
-      },
+        "min": 2,
+        "max": 10,
+		"match":
+        {
+          "emailAddress":
+          {
+            "name": "emailAddress",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+          },
+"UserName":
+{
+"name": "UserName",
+        "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+        }
+		
+}  
+		  },
       "order": "attributeCallout"
     },
     "encryptSamlAssertionOptions": {
