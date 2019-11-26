@@ -398,7 +398,7 @@
       "extras": "relayStateTooltip",
       "extrasAt": "field"
     },
-    "signingAlgorithm":
+    "wsFedSigningAlgorithm":
     {
       "label": "Signing Algorithm",
       "controlType": "radiogroup",
@@ -420,8 +420,8 @@
       "controlType": "options",
       "defaultValue":
       {
-        "issuedTo": "No Certificate Selected",
-        "serialNo": "No Certificate Selected"
+        "issuedTo": "No Certificate Selected"
+        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -1208,7 +1208,7 @@
         },
         "signingCertNameFieldset",
         "signingCertSerialNoFieldset",
-        "signingAlgorithm"
+        "wsFedSigningAlgorithm"
       ],
       "pad": "::small",
       "validate": "requireSigningCert"
