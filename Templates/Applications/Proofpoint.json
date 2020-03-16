@@ -343,58 +343,66 @@
             "stack@providersInfo": "medium",
             "noMargin@providersInfo": true
         },
-        "initiationType": {
-            "label": "Connection Type",
-            "controlType": "select",
-            "defaultValue": "idp",
-            "width": 7,
-            "noMargin": true,
-            "enabled":false,
-            "options": [{
-                    "value": "sp",
-                    "display": "SP Initiated by Redirect"
-                },
-                {
-                    "value": "idp",
-                    "display": "IdP Initiated"
-                }
-            ],
-            "notify": {
-                "initiationTypeSP": "sp",
-                "initiationTypeIdP": "idp"
-            }
-        },
-        "initiationBy": {
-            "controlType": "radiogroup",
-            "defaultValue": "redirect",
-            "noFieldset": true,
-            "stack": "small",
-            "properties": {
-                "inline": true,
-                "alignment": ":middle",
-                "stack": ":medium"
-            },
-            "options": [{
-                    "value": "redirect",
-                    "display": "By Redirect",
-                    "visible": false
-                },
-                {
-                    "value": "post",
-                    "display": "By Post",
-                    "extras": "initiationByTooltip",
-                    "visible": false
-                }
-            ],
-            "modify": {
-                "initiationTypeSP": {
-                    "visible": true
-                },
-                "initiationTypeIdP": {
-                    "visible": false
-                }
-            }
-        },
+        "initiationType":
+		{
+		  "label": "Connection Type",
+		  "controlType": "select",
+		  "defaultValue": "sp",
+		  "width": 7,
+		  "noMargin": true,
+		  "options":
+		  [
+			{
+			  "value": "sp",
+			  "display": "SP Initiated"
+			},
+			{
+			  "value": "idp",
+			  "display": "IdP Initiated"
+			}
+		  ],
+		  "notify":
+		  {
+			"initiationTypeSP": "sp",
+			"initiationTypeIdP": "idp"
+		  }
+		},
+		"initiationBy":
+		{
+		  "controlType": "radiogroup",
+		  "defaultValue": "redirect",
+		  "noFieldset": true,
+		  "stack": "small",
+		  "properties":
+		  {
+			"inline": true,
+			"alignment": ":middle",
+			"stack": ":medium"
+		  },
+		  "options":
+		  [
+			{
+			  "value": "redirect",
+			  "display": "By Redirect"
+			},
+			{
+			  "value": "post",
+			  "display": "By Post",
+			  "extras": "initiationByTooltip"
+			}
+		  ],
+		  "modify":
+		  {
+			"initiationTypeSP":
+			{
+			  "visible": true
+			},
+			"initiationTypeIdP":
+			{
+			  "visible": false
+			}
+		  }
+		},
         "keyEncryptionMethod": {
             "label": "Key Encryption Method",
             "controlType": "select",
