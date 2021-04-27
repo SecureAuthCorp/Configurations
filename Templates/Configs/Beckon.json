@@ -1,0 +1,85 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALwAAAAzCAYAAAAtr2KmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATLSURBVHhe7Zy/i2RFFEb9Z0zEyETDDcTMQAwNNBU0FcRUUDATNxCE1Y3WQNfATA0FGTB1cxmNdUzWqOVIl9z+9nbdqrfdy4z1HfjA7ldVr7reqR/doz61M2YhLLxZCgtvlsLCm6Ww8GYpLLxZCgtvlsLCm6Ww8GYpLLxZCgtvlsLCm6U4ifC/X/5a5u+HD/eljRknc0kzw0mE/+z2R2VmO2YMZC5pZrDw5lqTuaSZ4VoKf3Hx0+72Jx+XefDgl32NmtE2W765/9W+5hj05cMP3t+98fprB3nv3Xd2P3z/3b5UH+3jb5eX+yuH0F4sd/eLO/srfa6u/vy37NtvvXnQR17zebk+g/a3V5/2W7mZsc1c0sxwFuG//vLz/85XLTNneAbl2WeeHgoPbORBzbRJaHcEpKRs1kbMq6+8XE5Q7SNCKcgSy5CRCUXbLzz/3CN1Y7g+OnlA+9sbszhGo2ML6hFuqW8znEX4b+/f21/ZxjnkPEebCFxJFEPZTOJGJXwm+8hqyS6j9Xqh/AjZmPJexlbhFdxS32a4EcIzQDGZZLOrJyuuthvD8aQHu8pLL946aJPwXmtDr3PP3m7UE36r7HwOrUdaH+lTdn1kpc+EJ9mk5l7tOv+8lSWEz+DcGcv0Vk7oybSF7GFnkvAeExT5q6PXsT5mO8mI7NSPdQjjpt8NaF/F537HvkM0jglPXf2sFr7DiPCzAs+Wr1ABeysiQlU7EGR93Co76FGmJ1q2Y1W73DHhCRMoYuE79IRn1eFLWpQgW1EUbRNBESpLJSdlYluIcgqyPs5MLEXrViu2HptUWqUnPIkTxsJ3qAZSM7LizbRZPRBtq1oJR6n6iMCjIHesOzopYx3SIxuH+Jq0X5AsfIcZOXmQoz/LZfWzzArP61Mw0sfRe+kuNCpZrEN6aH+5p0rPJGXyWfgOIw9eU63yM23OCv+kVvgWxKrgWBbrVMeTRqxDemTCg34B5rWF76ADqXBeR/B4Rq22e23zJpzhCV88s1Wz+s4CsQ6pzvDslLH87BmecQHuE5+NxsILlfANFaENeMaxh7MFZIttkd6XScpv+ZWm/QGI+rpqjkijP9326mT3qHau3pjq5Imx8MKo8AxcLPekhIfsr5fZsYr7sAOw4lXS9/pIXV01q19sqB/LE/qtuwOvdSxJtSNUY6oLUouFF3QgGSANEsUyRB9kRNts58pjqVY37pVt27RLXaIrZiV9JRCCx+ukmkS6yhP6wfvcL7tOuFZR9Rd0DAjju5UlhB/J7PZbZeShZKtuL48rPKigTPzeROdaJl0v7ShVMdLfbGGw8MKsnMjee+hwDuEBgUeEor3HPSIAn1N3NyZBD+owRrFOFsSc+cPWSH+B92O5/53w9+5+uvv54seD/HX1x750DWdhBqUXViEeTiVRY6TNmGrHUGgf8aKMTAT6OfJ3AtA+HtsNECiW65WNMFZ8Lsq3PiI5rxnLatFQRvsLtN/KzYyteoRb6tsMZxE+C/8uszGzZC5pZrDw5lqTuaSZwcKba03mkmaGkwjf/vOrXvy/6TBbyFzSzHAS4Y25KVh4sxQW3iyFhTdLYeHNUlh4sxQW3iyFhTdLYeHNUlh4sxQW3iyFhTdLYeHNUlh4sxQW3izEbvcPEo8jU5/M5JcAAAAASUVORK5CYII=",
+    "templateName": "Beckon",
+    "title": "Beckon",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/Beckon.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": ""
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications.",
+            "placeholder": ""
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the Beckon’s entity ID.",
+            "placeholder": ""
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "Beckon Login URL",
+            "tooltip": "The URL for your users to log into your Beckon instance.",
+            "placeholder": "https://app.beckon.com/login/saml/<SSO_ID>"
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": false,
+            "data": {}
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

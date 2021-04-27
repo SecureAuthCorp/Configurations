@@ -1,0 +1,96 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXCAMAAAC+ozSHAAAAM1BMVEUAjNH///+/4vQQk9Tv+Pyv2/EwotpQsN/f8flAqd1gt+Igm9fP6faAxuhwvuWQzeug1O40gp8vAAADyUlEQVR4nO2c0XbiMBBDgQCFFlr+/2u7WZotIZ4bh4dYc1b3taTHxIo8IztsNsYYY4wxxhhjjDHGGGOMMcYYY4wxxhhjjDHGGGOMMSYD113M+8y1N7j2Y5XRx3zstyF7HtxnfOX2a6Xhx7zB6K54JdyRy0qDJy7wxY5wHU3XebXRx5AST3AZfK3DeqMH6MbHStzFF+27FUcPHF4Y4hluBql3TY4wxsjYYLoUTOMOKbF88+GKvcp0bVCJp5ISyWveVh99TAcTVhrnLf64hhcOkK6mE0bTJaTCHvCB25IPc4myPjQFz9XDe/xRHS8cACU+DbaDW9C6jC9wikc7tg6YLi3TuHOMp2HUsIBiLyIF1BhQ4uM8wFon5oUDoMRf64B+bWqcGkCduPv3obhdUynjp1zjLzZkHTBdSgXUE/Gz81PNgserqrAHuqq7dUBhKKvCHlBiP2HwBM6Fco2JJ6S3hdg02gdrDDxAB1jhNFfkR8DwoIAS9sIBqCdgKvXpKCgtU8wK5AC5BSjEuxUsVaJeM1mGGscCunXhM7THMuWz9XDrgWBmQgYvHKAU5xnRZrJMvSeqBWszQOE+Yjf/r6SgPZZHBIM1pk6J6mV8gZrVOUcBNaZidd4nKaDG0G5fWhX2zK3OeQqoMR0EpT0JmskykOLkVeEfvvB7pVu6BuhIzTZXwTtizjeSPl+swq3WSY166OzDD8qRfEhNHZVQiezxgxLTeWJln5LOE2sTjmSVb3UOkKtTWZDbpPLEJRG9+IbeI3TIdUKWFHtZephJiUvS3p4knrh4nwhO2QuxcDelJ0XmGya9IM8EhX2owksXf7EEq3OowjPZv3zWETaTO/qjfIsZ71T+HXhch2h7YuyF98UXNmilPTH0wsEYwBOFW8zYGIbiFqI33R2+OLf+9XGIB2TPBcRJzUMFCC2MaJ0Ya+wxxUj2VgCd9xpXE5C/SSoxXnTHDRbUxYqxW7w0PRd/9W/oKBD7wSTUrX5DR4DYv6frEtS/aluzUCAVKlpYxMSUGEurZN608SzlifGiVLY4sI6TkCcuf40B6l+h1Tn2wuhxoe0WGU+EDddwjHQYR8QTz6+8+0TWoaFESK0pZnrlRyBWBSwAnxTaqBVIceC+cypIuXB7JdJzMtMnUo7fPMUBL5zd/6GfuGm8OtMO3qxd0z5Z4xQH0ooKU6OTRk1XZxhYTcdB1tFSifR+TVW4RDJu2LGACiufDzpE1UyJZ/idv8ossIN/0X4RM8YYY4wxxhhjjDHGGGOMMcYYY4wxxhhjjDHGGGOMMf8t337JHeAtm92iAAAAAElFTkSuQmCC",
+    "templateName": "IBM Kenexa Survey Enterprise",
+    "title": "IBM Kenexa Survey Enterprise",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/Ibmkenexasurveyenterprise.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": "https://surveys.kenexa.com/companycode/tools/sso.asp"
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications."
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID.",
+            "placeholder": "https://surveys.kenexa.com/<companycode>/"
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "IBM Kenexa Survey Enterprise",
+            "tooltip": "The URL for your users to log into your IBM Kenexa Survey Enterprise instance."
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": true,
+            "data": {
+                "emailAddress": {
+                    "name": "emailAddress",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+                },
+                "FirstName": {
+                    "name": "FirstName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                },
+                "LastName": {
+                    "name": "LastName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                }
+            }
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

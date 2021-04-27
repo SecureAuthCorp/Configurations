@@ -1,0 +1,85 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAA0CAYAAAA3xE5OAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPbSURBVGhD7Zk9axVBFIb9ASqKKIggWAiChY2trT/AFGJhZaF2dn5LQlD8II1YCELEGDAoaqFF4gcpRASVgBGJooiKBFSCikTuvbl3x/usGdy7zuzM7p69RpgHXrhmd+ecfd2dOXtmkQoYCcZYCMZYCMZYCMZYCMZYCMZYCMZYWFDGjE61Yi0EFowxt1+01LKDtVj8/teIG3P3Vf6bGploqqUHamrx/t/i943J/OMUiW1DzJgoUmrfzbn4xvbfmpv/q5uhJ021JGGKFn/jmC/E5DpyIJeyiBjTaieya6TRcWN7r7kTvPCo2XGNSZyTBTGIlbyGXMqaU9qYufbTu/1SpylaO4cb8XETJ++5TdE6fd9sDmMTw3RNVmwfShuzY8icmNa2wYaqpd4s/djnUfr1ZEzGNp2rhTlFKW3Mw7cttfKIOTGtrecbarbeOQ8VEdcCYzGm6RwtciK3oojMMY/ft9Sqo+YEtbacravdV4uborWnPZ8wlumYFrmQUxlEjIGJj5FafcycqK8GxpuxTMd8RQ7kUhYxY+D5dKTW9JoTdim5+visViYRmxwkEDUGpj5Fam1f9qOelK1esdU3NhGT2FKIGwNvvkRqXb/bHFeFy7FkRWwTsYgpSSXGwLuZSK0/bjdn+SG/byLO4VzTGGjDiXocS5rKjIEPX6M48fTNrDhcU+Ov/VcNzuWa9DgbT9XV9Hd5U6BSY4DEuQF9MyylReqLdL206Uxdff5RjSlQuTHADXAjZZdSahPG2DxQVzOz1ZkCXTEGuBHXUspc4ZovJttjfPs5/48K6ZoxLlhVmKyR9ApTBHFjivxvpmufojWJ5JMkagxLK5Pr2Ev/yZU5x1Qt561iiUlsqbaomDHJ9iR9W5/WpOvjk4nW52OQWMTkGnIgl7KIGMO3Tbp8d7UmqU1c7Qrkah+YPh1csX0obQzdtWRSaZ178HeCPPZZ1WxaFHem15OxTedrmWL7UtoYnzZB7+if7lvysc+j9LYKY5rOS4rciiL2KpkSS4ru25X2u5/nizkt5o/rz1peXUBXE92F2OSbt01gUs9gQ/VczG5ZuiQxv4CYMcBqUNQcdhro6mftOrhEbIkVCUSNAd8eSlLsA7E3peG3bVvEJmL6lAi+iBsDTJK+E6xtY860kWZTemKWoBJjwGdJ1tshWbgmWmLkqbR9qcwYsDWYUP8dtymavjGzOXkbXnmo1BgwbcgVKbzSxVzRhpcvlRsD+puIVaNMfaHrJam9oyy6YgxwI8NPyy+ll9s1itTeURZdM+Z/IxhjIRhjIRhjIRhjIRhjIRhjIRhjIRhjRKlfuOgHvdFE2xYAAAAASUVORK5CYII=",
+    "templateName": "Wake",
+    "title": "Wake",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/wake.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": "https://yourteamsubdomain.wake.com/saml2/acs"
+        },
+        "initiationType": {
+            "value": "idp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications.",
+            "placeholder": ""
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the Wake’s entity ID.",
+            "placeholder": "https://yourteamsubdomain.wake.com/saml2/metadata"
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "Wake Login URL",
+            "tooltip": "The URL for your users to log into your Wake instance.",
+            "placeholder": ""
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": false,
+            "data": {}
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

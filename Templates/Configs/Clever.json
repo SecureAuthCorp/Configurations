@@ -1,0 +1,97 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAdVBMVEX///9CdPY1bfaxwfsvavUsaPXs8P7a4v05b/Y/cvY7cPYnZvUtafX6+/94mPjw8/7f5v2lufpWgffG0vxQffZJefaetPrO2Py1xfuhtvptkfiAnviQqvmFofgkZPXl6/3U3fy+zPtkiveOqPlyk/hfhveyw/pWTsaAAAAEeElEQVR4nO2cfZuiLBSHk2AExZxe1KZsspr2+3/Ep66e3R0RLNdcD+3v/ncYru4L5Rzg4GQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAQSfr2TNJkbKE6yXyhxXPRizkhybVgKng2ion12GI/OcVP17sRn8ZWuzHXAwkGgZ6PLXdl/zmYYBB87sfWuzCLBjSMZmPrXaZRMaBgEIjxJ9RiuLfwii7GFpys2aCGbPyIMR3YcDq2IAxh+HKGkWSMc805Y/KhOOqVoeRxNsunh6KqiuVhWs4yoeW9jN0bQyVFVhZm9E6qj3PcvizxxZDJ8t3x/+l0pVscvTBULGgP28XRnRf5YCj5j7udFJmrF/qGSmwfyp1zRwJP3lDx5YP9hIE1elA3lKv04Y6So60n4oby2KmrnWXCoW0oNx37yqVfhh1HcGJda1I2VKuuXRWWXUnChko/PsnceBeW3IawobCGiWSZzxZZtvgqD2/Gn9LmS0jaUO4sbcNtzFl0GSmlJItX01oukFmzU7KGSjYzmbeNqAV1xXj++69H6xDSNeTNXHsaN5IWxaKfz/LW8bBTNVRZo93Wvn4Qt03tnNsFyRryg9nsyxVUZLCfTA7OjXOqhspstXNnPkpXoft4jqih/DAardsONxSP3It8oobCiHVp2z5FOzQN1cJos7VHAn8NpXFyu+9xCk7TkIf1Jqc/H0KihrHRpM8ZKklDda63WLqiubeGkVEjUvZ4SGkamhPNok81EUlDZqRsvY7fSBryenFB2qtYg6ShrgeLfa9iDZKGvH7MFPaZSr0wfH+9MfwHntL6TJO8nqEZLVpWf54amhH/6+UMI2OrdP5yWZu5AH5/ubVFY/XUQ5Cooa7uNvHckOX1JkmPuwo0DRsnh/M/T9xoGgbCLIBatQ6iahljooayNBq17rYpvnbHE6KGipmtDm7FKNq3ZOdEDS2/64dLkZ2vJ41ORaqGQdRod4htL5uK/593Q4ciWUPWvLC0X/GGo179WmmFtjoFwoaBrRJjKr87qkhn31chdkW6hpG1HuqwEZoxeS32FtHOuA5jVaRrGGh7VWlSrfOyzKdLy6W0yqJI2DCIXXXPbkLP6tqirkVRtu1x0oZq1fVm3aJZREvaMIi6KSYWQeKGQZR1eFDTzFYGTdwwULJ6tJ/KvsCgbnjJyszCEwcf1qTOA8PLT1w8EDX2Z3/vW1xvXOzuvI1J6RhATwwvC2JxMstlv5HmuqULPwyvjseDNXIky5lo7cAXw+uyXx/nVe1xTYv5hvM79yz9MbxKSh6z8+xUXlLv7ddKCH73fqVnhjfNSF6J1INbqP4ZdgWGMIQhDCf/wrdNil4FQXfh43+fJh3qQ1834u6bPU9n8/xPtf1Gdb2GOgThoN/6Cu//gOEph3sTuXkQORKzoRQ5gW+Z3fj47FMU5EJ+PrjH8zd4K5XQ/JloocqWjYExeAufCzE9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALwS/wFmZUQq2q/i1gAAAABJRU5ErkJggg",
+    "templateName": "Clever",
+    "title": "Clever",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/Clever.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": "https://clever.com/oauth/saml/assert"
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications."
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID.",
+            "placeholder": "https://clever.com/oauth/saml/metadata.xml"
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "Clever Login URL",
+            "tooltip": "The URL for your users to log into your Clever instance.",
+            "placeholder": "https://clever.com/in/<companyname>"
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": true,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": true
+        },
+        "attributes": {
+            "visible": true,
+            "data": {
+                "emailAddress": {
+                    "name": "emailAddress",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+                },
+                "FirstName": {
+                    "name": "FirstName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                },
+                "LastName": {
+                    "name": "LastName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                }
+            }
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

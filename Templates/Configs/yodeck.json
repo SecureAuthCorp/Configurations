@@ -1,0 +1,97 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAABQCAMAAADIvvttAAAAGFBMVEX////ybyb3qn/6yq/zejf1jlX949T+9O/uCZp1AAAC8klEQVR4nO2Y64LjIAiFqdf3f+ONKIip3SbddmJ3zvkzGQNGPqmidLtatICuZgAIgAAIgAAIgAAIXwDhl3x3KkAgQGABAgECCxAIEFiAQIDAAgQCBBYgECCwAIEAgQUIBAis/wWCL32lg8Zhs3UfHMxRfS2E215P2g/1dXDczwQIBAisXwYhT1v2EO6tTNO3QHBF9TGVxxqfd2X8wZlofdyaorcQsovFKnpjNTgqBP6KXxdCeZfHxxzVK4pdtN9tpLpVm3zj6LKB4JrRqhBSeVenUoacbcDOsBoheNMQ70m53qMXUKtC4IEHDSppdCFUP6+otjYLgf+JjvO/WjUs7BmSQmDnkI8M5ioIGnuhETW6ElXNYqKez9mHAZUmThSe7Ojrr6FCSMpkXQi5BZMlgiTRmSwJMpedWV9MfHsyjm3lZAidwboQOJrQ/ugm6PVViVhA0S5xgvObxMo4UodwE4elIbSlMUqcMrEmYrN6KoQwDiUNjjsIssesC6H+ppNOmNMnndsZhN1Q0rDb7iBIfqwLoe1gOmEnMiFEVZpV1D1b8uoQ8jhfkzXBLHkDhDj08wBC32NWhiCVUKj/7XaHm0QTxkhN8ue8d8wdQqyW7iyEZwG8G0IrcuSoM6kTmMa29+fKS+uEyE8hptExtZZWMUbxWRlC++1KJktimFapBVtfpS2HZtUrRusYfIfAKXK2bP5xCF6nvGg4O0xOBZOzQztC7R2HA5T7Bgi9zJmcIpNu+QrBUmjHSOtoT5FSUL8M4UT7wz6e2beisYsvD8b7hFL+lquDcjMgJ2e+TxguFNp9QmuptwjUrirc0hBMVWxb7+1mvhOzmd3hwUx9TrS/+t37evdDOgvhkf27+rHq1eKH9dLgT7T/w3f7seHTWhhCqYDC49dv1MIQtlyI/m+v36alIcwX/vfrLIRv/+5UgECAwAIEAgQWIBAgsACBAIEFCAQILEAgQGABAgEC63a1rgZQdDUDQAAEQAAEQAAEQFgWwh9eRBsgZZRPnQAAAABJRU5ErkJggg==",
+    "templateName": "Yodeck",
+    "title": "Yodeck",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/yodeck.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": "https://<company_name>.yodeck.com/api/V1/user/acs/<SSO_ID>"
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications."
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the Yodeck’s entity ID.",
+            "placeholder": "https://<company_name>.yodeck.com/api/v1/account/metadata/<SSO_ID>"
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "Yodeck Login URL",
+            "tooltip": "The URL for your users to log into your Yodeck instance.",
+            "placeholder": "https://<company_name>.yodeck.com/login"
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": true,
+            "data": {
+                "emailAddress": {
+                    "name": "emailAddress",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+                },
+                "FirstName": {
+                    "name": "FirstName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                },
+                "LastName": {
+                    "name": "LastName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                }
+            }
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

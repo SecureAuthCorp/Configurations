@@ -1,0 +1,101 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXCAMAAAC+ozSHAAAATlBMVEXh4eFVtdjG2d+SyNxdt9l3v9rd4OF7wdu91d7T3eCCw9tzv9pZt9hlutmoz93B19/O2+C21N6hzd2Kxtyw0t6izt241d6Zy91svdqqz92sUhJfAAAFIElEQVR4nO2c65bqIAyFx17o3bbWsfX9X/TojM6yJFDAFupZ+/tdLdtACEnw6wsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPwRHeNsSg6HQ51MZXzuQo9nDcS5vCua0cS5CD2u9+hiIuoh7VSEHps7XcmL+qGOP1SZiDWq7iTH0EN0oW0WZN1I9+dCRNG1+Y2o46fTaVnV3WS952FrEPn3UM2M0WTxMZp5ODEYybpxCiVjhujjSTHAOh3bv8d0DkNiDKnnd7TnstaPsRnynwctZAUXFqm2IknaWHwtOUKJc0BVeWY8zNr80ccHomCqUsuhciRNo5jGU5ioShs2mFGN7c/Yi0vMbWshlpg4LTiLZcrZRLtU5IHaf0jV0VFY0uTyd16JBxp8yzq+bayUsUUnT0bPBjMPG9SyWJ9QyMK+fcoq3p6Dh0ZhiEiaB5VHWWS2OEDW1pNv6UF/E3ENWaXy24X07d6CjjVkHVr190sGiz3JIitbpkmzssxSVQzx+4zuBfNHMz+yhM5lVPG5+3Nzoutj1cPqaXhjfuCZttd0R+3gqyOzxIsjG0Fq46N5eKwz7XpcVaoGZewdDXRGanel+U+XrC+C0ikWTanNs3TEyFp7zaNpL/bi1wsN9GRaKUmgDfvmL/Gxvo6srMHglCTlDHWDFfM5ka42eiUFd+CvDZOY59lwNfO2tzDtOnDpiXpxDj5pX38VzW4rZQu2z/0WjNNINIGDTPQiTH3+yKU3bJ/j4MxlbK077csPowoj5PBwe3comNVlOUnOLx/lXT3JMG4fHjLO0HpNv25k3G9CE6fbFyDo3tVYp8FeZxkzhWnOZPuot6PmcjgaXf4+TENfMVLHZOGWHJHPsY5H9KcXlx2iyLl0uDbuXweahL64fE37+PAUv1JWbOCZbJ8EEOTFjh7YJuXjIQcQkZc6Ft6UJx2KjxQA9fKOHrhgBPBkPqoOJNhwPj+YTkQ+cbo2xG04x9mGxT0v1pKTKYc34uwzp4IQeyp9kc3FKuJ9hXogSuItG0pe7Xx+YAIXmcxf8pq82zkgFUuqJqcN3xHyduefdEFX5bfTZj176TawJvbdAkDCqLXXVz2VxwDdXqTa4OyxLlRTmkeheg5JlODcgsA0tPmqBTGQVLTzSZZp+vBaRJ4zkvXgGhAwx0fnPf59ejIYx12mpbI81pAJ1Ds7ntGZApqfEpcC4hDdWkbouTtAU80r9Hd28ohce2/IPkNm23ExGFuSCdovz6SxHeYPd6j0VPG3GJJ1iCoXS8JPQ/Y8aJvfY3s/ktBXbZiES2U1JsH2PAQMon6hW/NtE7MQxjf3BWgJleEyZObCFD2Lwc2lWPXG+TA+D7UDc7Gh+C0KMjwNyhXWX3ZxDYVvt6kNjxmcwQJ1yMvQItgPlVlSgFmf29ftzFBdxdA3SD2gO2D4O0MP1F2VWb88pWSP6Ke0YESrbgNNhn7BuUnrU9WTHQR92WAaxmveRipmDjUJdl2IxeyC5DK1z3S1CZa301SydnQz9AHJTf0fslT9lTYkAVNrGvo3bxOZxl7eiVS3eo3wWLez5Y2bUvUuYl0lveM9lWlf2xbFyWT1aT+xk5LI+prvsN+VNcPuAvOwVzfI0C79N8CTJP4gVXeKk4HTT68fsK4I0ajr5qoz7grVhyD6OGWKCk02fvp/J90o8us4lFl6Ixvi07n9XDsBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAo/gGkei2XRet7kQAAAABJRU5ErkJggg",
+    "templateName": "Learningpool Act",
+    "title": "Learningpool Act",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/Learningpoolact.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": "https://subdomain.preview.Learningpool.com/saml/AssertionConsumerService/xxxx"
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications."
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID.",
+            "placeholder": "https://subdomain.preview.Learningpool.com/xxxx"
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "Learningpool Act Login URL",
+            "tooltip": "The URL for your users to log into your Learningpool Act instance.",
+            "placeholder": "https://parliament.preview.Learningpool.com/auth/xxxx/index.php"
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": true,
+            "data": {
+                "emailAddress": {
+                    "name": "emailAddress",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+                },
+                "FirstName": {
+                    "name": "FirstName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                },
+                "LastName": {
+                    "name": "LastName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                },
+                "userprincipalname": {
+                    "name": "userprincipalname",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                }
+            }
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "icon": "iVBORw0KGgoAAAANSUhEUgAAAPoAAABECAMAAACf8tgKAAAASFBMVEX////8/P3b5e06dKfo7vQqaaAhY5yqq6seYZv///+sxNpql7309/mRss6cutTCw8MHVJhag6mApsfCuK6+0eK1tLLT1NR6kaW06b/5AAAAAXRSTlPyE1VLVgAABRdJREFUeNrdm+12syoQRsM3I4iBiL3/Oz3RV0EBG5rkrKbstn+mhGT7MIp29XKBSwE8Dd4LIbwfJnxpEZh/UvQ0iCPDRKE1UK5OB1HCNyefqlMvzvAYmuKojgbxHYOGhjioU/GIloLfq0/iyES11tgfg4dm2KkPJ6t7atQ9qGfmEMBij4dG2NRRstq9hg0EQ5O5r+p5n8MOKlp0X9WxSKCwZ0iPSwv8U9ciRUMgVxdNXN9n9djoEQSB5fcNLvlFHYvHqbe35Bf14cG2DXmR4BH8eWZ1KgLlJT0J0WDss3oMveymt6hvM76V2O/q9MEtqh7Ews1/WWu/xK2RG5m7+iTKTMdt7E2w68LXrX7FG6u+wzoEv0BQH8QZwx2/rQIhr3JmdfdQg5Lfw35XXVRxI1cuZ/j1Knyy3ytToU5+VR3XmX/Nma/u9la14j9efapW37iyuh3dx6sPosi0wx/VJRe+ptk/Xt2LIgjQBgx56m2rR4as16s2NR+vLirU0zN8I+rl1H2inlzXZxA8xkmyISOMrHD7F1IXN0GuM3w2r00dbQDlMtDt6r9Efa8v7rcvS8i8hw/q9STqVXyO+izv799bS8AfVkca3dWHql7PGf6uuh41aHy6m2tYHeFx4YIr1f0tcP6chnbGmG7Ub1XH3Z0RJfONc5FCQjpm/jQYJfNh3IMy9HKpU/dfNnxtT+qR6VfcOE/ZE7nAuep0jTrS/YbDsDK6UNQA9N+knHM1wkp8J0ncCEX06IhcYcpgiIwYu87pu/pQ1es3e92Q2xZes/kzLd8OwEjJZWSsSR3LbQbZw0ofSpIeJyVryE7uIRhyOra8MGLpPnXTWTht9oJ62MLP6tOqvtKDlQmqSj1govoG00FyTX5ZXEQeq9LAnjAkwcVe70Yw6q5On1LHR3WnZIZ7VZ04eYQzCpjLjA4OjFyWUCicAyjWIw1PZKvV5azu4ajOuMzg5kX1YnRMZnBOYUcnT7Cwoak+fQ7vH6SOo/o5BL1dnZFyoBBIl0V5WPrXl/rUPdSoy+7t6rLsxSgEyL5BlFI2f+eojn/c61Odun2fevVB7iRP5tQqXYdRHaYfpj5AQZ0T03U9OZTo0+pxUmOUTFGmc2w/TMGKJvGlNO/+PlXXP+x1XVI3hYvu+Kq6KZ2yGYY72pbWl5EBDAEXYk/VEa1PnV8ZhlydB5/+ZfW8iIuNTXY1vdZUIeA4lHOcqANMNeqxYXL1vnie6V5Tt7BhZeGtxlwdkVCioANxUpOpw/SiOoaACkX+orqDQpHT0kGm6dHghO0II1WujoZCr9erE4j0b0u9g0LAtniQaeXlgSTqC9MLqXMFEfO21HFhIHffqTv5PZzpgjpMT6nn+/XuXalzWhxYVg+VB9CSOlD/lHqMIuu3/1ndZUOtfAQuqoMenu31g/pHpM6LZOoR7V9e8ChJ/ZfULdAiKFFPk8/VJ/eBqecL3uzUH3DyH0+Jup80OPkXUh9DgaEa9RxEESQ4/nmp5+qIFG9Qka5Wz/nI1F0+VIUK2en2khCrnBmpRs+o/4XUwZSeyeD1+ez8g9tIvaAOJJQ4wdnhkBbaSN0VhnaxxrlVTikiuQyMjfR6knrFhs5CI6kX1RGRp3Dc8Bl+PamdMELTqQPQs9y7dq7rJfXz23Y2wrPqn3e/7s7UASuetrnTkKlfqnCS/UOSUCOh5i6RUbIV2YUiZaUq5mEGs9X6UGK0PDDg8qERowghbIEQ26cD0OU/ozYxr8L4Q90AAAAASUVORK5CYII=",
+    "templateName": "InTime",
+    "title": "InTime",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/Intimeupdated.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "placeholder": "https://intime.intimesoft.com/mytime/login/login.xhtml"
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "tooltip": "OPTIONAL CONTENT"
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "OPTIONAL CONTENT."
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "OPTIONAL CONTENT"
+        },
+        "spLoginUrl": {
+            "label": "InTime Login URL",
+            "tooltip": "The URL for your users to log into your InTime instance."
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA1"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": true,
+            "data": {
+                "emailAddress": {
+                    "name": "emailAddress",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+                },
+                "UserName": {
+                    "name": "UserName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                }
+            }
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}
