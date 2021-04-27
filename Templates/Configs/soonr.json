@@ -1,0 +1,84 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAxlBMVEX///+Wl5r9/PySk5X4+fiUlZcEsPMFr/D8/fyQkZKWl5v3+PcIq+Po6OiNjo/y8fFnZmZ3dXbCwcLKysurqqyxsLHe394HrOi2trhVVVWfoKHn5uZvbm9paWpiYmLX1tZaWlyBgH9NTE6TnaNgwuuL2/l50u7/+PbD6/pBrNiy6P3Y8vtVye+LlZmlpqjY2ts9PD1IvexCQEHi9v4btOe03/GSw9CwvsWIpLC4xMaFzvFxyu3V5+fu9/nD4exGqtAzvOgvLS2naX80AAAEWklEQVR4nO3Ya3PiNhQGYF2xjbEEvmHsYGE2m2Q3rck2aTfdNHv5/3+qR3a6X3YGOtOZxrTvMxBgMBne0ZGOBGMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/2+hEIIJxlSTZVkSMuVfWJdlpaL36AJ19OPi3/mW/4QYv6TNes55nlkfyeX0vE6bIYA4GuIMEo7fMUm54TySdWoFS7WUPDLzvjkd4FwS2spoGjaupUmVMxGX9FKbwp6McAYJh1l4qCmQppvWta0jeio53bUL1X9hHjIl0ohzafwgcl3NuZ7zOWWUUWX/xsenzg+hqqQfQTn31anl+FfzuaQyDU99fPp8c6giPg4ghfMl6gvWvCQ8nmHiCcXYCYRKh4Um8iMpU6l9zdJrKatYnQgx6YRjPhELv9LIaFhM+bxPekOFyqOIRvTA4vNN+DJ8QvmJKDLpQ/lhc6yUQ81St6ioOZ6YiBNOOGxX1PBIYZ9/50ZrGjfq+CKrI3phdJXQMutvx//LlAmbJHYo1TB2Hx8fHz+6WPmirao8r5xvFeJ8q5T5vWiVF0WW0FPxfPP0sPjw6fOziP2gKWvViT4xmnTCpKIuT4tK/ocQ908P69lsFjw8Pce0fia5zmgzE7pe54fhYlvRVpwGtclswfuEJZmrqZccL+FXZtOhAXJuquT502IRUMB18PW9EmHStXJfMFtvOt3tNa2nh+VFXW8vMlbsugu+27DDvjO5FccPHq8rzCje3Hc9HaW3X33A2WKxXn+x1B67hrmU5W0WC+X2kUparWIb13c2/VbHsWjr5FsfWyGmXKXU9nx/0FSm5s3TkG+2Dtaz9Vul0m1Jk7DcZHSdZWWbmXY8KJpVtmmoR5pV0ibDdmfCCQ9Dz/PnpIj//I4CroNgvaCEV9eMqrQoRdEpRcuNtVG0PYxnf7dJWxaGrF+VW1qET214XtdhOCCNu1CfMAgoXkBj+dO1YrZYbaqio1Hyx6diu2toxgkVN7t66VPVq7Jt/KZoyvOwrOWw+aS1xry5pCFcLGZDQqpSetsWe7nyhUlxa7N0NHEpbNZ+T7gcqnTKCW2qh0M9bddM8SsNH5UozcPg4bOy/tcatuGUazgeLzNjxr2NMenSpxoSCtrQTTigL9Mo8oVKD+7+kmZh4EcweIpVs6toJbo75G1J17ltFx/2PT1TxV1TtL5w65bm4cSHkGqt9D8+UUCTsvDmg2/4NJCX93TYqO66aG+Y1Zuuv/ilo/7hNhvDl/uU1TtfpXxb7hLKF792iOPCppCRlL1TtFG7vXqYBYt3vyV+RQmd6XJ/ieMrTaVKBRrnZlXRefjgZ6Qqy8TFf23dp4rWfGZdmjmqRKVicX1zdfX2/S19ffXSBGjtHK4U4cvPwuHw4O+h9QfHKcf7waTnEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAZ+hMaqj49K35HeQAAAABJRU5ErkJggg==",
+    "templateName": "Soonr Workplace",
+    "title": "Soonr Workplace",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/soonr",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": "https://<servername>.soonr.com/singlesignon/saml/metadata"
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications."
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the Soonr Workplace’s entity ID.",
+            "placeholder": "https://<servername>.soonr.com/singlesignon/saml/SSO"
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "Soonr Workplace Login URL",
+            "tooltip": "The URL for your users to log into your Soonr Workplace instance.",
+            "placeholder": "https://<servername>.soonr.com/singlesignon/saml/SSO"
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": false,
+            "data": {}
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

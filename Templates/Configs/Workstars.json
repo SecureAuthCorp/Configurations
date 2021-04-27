@@ -1,0 +1,84 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARUAAAAtCAMAAAC3bg+kAAAAgVBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+xZKUEAAAAKnRSTlMAAQYLERYiJjAzQkRHVVtmZ3B0d32HiIyZmqOqtrvIzM7X3N3o6u70+fri67BYAAAE4klEQVR42u2ZAZOkNBCFo8ZojBi1FXPGiBqNyv//gRaymZcm9DAU1pV7O6/q6nZDeN18NE3IqqcWffWdeveFeorrtz/M3z+rpzb69vuv1VOLZlFvF8GTypPKk8p1KvsT19k5WnZkTIt0O2RjBsYzeeThNVJZVYxqVOZFg4JMqWan8yj61VKZRwW5fmiE2ek83OulMimI+qHpPVFJOOP/QGXeQYDS1/PbokJjQe4bBMP2mSojqYdFFF4rFTwvuF5fTwx1BHPO6RVTseuspKpCPTFvkp3th0VFFN7DwJbnKsM9i3pDVCIvBIujnreVqFYZigu5HMkIOWhK8+zuU9EUp8Ulkb1PRfvw7/CUyNyJ1rleoMKbBn4taCybGS7NUHKbsFEv85ezeypjY6PDDE0O7KGXyxzbsWTkaL3rFSoWlYDSSWgsrJp0nLmC5mFjbUwdFdc0MJu5i5eo6IkPlkGKJriKVI6UWddYOVNtLOg8GUm2mjQPq/y8S0WvLkXjZ6hogUrYhitWiLbreoFKQG+tuY1DLXYUUwCUHgvC6rJDBQU3IGIrL1DJ3cwkRBNcQeVhsQWKbx7+QdcCZcfTrXKJKO7nOc67VIYbWhSfX8ZX0CRQeQlnl6b7AsAK0fZcL1AxbcKrnV7/L7yWPJrcIhNxS7CULcu/4J3ToHKr7qyb4rPNUpqEdznLs6wghGjc9RoVlOkEt6nWjMXhrFQGBFZleRM5GnaN3evfseiPUcHtSUI07nqdSsDXoK9ut8aCUvLiDoNnkQNPxQEfsSURnV33EV4LLJrseoWKRyMM/NGN6AiDipvGjgcjtpGz5qkEorDZmyi4yyeooBp4tN71OhVUw1idC5aZqAet8FhDY3P7jhp/Md0mVhweoWKJUmJZ82i962UqaLGpVmFAubp6cFJ6L2XXbMUcLBKKRYlljJK5T8WE3GXNogmuF6mAckXh8ZhShTFWAELN4y0qpdJuj9vClscyFR2ErBFNdL1KZajZrHWq8ZgmtJUHqZCYSlKQTmwZL1GxRcoa0WTXi1R0DYGmWBtv/TTUj1JxcipeNfKZHWFu3TMxjeScI0YFU0XXC1TQWKJr+fs17Io/3dDZg77iemKVbFZMfrWG69ainpcsgslUZNeezZ8/qgOhsWRqvcyKqNxI1Z+kJYRMRUXcvFY24ON3z6Lw3iHViuwqUPnlM3UoNJZYLxEFFLaXlpW4XpGpGOkvZibcaRZ2syUYJSqi6z6VHz4+s4OHvSYUEOyP17YyFRX49WpUDd1m4eNC908M0EpUZFee0O9fntww5WXutq8P+TvokIoprFjSTP0sVMNkkABqJclUeleRyk+fqodFILC3CiM2KWi+lvBHVHDuRETrL8kw9gaYFyUipxQrTnQLop1okiun8tc3H6nHhbqYMBh5M5f3V46o8O232zbWsHS0zLpVZndiwpeNS3OjnWiyKzT/+rk6JSTTFRAasLAXd0iFV2O/aYaojg35mSvfoSK7Qu8+UeeUUBag373hzCRAOaaCMsASdKdAPbskHo7SHSqC6zURygLKHfNujz9q9SCVobkk6slW2YSgfIM6KLpDRXC9JnsL3Sh09SP9PeiYClbjWFGsKqSYDMWp9nCd2ll6LDKV3vW9ylDq/nZ4XtrHaXW5f0vdOM1zSaRPuz71n+ofCbfhNiwRV7IAAAAASUVORK5CYII=",
+    "templateName": "Workstars",
+    "title": "Workstars",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/Workstars.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "placeholder": "https://<subdomain>.workstars.com/saml/login_check"
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {
+            "value": "redirect"
+        },
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "tooltip": "OPTIONAL CONTENT",
+            "placeholder": ""
+        },
+        "nameIdFormat": {
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "OPTIONAL CONTENT."
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "OPTIONAL CONTENT",
+            "placeholder": ""
+        },
+        "spLoginUrl": {
+            "label": "Workstars Login URL",
+            "tooltip": "The URL for your users to log into your Workstars instance.",
+            "placeholder": ""
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": true,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": false,
+            "data": {}
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

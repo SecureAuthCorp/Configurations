@@ -1,0 +1,92 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAk1BMVEX///8lSIwiRovN1OShrMcRPYc5V5UANoTb4e2Xm5/MztDx8vI/YJzk5ea9v8Ls7O2BhouQlJn4+Pnc3d6oq67P0dONkZafoqe/wcOkp6sbQomIjJF9goitsLTg4eLV19hkeqnm6fF6jbWYp8eImb1bc6UsUZM3WJatutQALIDEzN6xvdUAMoNIZ6DP1eRvg69Tap/IkwsPAAAEnklEQVR4nO3ZiXKqOgAGYMBaBQRDZJNFpHZX277/050EBBKWc+2tHUbP/3XGsWmQ/CQkwSoKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwDUy95Oxm/Cr7l5mb3djN+JXvUTq9LYTLjQkvHanhHSej92S3/JSJvz4+truzLEbc3n5TtPUIuHkPoqms+187BZd2GQxZQFPCfm7SLujYzfqkvbPkapKCVUterihiLsZCxWJCdmQ1aYvY7frYt55wOnnaS7lCaOHZ170eCO9mB95mgd6bBLO5ns+8Wj7bu3MYLwV7RZyK7HUNAyplmW0pmirOMazpMKleBTNvEpWlXkZrY8/qwvo45R3V70elgmVScQG6qK7NK6J7zh+nKw3YmHMChk/FaumJMnE341EugCKYvPPcnziLIXCgCRN5GVQnI2/rKs0vl5dKDsRDxyUswEZHZV2QuVuqvbtcVwns6xNZjux0HpXZ4WceEYa63Jig3QS8sNWYdNm1vFE9+3mM6yNZdnEYKesYztBVTtMzlq3eZJo0k1obiNVe+4m1MsUlu5sOoUSjxipI47AnoTlYSFpBmYYe2tdbrhBpHH87YS8C4uFoZVQeWd34qGz8NdhLFKPm96ENNBNi4RSSwcSmknda6YeUI/I9+8PE9IDWxqKGaWdMD/2bcWbMG5sdQsbKz7Y/EBow2DCZZMwi0OFEleaQToJq7+el3A+U7X74tG+nVBhw5TPQLImjHCpXX21LAgts3m7QjHUYEK7/iSa8kansRSpnVBflTe9lZJzEr6zhMd5b8KHSI0+hxNapL7ybkwKTV8oS0fnr37w14TGarXy1iSt5//YLV5bM5SUUI9PZyPxWQn3U1X7ynsTPv494aa5yVwnLBeupilGwvul7JPBhDFJGN+u69hFFerG4jBtJ9QNdrKM/bhnJZywPlz8rz40mtWu5z7UneLs/L4aTkiyJVthhLEdl/eYR7zhhN+9D3M20zy/83ffvQ99x+wWViziBJwurHWD92Etq46KA6ETf7pa8OWwmDHbCee84HUwYdjchj0J7XidFgK/7un/Tuj6bnmU7kgz1M8SPrGxuDV7Eu7Zvu3Q2ba5pz4JY2FddltrNFvW9CUtbJJ6GjHIRq7VTmixxpdHecLl+3HCPd+dvXYT5ux37dip7vqpbdsuicU1qyxkqlnfaGYhvZ76DeIWlcKhfaWd1OtPLOxVjWQgoX1ewvyL7c60vJPwlSfvPlykOhfYWbeQOc3yNG0a6DlVs71TpXX1t1Dacitm6tRXLXSaE3i+lHCdVrkM56yEbGPK9m3bvJ1wN1Wjp+4nmKXewqZcqEDr97RViRW0P0Y4qhkidEn7a7WPH0I/2eN9tJgf2wm151v5NwZ/flKjl3u1lXDWmUiv1rvGelH8rq1I+LYbu10XNH8qvkyUn4B7vsK4Yvmj9F1b8QQ8dpsu7ePzMI1m0q7t5tD943Z/0wlPkPD6/RMJtbfbTqgejrf9z+78Y+wWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANykP213VHUaWO3hAAAAAElFTkSuQmCC",
+    "templateName": "Dealpath",
+    "title": "Dealpath",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/Dealpath.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": ""
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications."
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID.",
+            "placeholder": "https://api.dealpath.com/saml/metadata/<ID>"
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "Dealpath Login URL",
+            "tooltip": "The URL for your users to log into your Dealpath instance."
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": false,
+            "data": {
+                "emailAdress": {
+                    "name": "emailAddress",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+                },
+                "LastName": {
+                    "name": "LastName",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                }
+            }
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

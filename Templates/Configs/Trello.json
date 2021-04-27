@@ -1,0 +1,89 @@
+{
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAk1BMVEX///8Aj+MAgMoAecgAfckAiOEAi+IAhuAAfskAjeMAdscAkuTU5vhGo+jV6/oAesjj7/j3/P6CvOx8rtxaodfA2u8wi86axebJ4PGXveLZ6va82/RZrOgAccV5sd3o8/o2kdGJuuGszupmp9lOmdOw0+xcn9ZVqeg0nudwp9mZy/G12PWNveKfxuYbhMsAbcR0tuoB0mdVAAADrElEQVR4nO3ZaXeaQBiGYWRGxUmTgdYoNRGMS9K00eb//7rOIi5Qo02Ncsx9fQkozOF9hFlIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALlry9Xqn+5tzX91JJI1WZ6dW++7c13cKr62G0Wl7TbPd8pvu80bj3Nd3Cle20NbTII+N/K7ZaL3GbvOnC6H9GZ4Gl8FVsXfT7FwX2y6ET5NB57XYu2m3vhbbd81VBoNu1Wxv01mWTfIgyM3fLPmQiz8Sm8G67h0ZpEqWqf7epqWWwzgIYqW1uoQMwjI939t0GIXKZiDCUFxABkPtRKb4yG8ecB9cVgZ535lPozBazP1Ourfpy8qg8E2GUe/gpj9pBkm+sXPxGczNgBcHLz2tFpMv/qPxNFLK7N4uj/5LBsl4MlqMuvPNqM7vvRk8Cq3mU2F6yUgO7RiRLoR0faZUU19xNYNxaI+JpBAPH17YP9idwfjNDLrS1Cv9OKkGQXCrXBzS5iB7ruRKBplyIdlTxLRGT8fODPKr6nqhnEEozc2v9cQUasdNEXaz7sKUrLv2kHIGfTvL0GLhxlh/SD2UM2j8uPcanf0ZiG9pEs9V7neFnzK8CH9nlDPIzYMT6X4SJDN7L6jboC4qGTSW7w780vnNDJZF2/rMTyyKmWMmQ22f91IGD9oU7mcVcWTiGH14bYeqZrDlrQw2hsmxNpOnwdJMhHIaVDLoRaHM1seHqjaDw39ksKrI/8aRFp7ZDu1R2xkk5lZRRWuJ+U7U5mH4jwz099UXmdxeUUUyKGcQ2wxWg8HIZDD+6NoOdcQMxJqqZpBfegZ9c/+P0tsNQeVZsH+KhVZiphFi/6rrRI6TgX3BIMuznlKfaH56OVl+NRcX0iduZBCYwc6NBVa8vMlLGbh5g/9qIDcOP78jZWALlL1xnOdpJpWfKZQysPd/KCZpPnixvYeqzaNwrAyCnqkrMn2hsKsiH0J5rjyzc2UpzOzahpEFteHeK98Xe2nzvRnkPb0aGZcvXCtrpr5bM7mxU02C+vD/Yykqve68mcHzUKmF35wqNfy+1dKDuQUsoR4H7gPzi/+2GZiThr6/TEdKmyO0CmszLlo/XNXNJ7dOuipH0Ghvdd6D1FhvxttNJbPscTrNxsUp9mDbD6xPMqf1s+fnl/p0Bc4v3wNsrpM2NO/3t3ABfrbbzR3a7adzX92JJF92ivefDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4zB/VDkr4JPh4UAAAAABJRU5ErkJggg==",
+    "templateName": "Trello",
+    "title": "Trello",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/Trello.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion",
+            "placeholder": "https://trello.com/auth/saml/consume/<Domain>"
+        },
+        "initiationType": {
+            "value": "sp",
+            "enabled": false
+        },
+        "initiationBy": {},
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "description": "User will be directed to this URL after authentication",
+            "tooltip": "This field is optional for certain applications."
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "Audience is a unique string that identifies the Service Provider (SP). Typically this is the SP’s entity ID.",
+            "placeholder": "https://trello.com/auth/saml/metadata"
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "This field is typically the same as the consumer URL. It is optional for certain Service Providers."
+        },
+        "spLoginUrl": {
+            "label": "Trello Login URL",
+            "tooltip": "The URL for your users to log into your Trello instance.",
+            "placeholder": "https://trello.com/login/sso"
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": false,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA2"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": false,
+            "data": {
+                "mail": {
+                    "name": "mail",
+                    "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                }
+            }
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}

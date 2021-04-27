@@ -1,0 +1,84 @@
+{
+    "icon": "",
+    "templateName": "PartnerCentral",
+    "title": "PartnerCentral",
+    "isGeneric": false,
+    "migratedFrom": "https://raw.githubusercontent.com/SecureAuthCorp/Configurations/master/Templates/Applications/PartnerCentral.json",
+    "applicationType": "SAML",
+    "federationData": {
+        "assertionConsumerService": {
+            "label": "Assertion Consumer Service (ACS)",
+            "placeholder": "https://<company>.secureauth.com/user/saml/secureauthidp"
+        },
+        "initiationType": {
+            "value": "idp",
+            "enabled": false
+        },
+        "initiationBy": {
+            "value": "redirect"
+        },
+        "issuer": {
+            "label": "IdP Issuer",
+            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
+            "placeholder": "sample-issuer"
+        },
+        "relayState": {
+            "label": "Relay State",
+            "tooltip": "OPTIONAL CONTENT",
+            "placeholder": ""
+        },
+        "nameIdFormat": {
+            "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            "label": "Name ID Format"
+        },
+        "userIdProfileField": {
+            "value": "AuthenticatedUserId",
+            "label": "User ID Profile Field",
+            "description": "Select the profile field in your data store that contains your users' IDs."
+        },
+        "audience": {
+            "label": "Audience",
+            "tooltip": "OPTIONAL CONTENT."
+        },
+        "recipient": {
+            "label": "Recipient",
+            "tooltip": "OPTIONAL CONTENT"
+        },
+        "spLoginUrl": {
+            "label": "PartnerCentral Login URL",
+            "tooltip": "The URL for your users to log into your PartnerCentral instance.",
+            "placeholder": ""
+        },
+        "assertionValidHours": {
+            "tooltip": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+        },
+        "assertionOffsetMinutes": {
+            "tooltip": "This is referred to as \"SAML Not Before\" in the SAML Specification.",
+            "minutes": 5
+        },
+        "signSamlMessage": {
+            "value": true,
+            "enabled": true
+        },
+        "signSamlAssertion": {
+            "value": true,
+            "enabled": true
+        },
+        "signingAlgorithm": {
+            "value": "SHA1"
+        },
+        "encryptSamlAssertion": {
+            "value": false
+        },
+        "attributes": {
+            "visible": false,
+            "data": {}
+        },
+        "dataEncryptionMethod": {
+            "label": "Data Encryption Method"
+        },
+        "keyEncryptionMethod": {
+            "label": "Key Encryption Method"
+        }
+    }
+}
