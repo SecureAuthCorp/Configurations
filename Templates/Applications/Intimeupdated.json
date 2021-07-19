@@ -147,7 +147,7 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-	  "hint":"https://intime.intimesoft.com/mytime/login/login.xhtml",
+      "hint": "https://intime.intimesoft.com/mytime/login/login.xhtml",
       "controlType": "input"
     },
     "assertionOffsetMinutes": {
@@ -205,15 +205,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -223,15 +215,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -253,9 +237,7 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",
-	  "fixedValue:i": "%{_.assertionConsumerService}",
-    "visible": false
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -285,8 +267,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -345,8 +326,6 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "fixedValue": "sp",
-	  "enabled" : false,
       "width": 7,
       "noMargin": true,
       "options": [
@@ -357,8 +336,7 @@
         {
           "value": "idp",
           "display": "IdP Initiated",
-		  "visible" : false
-		  
+          "visible": false
         }
       ],
       "notify": {
@@ -368,26 +346,19 @@
     },
     "initiationBy": {
       "controlType": "radiogroup",
-      "fixedValue": "redirect",
       "noFieldset": true,
       "stack": "small",
-      "properties":
-      {
+      "properties": {
         "inline": true,
         "alignment": ":middle",
         "stack": ":medium"
       },
-      "options":
-      [
+      "options": [
         {
-          "fixedValue": "redirect",
-		  "visible": false,	
-          "display": "SP Initiated By Redirect",
-		  "enabled" : false
+          "display": "SP Initiated By Redirect"
         },
         {
           "value": "post",
-		  "visible": false,
           "display": "By Post",
           "extras": "initiationByTooltip"
         }
@@ -413,7 +384,6 @@
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
-	  "visible": false,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
         "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
@@ -427,14 +397,12 @@
     "recipient": {
       "label": "Recipient",
       "controlType": "input",
-	  "visible": false,
-	  "extras": "recipientTooltip",
+      "extras": "recipientTooltip",
       "extrasAt": "field"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input",
-	  "visible":false
+      "controlType": "input"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -454,7 +422,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -550,21 +517,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
@@ -945,21 +898,17 @@
       "repeat": {
         "min": 2,
         "max": 10,
-		"match":
-        {
-          "emailAddress":
-          {
+        "match": {
+          "emailAddress": {
             "name": "emailAddress",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
           },
-"UserName":
-{
-"name": "UserName",
-        "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+          "UserName": {
+            "name": "UserName",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+          }
         }
-		
-}  
-		  },
+      },
       "order": "attributeCallout"
     },
     "encryptSamlAssertionOptions": {

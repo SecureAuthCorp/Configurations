@@ -148,9 +148,9 @@
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-		"hint": "urn:amazon:cognito:sp:<yourUserPoolID>",
-		"extras": "ACSTooltip",
-		"extrasAt": "field"	
+      "hint": "urn:amazon:cognito:sp:<yourUserPoolID>",
+      "extras": "ACSTooltip",
+      "extrasAt": "field"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -207,15 +207,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -225,15 +217,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -255,9 +239,7 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",
-	    "fixedValue:i": "%{_.assertionConsumerService}",
-	    "visible": false
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -287,8 +269,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -347,9 +328,7 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "fixedValue": "sp",
-		"display": "sp",
-		"enabled": false,
+      "display": "sp",
       "width": 7,
       "noMargin": true,
       "options": [
@@ -369,7 +348,6 @@
     },
     "initiationBy": {
       "controlType": "radiogroup",
-      "fixedValue": "redirect",
       "noFieldset": true,
       "stack": "small",
       "properties": {
@@ -380,13 +358,11 @@
       "options": [
         {
           "value": "redirect",
-          "display": "By Redirect",
-			"visible": false
+          "display": "By Redirect"
         },
         {
           "value": "post",
           "display": "By Post",
-			"visible": false,
           "extras": "initiationByTooltip"
         }
       ],
@@ -411,7 +387,6 @@
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
-		"visible": false,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
         "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
@@ -424,15 +399,14 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input",
-		 "visible": false
+      "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
       "controlType": "input",
-		"hint": "https://<yourDomainPrefix>.auth.<region>.amazoncognito.com/saml2/idpresponse",
-		"extras": "relayStateTooltip",
-"extrasAt": "field"		
+      "hint": "https://<yourDomainPrefix>.auth.<region>.amazoncognito.com/saml2/idpresponse",
+      "extras": "relayStateTooltip",
+      "extrasAt": "field"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -452,7 +426,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -548,21 +521,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
@@ -740,7 +699,7 @@
       "content": "To configure third-party SAML 2.0 identity provider solutions to work with federation for Amazon Cognito User Pools, you must enter a redirect or sign-in URL. You can find your domain prefix and the region value for your user pool on the Domain name console page of the Amazon Cognito console",
       "pad": ":::small"
     },
-	"ACSTooltip": {
+    "ACSTooltip": {
       "content": "You can find your user pool ID on the App client settings tab in the Amazon Cognito console.",
       "pad": ":::small"
     },
@@ -945,16 +904,14 @@
       "logical": true,
       "dataModelName": "attributes",
       "repeat": {
-		  "min": 1,
+        "min": 1,
         "max": 10,
-		  "match":
-		  {
-			  "emailAddress":
-			  {
-				  "name": "emailAddress",
-			  "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
-			  }
-		  }
+        "match": {
+          "emailAddress": {
+            "name": "emailAddress",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+          }
+        }
       },
       "order": "attributeCallout"
     },

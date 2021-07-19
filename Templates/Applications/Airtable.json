@@ -147,9 +147,7 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-      "controlType": "input",
-	  "fixedValue":"https://airtable.com/ssocallback"
-	  
+      "controlType": "input"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -206,15 +204,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -224,15 +214,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -254,8 +236,7 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",
-	  "visible":false
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -285,8 +266,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -346,7 +326,6 @@
       "label": "Connection Type",
       "controlType": "select",
       "defaultValue": "sp",
-	  "enabled":false,
       "width": 7,
       "noMargin": true,
       "options": [
@@ -364,38 +343,36 @@
         "initiationTypeIdP": "idp"
       }
     },
-   "initiationBy": {
-            "controlType": "radiogroup",
-            "defaultValue": "redirect",
-            "noFieldset": true,
-            "stack": "small",
-            "properties": {
-                "inline": true,
-                "alignment": ":middle",
-                "stack": ":medium"
-            },
-            "options": [{
-                    "value": "redirect",
-                    "display": "By Redirect",
-                    "visible": false
-                },
-                {
-                    "value": "post",
-                    "display": "By Post",
-                    "extras": "initiationByTooltip",
-                    "visible": false
-                }
-            ],
-            "modify": {
-                "initiationTypeSP": {
-                    "visible": true
-                },
-                "initiationTypeIdP": {
-                    "visible": false
-                }
-            }
+    "initiationBy": {
+      "controlType": "radiogroup",
+      "defaultValue": "redirect",
+      "noFieldset": true,
+      "stack": "small",
+      "properties": {
+        "inline": true,
+        "alignment": ":middle",
+        "stack": ":medium"
+      },
+      "options": [
+        {
+          "value": "redirect",
+          "display": "By Redirect"
         },
-      
+        {
+          "value": "post",
+          "display": "By Post",
+          "extras": "initiationByTooltip"
+        }
+      ],
+      "modify": {
+        "initiationTypeSP": {
+          "visible": true
+        },
+        "initiationTypeIdP": {
+          "visible": false
+        }
+      }
+    },
     "keyEncryptionMethod": {
       "label": "Key Encryption Method",
       "controlType": "select",
@@ -406,7 +383,6 @@
     "nameIdFormat": {
       "label": "Name ID Format",
       "controlType": "select",
-	  "visible":false,
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
       "options": [
@@ -421,13 +397,11 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input",
-	  "visible":false
+      "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input",
-	  "visible":false
+      "controlType": "input"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -447,7 +421,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -478,7 +451,6 @@
       "label": "Airtable Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
-	  "fixedValue":"https://airtable.com/sso/login",
       "extrasAt": "field",
       "modify": {
         "initiationTypeSP": {
@@ -512,7 +484,6 @@
       "dashed": true,
       "expand": true,
       "clickAction": "attributeItemAdd",
-	  "visible":false,
       "modify": {
         "attributeItemDisableAdd": {
           "disabled": true
@@ -545,27 +516,12 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
       "small": true,
-      "stack": "large",
-	  "visible":false
+      "stack": "large"
     },
     "settingsCallout": {
       "after": [
@@ -1059,7 +1015,8 @@
         "encryptSamlAssertion",
         "attributesHeader",
         "noSAMLAttributes",
-        "attributeItem"
+        "attributeItem",
+        "attributeAddButton"
       ],
       "order@details": [
         "applicationInputs",

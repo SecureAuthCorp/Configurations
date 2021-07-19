@@ -147,8 +147,7 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-      "controlType": "input",
-	  "fixedValue":"https://app.zivver.com/api/sso/saml/consumer/"
+      "controlType": "input"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -205,15 +204,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -224,15 +215,7 @@
       "label": "Attribute Name",
       "controlType": "input",
       "dataModelName": "name",
-	  "hint":"Email",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "hint": "Email"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -254,9 +237,7 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",
-	  "fixedValue:i": "%{_.recipient}",
-	  "visible":false
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -286,8 +267,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -348,7 +328,6 @@
       "controlType": "select",
       "defaultValue": "idp",
       "width": 7,
-	  "enabled":false,
       "noMargin": true,
       "options": [
         {
@@ -406,7 +385,6 @@
       "label": "Name ID Format",
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-	  "visible":false,
       "width": 11,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
@@ -420,13 +398,11 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input",
-	  "fixedValue":"https://app.zivver.com/SAML/Zivver"
+      "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input",
-	  "visible":false
+      "controlType": "input"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -446,7 +422,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-       
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -542,21 +517,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",

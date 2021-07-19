@@ -149,7 +149,7 @@
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint" : "https://Company Id.folloze.com/sso/acs"
+      "hint": "https://Company Id.folloze.com/sso/acs"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -206,15 +206,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -224,15 +216,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -254,9 +238,7 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",
-	  "fixedValue:i":"%{_.assertionConsumerService}",
-      "visible":false
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -286,8 +268,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -346,8 +327,6 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "fixedValue": "idp",
-	  "enabled" : false,
       "width": 7,
       "noMargin": true,
       "options": [
@@ -407,7 +386,6 @@
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
-	  "visible":false,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
         "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
@@ -444,7 +422,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -540,21 +517,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
@@ -933,8 +896,7 @@
       "logical": true,
       "dataModelName": "attributes",
       "repeat": {
-        "max": 10,
-		"visible": false
+        "max": 10
       },
       "order": "attributeCallout"
     },

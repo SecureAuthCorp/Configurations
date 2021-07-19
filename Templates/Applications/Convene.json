@@ -1,1096 +1,1066 @@
 {
-    "id": "Convene",
-    "title": "Convene",
-    "version": "1.0.0",
-    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdAAAABtCAMAAAAmoMAtAAABWVBMVEX////mjz7udi/ljDfmjjvlizTlizXudC/tsYD//fvvvZbomVXlijHtpy3utYP44c7srHnqo2fnkkL77N/olkjqoV/tpi3toS3khyjsmi3uqy3smS3slS3ts4frjS3qgS388ebobi7mXC7yx6PnZC7kTS7qZC700LPmWS7pei3jQy7oWy7328TxwpnriC399/PtbRjtphz62cj98O786+P11rvzzKztbRfkgx3xj13jQiLvgUH43rb9+O7udCf66tL10pvzpHriMhn53drmWErywHbzsqrtpgD2y8fmUTnpWBLhJgDpdWb1so/wjFX3xq7thXLzyYXqd2jmWRXwul72up7mUDXysprtkWztjYPvn43xuVTlSR3obVLwoZj7683qflztk3jym27ytK/mQxDrlw3oZEPxuXXpfBfrikXpgwDsiGHupUTwrWHpd0bqeWLxqJ/216fvn4Xi6UWSAAAWiElEQVR4nO2d61/bNhfHA3YoJoYkOJCEqyGEa8CEXIBQMkoopVdoafeMNrRbKV27tevW///FY/l6jiyZ2MCgn/n3CuzYkvW1pKOjIzkWixQpUqRIkSJFihRKklaxJd10XiJdVq2zkyd7Dxd3d3cXF/f2Xrw90246R5FCq3Jw0nhMSFpqNHZ3Hz8+3W/ddMYihVDl7MnDRmOxSKSjbOz+vHf64ujk6MXp3t7RQVRPfzBVT/bajaKldvHj0X6rWtFIF0p61NbBWVRLfyRVTj60HZof5vdbXmNIiuyjH0ba2932vKV2+7e1m85PpMvpYK+95Oh79aazE+mSOmksTVs6/jWqnT+6KnuNWVuP/nfTuYl0WR0stm2cx79Gre0Pr4PF4ozN87drHmpKmqYqyaSiapoWWczXo4Pd4oyp625ut2t9qUQ8Z0gWM6mCcq3J/UdFeE6ZPI8PrzOhZGpDjgtily1RiOcydfU6k/wvqvWwMTNlyctTqrYO3v529O3b0euDVuUy6agpQejySJQz9cvcNRItYt9aOFc97W1l/9vH49Vmc2Ghu9k8Pv7r+1robq802OPFaSDNpSIP8RXqSWPe5nmPOtX63j5uTq5MTi7oQLv1X+ht8szrcEZwXRbZPHXFE+qlHyOSpb93ixbPO8/wmdafx7OTEys6TwPo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",
-    "vars": {
-        "encryptOptions": [{
-                "value": "http://www.w3.org/2001/04/xmlenc#kw-aes128",
-                "display": "XmlEncAES128KeyWrapUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#aes128-cbc",
-                "display": "XmlEncAES128Url"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#kw-aes192",
-                "display": "XmlEncAES192KeyWrapUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#aes192-cbc",
-                "display": "XmlEncAES192Url"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#kw-aes256",
-                "display": "XmlEncAES256KeyWrapUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#aes256-cbc",
-                "display": "XmlEncAES256Url"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#des-cbc",
-                "display": "XmlEncDESUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#Content",
-                "display": "XmlEncElementContentUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#Element",
-                "display": "XmlEncElementUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#EncryptedKey",
-                "display": "XmlEncEncryptedKeyUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#",
-                "display": "XmlEncNamespaceUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#rsa-1_5",
-                "display": "XmlEncRSA15Url"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p",
-                "display": "XmlEncRSAOAEPUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#sha256",
-                "display": "XmlEncSHA256Url"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#sha512",
-                "display": "XmlEncSHA512Url"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#kw-tripledes",
-                "display": "XmlEncTripleDESKeyWrapUrl"
-            },
-            {
-                "value": "http://www.w3.org/2001/04/xmlenc#tripledes-cbc",
-                "display": "XmlEncTripleDESUrl"
-            }
-        ],
-        "attributeFormatsList":
-        [
-          {
-            "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
-            "display": "Basic"
-          },
-          {
-            "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
-            "display": "URI"
-          },
-          {
-            "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
-            "display": "Unspecified"
-          },
-          {
-            "value": "Base64Encoded",
-            "display": "Base64 Encoded"
-          },
-          {
-            "value": "GroupList",
-            "display": "Group List"
-          }
-        ]
-    },
-    "applicationType": "SAML",
-    "templateName": "Convene",
-    "entries": {
-        "allowAllGroups": {
-            "states": "Allow every group in your selected data stores to access this application.",
-            "controlType": "switch",
-            "defaultValue": false,
-            "notify": {
-                "allGroupsAllowed": true,
-                "selectGroupsAllowed": false
-            }
-        },
-        "applicationName": {
-            "defaultValue:t": "$.title",
-            "controlType": "input",
-            "dataModelName": "name",
-            "label": "Application Name",
-            "stack": "medium",
-            "emptyValue:t": "$.title"
-        },
-        "applicationDescription": {
-            "controlType": "input",
-            "dataModelName": "description",
-            "label": "Application Description"
-        },
-        "applicationLogo": {
-            "defaultValue:t": "$.icon",
-            "displayOnly@summary": false,
-            "controlType": "custom",
-            "dataModelName": "logo",
-            "componentId": "imageUpload",
-            "stack": ":medium",
-            "properties": {
-                "maxFileSize": 2000,
-                "allowedTypes": [
-                    "jpeg",
-                    "png"
-                ]
-            },
-            "properties@summary": {
-                "displayOnly": true,
-                "isSquare": true
-            },
-            "order": [
-                "downloadIcon",
-                "downloadLabel"
-            ]
-        },
-        "assertionConsumerService": {
-            "label": "Assertion Consumer Service (ACS)",
-            "controlType": "input",
-            "hint": "https://portal.convene.me.uk/saml/acs/<UID>"
-        },
-        "assertionOffsetMinutes": {
-            "label": "Offset Minutes",
-            "controlType": "input",
-            "defaultValue": 5,
-            "type": "number",
-            "extras": [{
-                    "name": "static:body",
-                    "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
-                },
-                "assertionOffsetMinutesTooltip"
-            ],
-            "extrasAt": "field",
-            "width": 3
-        },
-        "assertionValidHours": {
-            "controlType": "input",
-            "type": "number",
-            "extras": [{
-                "name": "static:body",
-                "content:n": "&nbsp;&nbsp;Hours&nbsp;"
-            }],
-            "extrasAt": "field",
-            "width": 9,
-            "inline": true,
-            "stack": "small",
-            "emptyValue": "0",
-            "modify": {
-                "minutesAreZero": {
-                    "value": "1"
-                }
-            }
-        },
-        "assertionValidMinutes": {
-            "controlType": "input",
-            "type": "number",
-            "extras": [{
-                    "name": "static:body",
-                    "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
-                },
-                "assertionValidHoursTooltip"
-            ],
-            "extrasAt": "field",
-            "width": 9,
-            "inline": true,
-            "stack": "small",
-            "emptyValue": "0"
-        },
-        "attributeFormat":
-    {
-      "label": "Format",
-      "dataModelName": "format",
-      "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c":
+  "id": "Convene",
+  "title": "Convene",
+  "version": "1.0.0",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdAAAABtCAMAAAAmoMAtAAABWVBMVEX////mjz7udi/ljDfmjjvlizTlizXudC/tsYD//fvvvZbomVXlijHtpy3utYP44c7srHnqo2fnkkL77N/olkjqoV/tpi3toS3khyjsmi3uqy3smS3slS3ts4frjS3qgS388ebobi7mXC7yx6PnZC7kTS7qZC700LPmWS7pei3jQy7oWy7328TxwpnriC399/PtbRjtphz62cj98O786+P11rvzzKztbRfkgx3xj13jQiLvgUH43rb9+O7udCf66tL10pvzpHriMhn53drmWErywHbzsqrtpgD2y8fmUTnpWBLhJgDpdWb1so/wjFX3xq7thXLzyYXqd2jmWRXwul72up7mUDXysprtkWztjYPvn43xuVTlSR3obVLwoZj7683qflztk3jym27ytK/mQxDrlw3oZEPxuXXpfBfrikXpgwDsiGHupUTwrWHpd0bqeWLxqJ/216fvn4Xi6UWSAAAWiElEQVR4nO2d61/bNhfHA3YoJoYkOJCEqyGEa8CEXIBQMkoopVdoafeMNrRbKV27tevW///FY/l6jiyZ2MCgn/n3CuzYkvW1pKOjIzkWixQpUqRIkSJFihRKklaxJd10XiJdVq2zkyd7Dxd3d3cXF/f2Xrw90246R5FCq3Jw0nhMSFpqNHZ3Hz8+3W/ddMYihVDl7MnDRmOxSKSjbOz+vHf64ujk6MXp3t7RQVRPfzBVT/bajaKldvHj0X6rWtFIF0p61NbBWVRLfyRVTj60HZof5vdbXmNIiuyjH0ba2932vKV2+7e1m85PpMvpYK+95Oh79aazE+mSOmksTVs6/jWqnT+6KnuNWVuP/nfTuYl0WR0stm2cx79Gre0Pr4PF4ozN87drHmpKmqYqyaSiapoWWczXo4Pd4oyp625ut2t9qUQ8Z0gWM6mCcq3J/UdFeE6ZPI8PrzOhZGpDjgtily1RiOcydfU6k/wvqvWwMTNlyctTqrYO3v529O3b0euDVuUy6agpQejySJQz9cvcNRItYt9aOFc97W1l/9vH49Vmc2Ghu9k8Pv7r+1robq802OPFaSDNpSIP8RXqSWPe5nmPOtX63j5uTq5MTi7oQLv1X+ht8szrcEZwXRbZPHXFE+qlHyOSpb93ixbPO8/wmdafx7OTEys6TwPo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",
+  "vars": {
+    "encryptOptions": [
       {
-        "attributeItemMatch%{local.repeat.index}":
+        "value": "http://www.w3.org/2001/04/xmlenc#kw-aes128",
+        "display": "XmlEncAES128KeyWrapUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#aes128-cbc",
+        "display": "XmlEncAES128Url"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#kw-aes192",
+        "display": "XmlEncAES192KeyWrapUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#aes192-cbc",
+        "display": "XmlEncAES192Url"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#kw-aes256",
+        "display": "XmlEncAES256KeyWrapUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#aes256-cbc",
+        "display": "XmlEncAES256Url"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#des-cbc",
+        "display": "XmlEncDESUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#Content",
+        "display": "XmlEncElementContentUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#Element",
+        "display": "XmlEncElementUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#EncryptedKey",
+        "display": "XmlEncEncryptedKeyUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#",
+        "display": "XmlEncNamespaceUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#rsa-1_5",
+        "display": "XmlEncRSA15Url"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p",
+        "display": "XmlEncRSAOAEPUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#sha256",
+        "display": "XmlEncSHA256Url"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#sha512",
+        "display": "XmlEncSHA512Url"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#kw-tripledes",
+        "display": "XmlEncTripleDESKeyWrapUrl"
+      },
+      {
+        "value": "http://www.w3.org/2001/04/xmlenc#tripledes-cbc",
+        "display": "XmlEncTripleDESUrl"
+      }
+    ],
+    "attributeFormatsList": [
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+        "display": "Basic"
+      },
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+        "display": "URI"
+      },
+      {
+        "value": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+        "display": "Unspecified"
+      },
+      {
+        "value": "Base64Encoded",
+        "display": "Base64 Encoded"
+      },
+      {
+        "value": "GroupList",
+        "display": "Group List"
+      }
+    ]
+  },
+  "applicationType": "SAML",
+  "templateName": "Convene",
+  "entries": {
+    "allowAllGroups": {
+      "states": "Allow every group in your selected data stores to access this application.",
+      "controlType": "switch",
+      "defaultValue": false,
+      "notify": {
+        "allGroupsAllowed": true,
+        "selectGroupsAllowed": false
+      }
+    },
+    "applicationName": {
+      "defaultValue:t": "$.title",
+      "controlType": "input",
+      "dataModelName": "name",
+      "label": "Application Name",
+      "stack": "medium",
+      "emptyValue:t": "$.title"
+    },
+    "applicationDescription": {
+      "controlType": "input",
+      "dataModelName": "description",
+      "label": "Application Description"
+    },
+    "applicationLogo": {
+      "defaultValue:t": "$.icon",
+      "displayOnly@summary": false,
+      "controlType": "custom",
+      "dataModelName": "logo",
+      "componentId": "imageUpload",
+      "stack": ":medium",
+      "properties": {
+        "maxFileSize": 2000,
+        "allowedTypes": [
+          "jpeg",
+          "png"
+        ]
+      },
+      "properties@summary": {
+        "displayOnly": true,
+        "isSquare": true
+      },
+      "order": [
+        "downloadIcon",
+        "downloadLabel"
+      ]
+    },
+    "assertionConsumerService": {
+      "label": "Assertion Consumer Service (ACS)",
+      "controlType": "input",
+      "hint": "https://portal.convene.me.uk/saml/acs/<UID>"
+    },
+    "assertionOffsetMinutes": {
+      "label": "Offset Minutes",
+      "controlType": "input",
+      "defaultValue": 5,
+      "type": "number",
+      "extras": [
         {
-          "enabled": false
+          "name": "static:body",
+          "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
         },
-        "attributeItemUnmatch%{local.repeat.index}":
+        "assertionOffsetMinutesTooltip"
+      ],
+      "extrasAt": "field",
+      "width": 3
+    },
+    "assertionValidHours": {
+      "controlType": "input",
+      "type": "number",
+      "extras": [
         {
-          "enabled": true
+          "name": "static:body",
+          "content:n": "&nbsp;&nbsp;Hours&nbsp;"
+        }
+      ],
+      "extrasAt": "field",
+      "width": 9,
+      "inline": true,
+      "stack": "small",
+      "emptyValue": "0",
+      "modify": {
+        "minutesAreZero": {
+          "value": "1"
         }
       }
     },
-    "attributeFilterGroup":
-    {
+    "assertionValidMinutes": {
+      "controlType": "input",
+      "type": "number",
+      "extras": [
+        {
+          "name": "static:body",
+          "content:n": "&nbsp;&nbsp;Minutes&nbsp;"
+        },
+        "assertionValidHoursTooltip"
+      ],
+      "extrasAt": "field",
+      "width": 9,
+      "inline": true,
+      "stack": "small",
+      "emptyValue": "0"
+    },
+    "attributeFormat": {
+      "label": "Format",
+      "dataModelName": "format",
+      "controlType": "select",
+      "options:t": "$.vars.attributeFormatsList"
+    },
+    "attributeFilterGroup": {
       "label": "Filtered Group",
       "controlType": "input",
-      "dataModelName": "filterGroup",
-      "visible": false
+      "dataModelName": "filterGroup"
     },
-        "attributeName": {
-            "label": "Attribute Name",
-            "controlType": "input",
-            "dataModelName": "name",
-            "modify:c": {
-                "attributeItemMatch%{local.repeat.index}": {
-                    "enabled": false
-                },
-                "attributeItemUnmatch%{local.repeat.index}": {
-                    "enabled": true
-                }
-            }
-        },
-        "attributeNamespace": {
-            "label": "Namespace (1.1)",
-            "controlType": "input",
-            "dataModelName": "namespace"
-        },
-        "attributeNumber": {
-            "controlType": "input",
-            "visible": false,
-            "dataModelName": "number"
-        },
-        "attributeProfileField": {
-            "label": "Data Store Property",
-            "controlType": "select",
-            "dataModelName": "property",
-            "emptyOption": "",
-            "source": "options:dataStoreProperties:dataStoreOptions",
-            "defaultValue": "AuthenticatedUserId"
-        },
-        "audience": {
-            "label": "Audience",
-            "controlType": "input",
-            "visible": false
-        },
-        "dataEncryptionMethod": {
-            "label": "Data Encryption Method",
-            "controlType": "select",
-            "emptyOption": "",
-            "options:t": "$.vars.encryptOptions"
-        },
-        "dataStores": {
-            "controlType": "pills",
-            "label": "Data Stores",
-            "description": "Select the data stores for this application.  Only users in these data stores can access this application.",
-            "description@summary": null,
-            "extras": {
-                "name": "other:importance",
-                "pad": ":::small",
-                "inline": true
-            },
-            "allowDuplicates": false,
-            "stack": "medium",
-            "width": 6,
-            "source": "data:dataStores:dataStoreInputList",
-            "validate": "is.required and is.notEmpty"
-        },
-        "dataStores@summary": {
-            "extras": null
-        },
-        "encodeToBase64": {
-            "controlType": "switch",
-            "states": "Encode to Base64",
-            "defaultValue": false,
-            "visible": false
-        },
-        "encryptSamlAssertion": {
-            "states": "Encrypt SAML Assertion",
-            "controlType": "switch",
-            "defaultValue": false,
-            "modify": {
-                "encryptSamlAssertionOff": {
-                    "order": null
-                },
-                "encryptSamlAssertionOn": {
-                    "order": "encryptSamlAssertionCallout"
-                }
-            },
-            "notify": {
-                "encryptSamlAssertionOff": false,
-                "encryptSamlAssertionOn": true
-            }
-        },
-        "groups": {
-            "controlType": "pills",
-            "label": "Groups",
-            "description": "Only these groups will have access to this application.",
-            "description@summary": null,
-            "delimiter": "  ",
-            "width": 6,
-            "validate": "allowAllGroups:false and is.required and is.notEmpty or allowAllGroups:true",
-            "modify": {
-                "allGroupsAllowed": {
-                    "enabled": false,
-                    "extras": null
-                },
-                "selectGroupsAllowed": {
-                    "enabled": true,
-                    "extras": {
-                        "name": "other:importance",
-                        "pad": ":::small",
-                        "inline": true
-                    }
-                }
-            }
-        },
-        "groups@summary": {
-            "modify": null,
-            "extras": null
-        },
-        "issuer": {
-            "label": "IdP Issuer",
-            "controlType": "input",
-            "hint": "sample-issuer",
-            "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
-            "description@providersInfo": null,
-            "displayOnly@providersInfo": true,
-            "stack@providersInfo": "medium",
-            "noMargin@providersInfo": true
-        },
-        "initiationType": {
-            "label": "Connection Type",
-            "controlType": "select",
-            "defaultValue": "sp",
-            "width": 7,
-            "noMargin": true,
-            "enabled": false,
-            "options": [{
-                    "value": "sp",
-                    "display": "SP Initiated by Redirect"
-                },
-                {
-                    "value": "idp",
-                    "display": "IdP Initiated"
-                }
-            ],
-            "notify": {
-                "initiationTypeSP": "sp",
-                "initiationTypeIdP": "idp"
-            }
-        },
-        "initiationBy": {
-            "controlType": "radiogroup",
-            "defaultValue": "redirect",
-            "noFieldset": true,
-            "stack": "small",
-            "properties": {
-                "inline": true,
-                "alignment": ":middle",
-                "stack": ":medium"
-            },
-            "options": [{
-                    "value": "redirect",
-                    "display": "By Redirect",
-                    "visible": false
-                },
-                {
-                    "value": "post",
-                    "display": "By Post",
-                    "extras": "initiationByTooltip",
-                    "visible": false
-                }
-            ],
-            "modify": {
-                "initiationTypeSP": {
-                    "visible": true
-                },
-                "initiationTypeIdP": {
-                    "visible": false
-                }
-            }
-        },
-        "keyEncryptionMethod": {
-            "label": "Key Encryption Method",
-            "controlType": "select",
-            "emptyOption": "",
-            "noMargin": true,
-            "options:t": "$.vars.encryptOptions"
-        },
-        "nameIdFormat": {
-            "label": "Name ID Format",
-            "controlType": "select",
-            "fixedValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            "width": 11,
-            "visible": false,
-            "options": [
-                "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-                "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-                "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos",
-                "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
-                "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
-                "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName",
-                "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
-            ]
-        },
-        "recipient": {
-            "label": "Recipient",
-            "controlType": "input",
-            "hint": "",
-            "visible": false
-        },
-        "relayState": {
-            "label": "Relay State",
-            "controlType": "input",
-            "hint": "",
-            "visible": false
-        },
-        "signingAlgorithm": {
-            "label": "Signing Algorithm",
-            "controlType": "radiogroup",
-            "defaultValue": "SHA1",
-            "noMargin": true,
-            "properties": {
-                "inline": true,
-                "stack": "small:medium:small"
-            },
-            "options": [
-                "SHA1",
-                "SHA2"
-            ]
-        },
-        "signingCert": {
-            "controlType": "options",
-            "defaultValue": {
-                "issuedTo": "No Certificate Selected"
-                
-            },
-            "width": 12,
-            "emptyContent": "noCertificatesAvailable",
-            "columns": [
-                "issuedTo",
-                "issuedBy",
-                "expiresOn"
-            ],
-            "headers": [
-                "Issued To",
-                "Issued By",
-                "Expires"
-            ],
-            "optionAsValue": true,
-            "source": "options:applianceCertificates:certificateOptions"
-        },
-        "signSamlAssertion": {
-            "states": "Sign SAML Assertion",
-            "controlType": "switch",
-            "defaultValue": false
-        },
-        "signSamlMessage": {
-            "states": "Sign SAML Message",
-            "controlType": "switch",
-            "defaultValue": true
-        },
-        "spLoginUrl": {
-            "label": "Convene Login URL",
-            "controlType": "input",
-            "extras": "spLoginUrlTooltip",
-            "extrasAt": "field",
-            "hint": "",
-            "modify": {
-                "initiationTypeSP": {
-                    "visible": true
-                },
-                "initiationTypeIdP": {
-                    "visible": false
-                }
-            }
-        },
-        "userIdProfileField": {
-            "label": "User ID Profile Field",
-            "controlType": "select",
-            "description": "Select the profile field in your data store that contains your users' IDs.",
-            "width": 7,
-            "emptyOption": "",
-            "source": "options:dataStoreProperties:dataStoreOptions",
-            "defaultValue": "AuthenticatedUserId"
-        }
+    "attributeName": {
+      "label": "Attribute Name",
+      "controlType": "input",
+      "dataModelName": "name"
     },
-    "statics": {
-        "assertionOffsetMinutesTooltip": {
-            "content": "This is referred to as \"SAML Not Before\" in the SAML Specification."
-        },
-        "assertionValidHoursTooltip": {
-            "content": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
-        },
-        "attributeAddButton": {
-            "content:n": "&nbsp;&nbsp;Add SAML Attribute",
-            "before": "attributeAddIcon",
-            "dashed": true,
-            "expand": true,
-            "clickAction": "attributeItemAdd",
-            "modify": {
-                "attributeItemDisableAdd": {
-                    "disabled": true
-                },
-                "attributeItemEnableAdd": {
-                    "disabled": false
-                }
-            },
-            "stack": "::small"
-        },
-        "attributeAddIcon": {
-            "icon": "add",
-            "size": "medium"
-        },
-        "attributeCallout": {
-            "after": [
-                "attributeInfo",
-                "attributeNamespace",
-        "attributeFormat",
-        "attributeFilterGroup"
-            ],
-            "stack": "::medium"
-        },
-        "attributeDeleteButton": {
-            "content": " Delete Attribute",
-            "before": {
-                "name": "static:icon",
-                "icon": "remove",
-                "type": "destructive",
-                "size": "medium"
-            },
-            "type": "destructive",
-            "dashed": true,
-            "modify:c": {
-                "attributeItemDisableDelete": {
-                    "disabled": true
-                },
-                "attributeItemEnableDelete": {
-                    "disabled": false
-                },
-                "attributeItemMatch%{local.repeat.index}": {
-                    "visible": false
-                },
-                "attributeItemUnmatch%{local.repeat.index}": {
-                    "visible": true
-                }
-            }
-        },
-        "attributesHeader": {
-            "content": "SAML ATTRIBUTES",
-            "small": true,
-            "stack": "large"
-        },
-        "settingsCallout": {
-            "after": [
-                "applicationSettings"
-            ]
-        },
-        "dataStoresAndGroupsHeader": {
-            "content": "USER DATA STORES AND GROUPS",
-            "contentEast": {
-                "name": "editIcon",
-                "clickAction": {
-                    "actions": "edit groups",
-                    "sendToParent": true
-                }
-            },
-            "small": true,
-            "stack": "large"
-        },
-        "chevronIconRight": {
-            "staticType": "icon",
-            "icon": "chevron-right",
-            "size": "medium",
-            "clickAction": {
-                "actions": "see providers",
-                "sendToParent": true
-            }
-        },
-        "connectionSettingsHeader": {
-            "content": "CONNECTION SETTINGS",
-            "contentEast": {
-                "name": "editIcon",
-                "clickAction": {
-                    "actions": "edit connection",
-                    "sendToParent": true
-                }
-            },
-            "small": true,
-            "stack": "large"
-        },
-        "appSettingsHeader": {
-            "content": "Application Settings",
-            "stack": "large"
-        },
-        "nameForSummary": {
-            "content:t": "_.name",
-            "staticType": "headline",
-            "stack": "small"
-        },
-        "descriptionForSummary": {
-            "content:t": "_.description",
-            "staticType": "color",
-            "color": "disabled"
-        },
-        "audienceTooltip": {
-            "content": "OPTIONAL CONTENT.",
-            "pad": ":::small"
-        },
-        "encryptSamlAssertionCallout": {
-            "after": "encryptSamlAssertionOptions",
-            "stack": "small"
-        },
-        "defaultHeader": {
-            "small": true,
-            "stack": "large"
-        },
-        "downloadIcon": {
-            "staticType": "icon",
-            "icon": "upload",
-            "size": "medium"
-        },
-        "downloadLabel": {
-            "staticType": "text",
-            "content": " Upload"
-        },
-        "editIcon": {
-            "icon": "pencil",
-            "size": "medium"
-        },
-        "idpSigningCertificateDownloadDesc": {
-            "staticType": "color",
-            "color": "disabled",
-            "content:t": "_.signingCertOptions.signingCert.serialNo",
-            "wrappers": "body",
-            "pad": "small"
-        },
-        "idpSigningCertificateDownloadHeader": {
-            "staticType": "label",
-            "content": "Idp Signing Certificate"
-        },
-        "idpDownloadCertificateAction": {
-            "staticType": "link",
-            "content": " Download",
-            "className": "sa-vertical-align-middle",
-            "before": {
-                "name": "static:icon",
-                "icon": "download",
-                "size": "small"
-            },
-            "clickAction": {
-                "actions": "download certificate",
-                "sendToParent": true
-            }
-        },
-        "initiationByTooltip": {
-            "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
-            "inline": true,
-            "width": "medium",
-            "pad": ":::small"
-        },
-        "initiationTypeInfo": {
-            "staticType": "fieldset",
-            "content": " - ",
-            "before": [
-                "initiationTypeLabel",
-                {
-                    "name": "initiationType",
-                    "noFieldset": true,
-                    "inline": true
-                }
-            ],
-            "after": {
-                "name": "initiationBy",
-                "inline": true
-            }
-        },
-        "initiationTypeLabel": {
-            "content": "Connection Type"
-        },
-        "loginUrlLink": {
-            "staticType": "link",
-            "content:t": "_.loginURL",
-            "href:t": "_.loginURL",
-            "target": "_blank"
-        },
-        "providersCalloutLabel": {
-            "staticType": "color",
-            "content": "Info for service providers",
-            "after": "chevronIconRight",
-            "style": {
-                "cursor": "pointer"
-            },
-            "clickAction": {
-                "actions": "see providers",
-                "sendToParent": true
-            }
-        },
-        "providersCalloutHeader": {
-            "staticType": "color",
-            "color": "info",
-            "after": [
-                "providersCalloutLabel"
-            ]
-        },
-        "providersCalloutDescription": {
-            "content": "Idp URLs, certificates and metadata files used for integrating with Service Providers.",
-            "staticType": "color"
-        },
-        "providersCallout": {
-            "type": "info",
-            "after": [
-                "providersCalloutHeader",
-                "providersCalloutDescription"
-            ]
-        },
-        "recipientTooltip": {
-            "content": "OPTIONAL CONTENT",
-            "pad": ":::small"
-        },
-        "relayStateTooltip": {
-            "content": "OPTIONAL CONTENT",
-            "pad": ":::small"
-        },
-        "realmInfo": {
-            "content:im": "**Realm:** Secureauth %{_.realmNumber}",
-            "color": "disabled",
-            "staticType": "color"
-        },
-        "settingsHeader": {
-            "content": "CONFIGURE CONNECTION",
-            "small": true,
-            "stack": "large"
-        },
-        "signingCertAcceptButton": {
-            "content": "Select",
-            "clickAction": "signingCertModalAccept"
-        },
-        "signingCertLink": {
-            "content:n": "Select&nbsp;Certificate",
-            "clickAction": "signingCertModalOpen"
-        },
-        "signingCertName": {
-            "content:in": "%{_.signingCertOptions.signingCert.issuedTo}&nbsp;&nbsp;&nbsp;",
-            "staticType": "body",
-            "after": "signingCertLink"
-        },
-        "signingCertNameFieldset": {
-            "after": [{
-                    "name": "static:label",
-                    "content": "IdP Signing Certificate",
-                    "inline": true,
-                    "pad": ":small"
-                },
-                {
-                    "name": "other:importance",
-                    "inline": true
-                },
-                "signingCertName"
-            ]
-        },
-        "signingCertSerialNo": {
-            "content:t": "_.signingCertOptions.signingCert.serialNo",
-            "staticType": "body"
-        },
-        "signingCertSerialNoFieldset": {
-            "after": [{
-                    "name": "static:label",
-                    "content": "IdP Signing Certificate Serial Number"
-                },
-                "signingCertSerialNo",
-                "signingCertCopy"
-            ],
-            "stack@providersInfo": "medium"
-        },
-        "spLoginUrlTooltip": {
-            "content": "The URL for your users to log into your Convene instance.",
-            "pad": ":::small"
-        }
+    "attributeNamespace": {
+      "label": "Namespace (1.1)",
+      "controlType": "input",
+      "dataModelName": "namespace"
     },
-    "layouts": {
-        "applicationInputs": {
-            "layoutType": "layout",
-            "boxWidth": 6,
-            "columns": {
-                "imageUpload": {
-                    "verticalAlign": "bottom",
-                    "width": "auto",
-                    "order": "applicationLogo"
-                },
-                "applicationInfo": [
-                    "applicationName",
-                    "applicationDescription"
-                ]
-            }
-        },
-        "applicationSettings": {
-            "layoutType": "layout",
-            "columns": {
-                "imageUpload": {
-                    "verticalAlign": "bottom",
-                    "width": "auto",
-                    "order": "applicationLogo"
-                },
-                "appSummary": [
-                    "nameForSummary",
-                    "descriptionForSummary",
-                    "loginUrlLink",
-                    "realmInfo"
-                ],
-                "edition": {
-                    "width": "auto",
-                    "order": [{
-                        "name": "editIcon",
-                        "clickAction": {
-                            "actions": "edit details",
-                            "sendToParent": true
-                        }
-                    }]
-                }
-            }
-        },
-        "attributeInfo": {
-            "layoutType": "grid",
-            "columns": {
-                "attributeProfile": {
-                    "small": 8,
-                    "order": [
-                        "attributeNumber",
-                        "attributeName",
-                        "attributeProfileField"
-                    ]
-                },
-                "attributeActions": {
-                    "align": "right",
-                    "order": "attributeDeleteTooltipConfirm"
-                }
-            }
-        }
+    "attributeNumber": {
+      "controlType": "input",
+      "visible": false,
+      "dataModelName": "number"
     },
-    "others": {
-        "attributeDeleteTooltipConfirm": {
-            "trigger": "attributeDeleteButton",
-            "message": "Are you sure you want to delete this attribute?",
-            "action:i": "attributeItemDelete%{local.name}",
-            "placement": "top-end"
-        },
-        "idpIssuerCopy": {
-            "otherType": "copytoclipboard",
-            "copy:t": "_.issuer",
-            "stack": "medium"
-        },
-        "loginUrlCopy": {
-            "otherType": "copytoclipboard",
-            "copy:t": "_.loginURL"
-        },
-        "logoutUrlCopy": {
-            "otherType": "copytoclipboard",
-            "copy:t": "_.logoutURL"
-        },
-        "noCertificatesAvailable": {
-            "otherType": "statemessage",
-            "message": "There are no certificates available on the SecureAuth appliance.",
-            "info": "Certificates must be managed and uploaded using the Windows Certificates Console on this appliance."
-        },
-        "noSAMLAttributes": {
-            "otherType": "statemessage",
-            "message": "Add SAML Attributes for your connection",
-            "modify": {
-                "attributeItemEmpty": {
-                    "visible": true
-                },
-                "attributeItemNotEmpty": {
-                    "visible": false
-                }
-            }
-        },
-        "signingCertCopy": {
-            "otherType": "copytoclipboard",
-            "copy:t": "_.signingCertOptions.signingCert.serialNo"
-        }
+    "attributeProfileField": {
+      "label": "Data Store Property",
+      "controlType": "select",
+      "dataModelName": "property",
+      "emptyOption": "",
+      "source": "options:dataStoreProperties:dataStoreOptions",
+      "defaultValue": "AuthenticatedUserId"
     },
-    "windows": {
-        "signingCertModal": {
-            "title": "Select Certificate",
-            "body": "signingCert",
-            "footer": "signingCertAcceptButton",
-            "closeButton": "Cancel",
-            "size": "large",
-            "modify": {
-                "signingCertModalAccept": {
-                    "isOpened": false
-                },
-                "signingCertModalClose": {
-                    "isOpened": false
-                },
-                "signingCertModalOpen": {
-                    "isOpened": true
-                }
-            }
-        }
+    "audience": {
+      "label": "Audience",
+      "controlType": "input"
     },
-    "validation": {
-        "requireSigningCert": {
-            "constrain": {
-                "signingCert": "is.required"
-            },
-            "nested": {
-                "signingCert": {
-                    "constrain": {
-                        "serialNo": "is.required"
-                    }
-                }
-            }
+    "dataEncryptionMethod": {
+      "label": "Data Encryption Method",
+      "controlType": "select",
+      "emptyOption": "",
+      "options:t": "$.vars.encryptOptions"
+    },
+    "dataStores": {
+      "controlType": "pills",
+      "label": "Data Stores",
+      "description": "Select the data stores for this application.  Only users in these data stores can access this application.",
+      "description@summary": null,
+      "extras": {
+        "name": "other:importance",
+        "pad": ":::small",
+        "inline": true
+      },
+      "allowDuplicates": false,
+      "stack": "medium",
+      "width": 6,
+      "source": "data:dataStores:dataStoreInputList",
+      "validate": "is.required and is.notEmpty"
+    },
+    "dataStores@summary": {
+      "extras": null
+    },
+    "encodeToBase64": {
+      "controlType": "switch",
+      "states": "Encode to Base64",
+      "defaultValue": false
+    },
+    "encryptSamlAssertion": {
+      "states": "Encrypt SAML Assertion",
+      "controlType": "switch",
+      "defaultValue": false,
+      "modify": {
+        "encryptSamlAssertionOff": {
+          "order": null
+        },
+        "encryptSamlAssertionOn": {
+          "order": "encryptSamlAssertionCallout"
         }
+      },
+      "notify": {
+        "encryptSamlAssertionOff": false,
+        "encryptSamlAssertionOn": true
+      }
     },
     "groups": {
-        "attributeItem": {
-            "logical": true,
-            "dataModelName": "attributes",
-            "repeat": {
-                "max": 10
-            },
-            "order": "attributeCallout"
+      "controlType": "pills",
+      "label": "Groups",
+      "description": "Only these groups will have access to this application.",
+      "description@summary": null,
+      "delimiter": "  ",
+      "width": 6,
+      "validate": "allowAllGroups:false and is.required and is.notEmpty or allowAllGroups:true",
+      "modify": {
+        "allGroupsAllowed": {
+          "enabled": false,
+          "extras": null
         },
-        "encryptSamlAssertionOptions": {
-            "logical": true,
-            "order": [
-                "dataEncryptionMethod",
-                "keyEncryptionMethod"
-            ]
-        },
-        "assertionWillBeValid": {
-            "inline": true,
-            "order": [{
-                    "name": "static:label",
-                    "content": "Assertion will be valid for:"
-                },
-                "assertionValidHours",
-                "assertionValidMinutes"
-            ],
-            "notify": {
-                "minutesAreZero": {
-                    "value.assertionValidMinutes": "0",
-                    "value.assertionValidHours": "0"
-                }
-            }
-        },
-        "providerUrls": {
-            "logical": true,
-            "order": [{
-                    "name": "static:label",
-                    "stack": "medium",
-                    "content": "Login URL"
-                },
-                {
-                    "name": "static:paragraph",
-                    "after": {
-                        "name": "static:color",
-                        "color": "disabled",
-                        "content:t": "_.loginURL"
-                    }
-                },
-                "loginUrlCopy",
-                {
-                    "name": "static:label",
-                    "stack": "medium",
-                    "content": "Logout URL"
-                },
-                {
-                    "name": "static:paragraph",
-                    "after": {
-                        "name": "static:color",
-                        "color": "disabled",
-                        "content:t": "_.logoutURL"
-                    }
-                },
-                "logoutUrlCopy"
-            ]
-        },
-        "signSamlElements": {
-            "order": [
-                "signSamlAssertion",
-                "signSamlMessage"
-            ]
-        },
-        "signingCertDownload": {
-            "order": [
-                "idpSigningCertificateDownloadHeader",
-                "idpSigningCertificateDownloadDesc",
-                "idpDownloadCertificateAction"
-            ],
-            "stack": "medium"
-        },
-        "signingCertOptions": {
-            "logical": true,
-            "order": [
-                "signingCertModal",
-                {
-                    "name": "signingCert",
-                    "holdValue": "signingCertModalOpen:signingCertModalClose",
-                    "visible": false
-                },
-                "signingCertNameFieldset",
-                "signingCertSerialNoFieldset",
-                "signingAlgorithm"
-            ],
-            "pad": "::small",
-            "validate": "requireSigningCert"
-        },
-        "templateRoot": {
-            "order": [
-                "settingsHeader",
-                "initiationType",
-                "initiationBy",
-                {
-                    "name": "defaultHeader",
-                    "content": "USER ID MAPPING"
-                },
-                "userIdProfileField",
-                "nameIdFormat",
-                "encodeToBase64",
-                {
-                    "name": "defaultHeader",
-                    "content": "SAML ASSERTION"
-                },
-                "issuer",
-                "assertionConsumerService",
-                "relayState",
-                "recipient",
-                "audience",
-                "spLoginUrl",
-                "assertionWillBeValid",
-                "assertionOffsetMinutes",
-                "signingCertOptions",
-                "signSamlElements",
-                "encryptSamlAssertion"
-            ],
-            "order@details": [
-                "applicationInputs",
-                "dataStores",
-                "groups",
-                "allowAllGroups"
-            ],
-            "order@summary": [
-                "settingsCallout",
-                "appSettingsHeader",
-                "dataStoresAndGroupsHeader",
-                "dataStores",
-                "groups",
-                "connectionSettingsHeader",
-                "initiationTypeInfo",
-                "providersCallout"
-            ],
-            "order@providersInfo": [
-                "providerUrls",
-                "issuer",
-                "idpIssuerCopy",
-                "signingCertDownload"
-            ],
-            "order@updateGroups": [
-                "dataStores",
-                "groups",
-                "allowAllGroups"
-            ],
-            "order@updateDetails": [
-                "applicationInputs"
-            ]
+        "selectGroupsAllowed": {
+          "enabled": true,
+          "extras": {
+            "name": "other:importance",
+            "pad": ":::small",
+            "inline": true
+          }
         }
+      }
     },
-    "views": {
-        "summary": {
-            "entries": {
-                "displayOnly": true
-            }
+    "groups@summary": {
+      "modify": null,
+      "extras": null
+    },
+    "issuer": {
+      "label": "IdP Issuer",
+      "controlType": "input",
+      "hint": "sample-issuer",
+      "description": "Also known as the IdP Entity ID. This is a unique string that identifies the IdP.",
+      "description@providersInfo": null,
+      "displayOnly@providersInfo": true,
+      "stack@providersInfo": "medium",
+      "noMargin@providersInfo": true
+    },
+    "initiationType": {
+      "label": "Connection Type",
+      "controlType": "select",
+      "defaultValue": "sp",
+      "width": 7,
+      "noMargin": true,
+      "options": [
+        {
+          "value": "sp",
+          "display": "SP Initiated by Redirect"
+        },
+        {
+          "value": "idp",
+          "display": "IdP Initiated"
         }
+      ],
+      "notify": {
+        "initiationTypeSP": "sp",
+        "initiationTypeIdP": "idp"
+      }
     },
-    "order": [
-        "templateRoot"
-    ]
+    "initiationBy": {
+      "controlType": "radiogroup",
+      "defaultValue": "redirect",
+      "noFieldset": true,
+      "stack": "small",
+      "properties": {
+        "inline": true,
+        "alignment": ":middle",
+        "stack": ":medium"
+      },
+      "options": [
+        {
+          "value": "redirect",
+          "display": "By Redirect"
+        },
+        {
+          "value": "post",
+          "display": "By Post",
+          "extras": "initiationByTooltip"
+        }
+      ],
+      "modify": {
+        "initiationTypeSP": {
+          "visible": true
+        },
+        "initiationTypeIdP": {
+          "visible": false
+        }
+      }
+    },
+    "keyEncryptionMethod": {
+      "label": "Key Encryption Method",
+      "controlType": "select",
+      "emptyOption": "",
+      "noMargin": true,
+      "options:t": "$.vars.encryptOptions"
+    },
+    "nameIdFormat": {
+      "label": "Name ID Format",
+      "controlType": "select",
+      "width": 11,
+      "options": [
+        "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+        "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+        "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos",
+        "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+        "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+        "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName",
+        "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+      ]
+    },
+    "recipient": {
+      "label": "Recipient",
+      "controlType": "input",
+      "hint": ""
+    },
+    "relayState": {
+      "label": "Relay State",
+      "controlType": "input",
+      "hint": ""
+    },
+    "signingAlgorithm": {
+      "label": "Signing Algorithm",
+      "controlType": "radiogroup",
+      "defaultValue": "SHA1",
+      "noMargin": true,
+      "properties": {
+        "inline": true,
+        "stack": "small:medium:small"
+      },
+      "options": [
+        "SHA1",
+        "SHA2"
+      ]
+    },
+    "signingCert": {
+      "controlType": "options",
+      "defaultValue": {
+        "issuedTo": "No Certificate Selected"
+      },
+      "width": 12,
+      "emptyContent": "noCertificatesAvailable",
+      "columns": [
+        "issuedTo",
+        "issuedBy",
+        "expiresOn"
+      ],
+      "headers": [
+        "Issued To",
+        "Issued By",
+        "Expires"
+      ],
+      "optionAsValue": true,
+      "source": "options:applianceCertificates:certificateOptions"
+    },
+    "signSamlAssertion": {
+      "states": "Sign SAML Assertion",
+      "controlType": "switch",
+      "defaultValue": false
+    },
+    "signSamlMessage": {
+      "states": "Sign SAML Message",
+      "controlType": "switch",
+      "defaultValue": true
+    },
+    "spLoginUrl": {
+      "label": "Convene Login URL",
+      "controlType": "input",
+      "extras": "spLoginUrlTooltip",
+      "extrasAt": "field",
+      "hint": "",
+      "modify": {
+        "initiationTypeSP": {
+          "visible": true
+        },
+        "initiationTypeIdP": {
+          "visible": false
+        }
+      }
+    },
+    "userIdProfileField": {
+      "label": "User ID Profile Field",
+      "controlType": "select",
+      "description": "Select the profile field in your data store that contains your users' IDs.",
+      "width": 7,
+      "emptyOption": "",
+      "source": "options:dataStoreProperties:dataStoreOptions",
+      "defaultValue": "AuthenticatedUserId"
+    }
+  },
+  "statics": {
+    "assertionOffsetMinutesTooltip": {
+      "content": "This is referred to as \"SAML Not Before\" in the SAML Specification."
+    },
+    "assertionValidHoursTooltip": {
+      "content": "This is the time period in which a SAML Assertion is valid. It is referred to as \"SAML Not After\" in the SAML Specification."
+    },
+    "attributeAddButton": {
+      "content:n": "&nbsp;&nbsp;Add SAML Attribute",
+      "before": "attributeAddIcon",
+      "dashed": true,
+      "expand": true,
+      "clickAction": "attributeItemAdd",
+      "modify": {
+        "attributeItemDisableAdd": {
+          "disabled": true
+        },
+        "attributeItemEnableAdd": {
+          "disabled": false
+        }
+      },
+      "stack": "::small"
+    },
+    "attributeAddIcon": {
+      "icon": "add",
+      "size": "medium"
+    },
+    "attributeCallout": {
+      "after": [
+        "attributeInfo",
+        "attributeNamespace",
+        "attributeFormat",
+        "attributeFilterGroup"
+      ],
+      "stack": "::medium"
+    },
+    "attributeDeleteButton": {
+      "content": " Delete Attribute",
+      "before": {
+        "name": "static:icon",
+        "icon": "remove",
+        "type": "destructive",
+        "size": "medium"
+      },
+      "type": "destructive",
+      "dashed": true
+    },
+    "attributesHeader": {
+      "content": "SAML ATTRIBUTES",
+      "small": true,
+      "stack": "large"
+    },
+    "settingsCallout": {
+      "after": [
+        "applicationSettings"
+      ]
+    },
+    "dataStoresAndGroupsHeader": {
+      "content": "USER DATA STORES AND GROUPS",
+      "contentEast": {
+        "name": "editIcon",
+        "clickAction": {
+          "actions": "edit groups",
+          "sendToParent": true
+        }
+      },
+      "small": true,
+      "stack": "large"
+    },
+    "chevronIconRight": {
+      "staticType": "icon",
+      "icon": "chevron-right",
+      "size": "medium",
+      "clickAction": {
+        "actions": "see providers",
+        "sendToParent": true
+      }
+    },
+    "connectionSettingsHeader": {
+      "content": "CONNECTION SETTINGS",
+      "contentEast": {
+        "name": "editIcon",
+        "clickAction": {
+          "actions": "edit connection",
+          "sendToParent": true
+        }
+      },
+      "small": true,
+      "stack": "large"
+    },
+    "appSettingsHeader": {
+      "content": "Application Settings",
+      "stack": "large"
+    },
+    "nameForSummary": {
+      "content:t": "_.name",
+      "staticType": "headline",
+      "stack": "small"
+    },
+    "descriptionForSummary": {
+      "content:t": "_.description",
+      "staticType": "color",
+      "color": "disabled"
+    },
+    "audienceTooltip": {
+      "content": "OPTIONAL CONTENT.",
+      "pad": ":::small"
+    },
+    "encryptSamlAssertionCallout": {
+      "after": "encryptSamlAssertionOptions",
+      "stack": "small"
+    },
+    "defaultHeader": {
+      "small": true,
+      "stack": "large"
+    },
+    "downloadIcon": {
+      "staticType": "icon",
+      "icon": "upload",
+      "size": "medium"
+    },
+    "downloadLabel": {
+      "staticType": "text",
+      "content": " Upload"
+    },
+    "editIcon": {
+      "icon": "pencil",
+      "size": "medium"
+    },
+    "idpSigningCertificateDownloadDesc": {
+      "staticType": "color",
+      "color": "disabled",
+      "content:t": "_.signingCertOptions.signingCert.serialNo",
+      "wrappers": "body",
+      "pad": "small"
+    },
+    "idpSigningCertificateDownloadHeader": {
+      "staticType": "label",
+      "content": "Idp Signing Certificate"
+    },
+    "idpDownloadCertificateAction": {
+      "staticType": "link",
+      "content": " Download",
+      "className": "sa-vertical-align-middle",
+      "before": {
+        "name": "static:icon",
+        "icon": "download",
+        "size": "small"
+      },
+      "clickAction": {
+        "actions": "download certificate",
+        "sendToParent": true
+      }
+    },
+    "initiationByTooltip": {
+      "content": "The SAML specification allows for SPs to send their authentication requests (AuthnRequest) to the IdP either by HTTP Post or HTTP Redirect. Your SP’s configuration or metadata will tell you what is used for the authentication request.",
+      "inline": true,
+      "width": "medium",
+      "pad": ":::small"
+    },
+    "initiationTypeInfo": {
+      "staticType": "fieldset",
+      "content": " - ",
+      "before": [
+        "initiationTypeLabel",
+        {
+          "name": "initiationType",
+          "noFieldset": true,
+          "inline": true
+        }
+      ],
+      "after": {
+        "name": "initiationBy",
+        "inline": true
+      }
+    },
+    "initiationTypeLabel": {
+      "content": "Connection Type"
+    },
+    "loginUrlLink": {
+      "staticType": "link",
+      "content:t": "_.loginURL",
+      "href:t": "_.loginURL",
+      "target": "_blank"
+    },
+    "providersCalloutLabel": {
+      "staticType": "color",
+      "content": "Info for service providers",
+      "after": "chevronIconRight",
+      "style": {
+        "cursor": "pointer"
+      },
+      "clickAction": {
+        "actions": "see providers",
+        "sendToParent": true
+      }
+    },
+    "providersCalloutHeader": {
+      "staticType": "color",
+      "color": "info",
+      "after": [
+        "providersCalloutLabel"
+      ]
+    },
+    "providersCalloutDescription": {
+      "content": "Idp URLs, certificates and metadata files used for integrating with Service Providers.",
+      "staticType": "color"
+    },
+    "providersCallout": {
+      "type": "info",
+      "after": [
+        "providersCalloutHeader",
+        "providersCalloutDescription"
+      ]
+    },
+    "recipientTooltip": {
+      "content": "OPTIONAL CONTENT",
+      "pad": ":::small"
+    },
+    "relayStateTooltip": {
+      "content": "OPTIONAL CONTENT",
+      "pad": ":::small"
+    },
+    "realmInfo": {
+      "content:im": "**Realm:** Secureauth %{_.realmNumber}",
+      "color": "disabled",
+      "staticType": "color"
+    },
+    "settingsHeader": {
+      "content": "CONFIGURE CONNECTION",
+      "small": true,
+      "stack": "large"
+    },
+    "signingCertAcceptButton": {
+      "content": "Select",
+      "clickAction": "signingCertModalAccept"
+    },
+    "signingCertLink": {
+      "content:n": "Select&nbsp;Certificate",
+      "clickAction": "signingCertModalOpen"
+    },
+    "signingCertName": {
+      "content:in": "%{_.signingCertOptions.signingCert.issuedTo}&nbsp;&nbsp;&nbsp;",
+      "staticType": "body",
+      "after": "signingCertLink"
+    },
+    "signingCertNameFieldset": {
+      "after": [
+        {
+          "name": "static:label",
+          "content": "IdP Signing Certificate",
+          "inline": true,
+          "pad": ":small"
+        },
+        {
+          "name": "other:importance",
+          "inline": true
+        },
+        "signingCertName"
+      ]
+    },
+    "signingCertSerialNo": {
+      "content:t": "_.signingCertOptions.signingCert.serialNo",
+      "staticType": "body"
+    },
+    "signingCertSerialNoFieldset": {
+      "after": [
+        {
+          "name": "static:label",
+          "content": "IdP Signing Certificate Serial Number"
+        },
+        "signingCertSerialNo",
+        "signingCertCopy"
+      ],
+      "stack@providersInfo": "medium"
+    },
+    "spLoginUrlTooltip": {
+      "content": "The URL for your users to log into your Convene instance.",
+      "pad": ":::small"
+    }
+  },
+  "layouts": {
+    "applicationInputs": {
+      "layoutType": "layout",
+      "boxWidth": 6,
+      "columns": {
+        "imageUpload": {
+          "verticalAlign": "bottom",
+          "width": "auto",
+          "order": "applicationLogo"
+        },
+        "applicationInfo": [
+          "applicationName",
+          "applicationDescription"
+        ]
+      }
+    },
+    "applicationSettings": {
+      "layoutType": "layout",
+      "columns": {
+        "imageUpload": {
+          "verticalAlign": "bottom",
+          "width": "auto",
+          "order": "applicationLogo"
+        },
+        "appSummary": [
+          "nameForSummary",
+          "descriptionForSummary",
+          "loginUrlLink",
+          "realmInfo"
+        ],
+        "edition": {
+          "width": "auto",
+          "order": [
+            {
+              "name": "editIcon",
+              "clickAction": {
+                "actions": "edit details",
+                "sendToParent": true
+              }
+            }
+          ]
+        }
+      }
+    },
+    "attributeInfo": {
+      "layoutType": "grid",
+      "columns": {
+        "attributeProfile": {
+          "small": 8,
+          "order": [
+            "attributeNumber",
+            "attributeName",
+            "attributeProfileField"
+          ]
+        },
+        "attributeActions": {
+          "align": "right",
+          "order": "attributeDeleteTooltipConfirm"
+        }
+      }
+    }
+  },
+  "others": {
+    "attributeDeleteTooltipConfirm": {
+      "trigger": "attributeDeleteButton",
+      "message": "Are you sure you want to delete this attribute?",
+      "action:i": "attributeItemDelete%{local.name}",
+      "placement": "top-end"
+    },
+    "idpIssuerCopy": {
+      "otherType": "copytoclipboard",
+      "copy:t": "_.issuer",
+      "stack": "medium"
+    },
+    "loginUrlCopy": {
+      "otherType": "copytoclipboard",
+      "copy:t": "_.loginURL"
+    },
+    "logoutUrlCopy": {
+      "otherType": "copytoclipboard",
+      "copy:t": "_.logoutURL"
+    },
+    "noCertificatesAvailable": {
+      "otherType": "statemessage",
+      "message": "There are no certificates available on the SecureAuth appliance.",
+      "info": "Certificates must be managed and uploaded using the Windows Certificates Console on this appliance."
+    },
+    "noSAMLAttributes": {
+      "otherType": "statemessage",
+      "message": "Add SAML Attributes for your connection",
+      "modify": {
+        "attributeItemEmpty": {
+          "visible": true
+        },
+        "attributeItemNotEmpty": {
+          "visible": false
+        }
+      }
+    },
+    "signingCertCopy": {
+      "otherType": "copytoclipboard",
+      "copy:t": "_.signingCertOptions.signingCert.serialNo"
+    }
+  },
+  "windows": {
+    "signingCertModal": {
+      "title": "Select Certificate",
+      "body": "signingCert",
+      "footer": "signingCertAcceptButton",
+      "closeButton": "Cancel",
+      "size": "large",
+      "modify": {
+        "signingCertModalAccept": {
+          "isOpened": false
+        },
+        "signingCertModalClose": {
+          "isOpened": false
+        },
+        "signingCertModalOpen": {
+          "isOpened": true
+        }
+      }
+    }
+  },
+  "validation": {
+    "requireSigningCert": {
+      "constrain": {
+        "signingCert": "is.required"
+      },
+      "nested": {
+        "signingCert": {
+          "constrain": {
+            "serialNo": "is.required"
+          }
+        }
+      }
+    }
+  },
+  "groups": {
+    "attributeItem": {
+      "logical": true,
+      "dataModelName": "attributes",
+      "repeat": {
+        "max": 10
+      },
+      "order": "attributeCallout"
+    },
+    "encryptSamlAssertionOptions": {
+      "logical": true,
+      "order": [
+        "dataEncryptionMethod",
+        "keyEncryptionMethod"
+      ]
+    },
+    "assertionWillBeValid": {
+      "inline": true,
+      "order": [
+        {
+          "name": "static:label",
+          "content": "Assertion will be valid for:"
+        },
+        "assertionValidHours",
+        "assertionValidMinutes"
+      ],
+      "notify": {
+        "minutesAreZero": {
+          "value.assertionValidMinutes": "0",
+          "value.assertionValidHours": "0"
+        }
+      }
+    },
+    "providerUrls": {
+      "logical": true,
+      "order": [
+        {
+          "name": "static:label",
+          "stack": "medium",
+          "content": "Login URL"
+        },
+        {
+          "name": "static:paragraph",
+          "after": {
+            "name": "static:color",
+            "color": "disabled",
+            "content:t": "_.loginURL"
+          }
+        },
+        "loginUrlCopy",
+        {
+          "name": "static:label",
+          "stack": "medium",
+          "content": "Logout URL"
+        },
+        {
+          "name": "static:paragraph",
+          "after": {
+            "name": "static:color",
+            "color": "disabled",
+            "content:t": "_.logoutURL"
+          }
+        },
+        "logoutUrlCopy"
+      ]
+    },
+    "signSamlElements": {
+      "order": [
+        "signSamlAssertion",
+        "signSamlMessage"
+      ]
+    },
+    "signingCertDownload": {
+      "order": [
+        "idpSigningCertificateDownloadHeader",
+        "idpSigningCertificateDownloadDesc",
+        "idpDownloadCertificateAction"
+      ],
+      "stack": "medium"
+    },
+    "signingCertOptions": {
+      "logical": true,
+      "order": [
+        "signingCertModal",
+        {
+          "name": "signingCert",
+          "holdValue": "signingCertModalOpen:signingCertModalClose",
+          "visible": false
+        },
+        "signingCertNameFieldset",
+        "signingCertSerialNoFieldset",
+        "signingAlgorithm"
+      ],
+      "pad": "::small",
+      "validate": "requireSigningCert"
+    },
+    "templateRoot": {
+      "order": [
+        "settingsHeader",
+        "initiationType",
+        "initiationBy",
+        {
+          "name": "defaultHeader",
+          "content": "USER ID MAPPING"
+        },
+        "userIdProfileField",
+        "nameIdFormat",
+        "encodeToBase64",
+        {
+          "name": "defaultHeader",
+          "content": "SAML ASSERTION"
+        },
+        "issuer",
+        "assertionConsumerService",
+        "relayState",
+        "recipient",
+        "audience",
+        "spLoginUrl",
+        "assertionWillBeValid",
+        "assertionOffsetMinutes",
+        "signingCertOptions",
+        "signSamlElements",
+        "encryptSamlAssertion",
+        "attributesHeader",
+        "noSAMLAttributes",
+        "attributeAddButton",
+        "attributeItem"
+      ],
+      "order@details": [
+        "applicationInputs",
+        "dataStores",
+        "groups",
+        "allowAllGroups"
+      ],
+      "order@summary": [
+        "settingsCallout",
+        "appSettingsHeader",
+        "dataStoresAndGroupsHeader",
+        "dataStores",
+        "groups",
+        "connectionSettingsHeader",
+        "initiationTypeInfo",
+        "providersCallout"
+      ],
+      "order@providersInfo": [
+        "providerUrls",
+        "issuer",
+        "idpIssuerCopy",
+        "signingCertDownload"
+      ],
+      "order@updateGroups": [
+        "dataStores",
+        "groups",
+        "allowAllGroups"
+      ],
+      "order@updateDetails": [
+        "applicationInputs"
+      ]
+    }
+  },
+  "views": {
+    "summary": {
+      "entries": {
+        "displayOnly": true
+      }
+    }
+  },
+  "order": [
+    "templateRoot"
+  ]
 }

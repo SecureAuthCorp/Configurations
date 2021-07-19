@@ -149,7 +149,7 @@
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "defaultValue":"https://auth.atlassian.com/login/callback?connection=saml-XXXXXXXXXXXX"
+      "defaultValue": "https://auth.atlassian.com/login/callback?connection=saml-XXXXXXXXXXXX"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -206,15 +206,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -224,15 +216,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -255,7 +239,7 @@
     "audience": {
       "label": "Audience",
       "controlType": "input",
-	  "defaultValue": "https://auth.atlassian.com/saml/XXXXXXXXXXXX"
+      "defaultValue": "https://auth.atlassian.com/saml/XXXXXXXXXXXX"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -285,8 +269,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -345,11 +328,9 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "fixedvalue": "sp",
       "width": 7,
       "noMargin": true,
-	  "display":"SP Initiated by Redirect",
-	  "enabled": false,
+      "display": "SP Initiated by Redirect",
       "options": [
         {
           "value": "sp",
@@ -367,13 +348,11 @@
     },
     "initiationBy": {
       "controlType": "radiogroup",
-      "fixedvalue": "redirect",
       "noFieldset": true,
       "stack": "small",
       "properties": {
         "inline": true,
         "alignment": ":middle",
-		"visible": false,
         "stack": ":medium"
       },
       "options": [
@@ -406,7 +385,6 @@
     "nameIdFormat": {
       "label": "Name ID Format",
       "controlType": "select",
-	  "visible": false,
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
       "options": [
@@ -421,20 +399,17 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input",
-	  "visible": false
+      "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input",
-	  "visible": false
+      "controlType": "input"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
       "controlType": "radiogroup",
       "defaultValue": "SHA1",
       "noMargin": true,
-	  "visible": false,
       "properties": {
         "inline": true,
         "stack": "small:medium:small"
@@ -448,7 +423,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -479,7 +453,7 @@
       "label": "Jira Login URL",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
-	  "defaultValue":"https://<company>.atlassian.net",
+      "defaultValue": "https://<company>.atlassian.net",
       "extrasAt": "field",
       "modify": {
         "initiationTypeSP": {
@@ -545,21 +519,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",

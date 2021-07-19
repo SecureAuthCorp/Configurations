@@ -151,9 +151,9 @@
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
       "hint": "http://[yourRedshiftHost]:[yourRedshiftPort]/redshift/",
-      "description":"SecureAuth IdP sends an authentication response to the Amazon Redshift endpoint at this address",
-      "extras":"AmazonAdminTooltip",
-      "extrasAt":"field"
+      "description": "SecureAuth IdP sends an authentication response to the Amazon Redshift endpoint at this address",
+      "extras": "AmazonAdminTooltip",
+      "extrasAt": "field"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -210,15 +210,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -228,15 +220,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -259,9 +243,8 @@
     "audience": {
       "label": "Audience",
       "controlType": "input",
-      "fixedValue:i": "%{_.assertionConsumerService}",
-      "extras":"AmazonAdminTooltip",
-      "extrasAt":"field"
+      "extras": "AmazonAdminTooltip",
+      "extrasAt": "field"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -291,8 +274,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -339,10 +321,10 @@
       "extras": null
     },
     "issuer": {
-      "label":"IdP Entity ID",
-      "controlType":"input",
-      "hint":"https://yoursecureauthUrl.yourdomain.com/identityProvider",
-      "description":"This is a unique string that identifies the IdP. Traditionally it resembles the URL of the Identity Provider but can be any unique identifier.",
+      "label": "IdP Entity ID",
+      "controlType": "input",
+      "hint": "https://yoursecureauthUrl.yourdomain.com/identityProvider",
+      "description": "This is a unique string that identifies the IdP. Traditionally it resembles the URL of the Identity Provider but can be any unique identifier.",
       "description@providersInfo": null,
       "displayOnly@providersInfo": true,
       "stack@providersInfo": "medium",
@@ -351,8 +333,6 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "fixedValue": "idp",
-      "enabled" : false,
       "width": 7,
       "noMargin": true,
       "options": [
@@ -410,8 +390,6 @@
     "nameIdFormat": {
       "label": "Name ID Format",
       "controlType": "select",
-      "fixedValue": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
-      "visible": false,
       "width": 11,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
@@ -426,20 +404,17 @@
     "recipient": {
       "label": "Recipient",
       "controlType": "input",
-      "fixedValue:i": "%{_.assertionConsumerService}",
-      "extras":"AmazonAdminTooltip",
-      "extrasAt":"field"
+      "extras": "AmazonAdminTooltip",
+      "extrasAt": "field"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input",
-      "visible":false
+      "controlType": "input"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
       "controlType": "radiogroup",
       "defaultValue": "SHA2",
-      "visible": false,
       "noMargin": true,
       "properties": {
         "inline": true,
@@ -549,21 +524,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
@@ -678,12 +639,12 @@
       "width": "medium",
       "pad": ":::small"
     },
-    "AmazonAdminTooltip":{
-      "content":"See the AWS Documentation > AWS Identity and Access Management > User Guide Enable SAML 2.0 federated users to access the AWS Console https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html",
-      "inline":true,
-      "width":"medium",
-      "pad":":::small"
-   },
+    "AmazonAdminTooltip": {
+      "content": "See the AWS Documentation > AWS Identity and Access Management > User Guide Enable SAML 2.0 federated users to access the AWS Console https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html",
+      "inline": true,
+      "width": "medium",
+      "pad": ":::small"
+    },
     "initiationTypeInfo": {
       "staticType": "fieldset",
       "content": " - ",
@@ -947,38 +908,32 @@
     "attributeItem": {
       "logical": true,
       "dataModelName": "attributes",
-      "repeat":
-         {
-         	"min":4,
-            "max":10,
-            "match":
-            {
-            "https://aws.amazon.com/SAML/Attributes/Role":
-          		{
-           		"name": "https://aws.amazon.com/SAML/Attributes/Role",
-           		"property": "FullGroups",
-           		"format":"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
-         		},
-         	  "https://aws.amazon.com/SAML/Attributes/RoleSessionName":
-          		{
-           		"name": "https://aws.amazon.com/SAML/Attributes/RoleSessionName",
-           		"property": "AuthenticatedUserId",
-           		"format":"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
-             },
-             "https://redshift.amazon.com/SAML/Attributes/AutoCreate":
-          		{
-           		"name": "https://redshift.amazon.com/SAML/Attributes/AutoCreate",
-           		"property": "GlobalID1",
-           		"format":"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
-         		},
-             "https://redshift.amazon.com/SAML/Attributes/DbUser":
-          		{
-           		"name": "https://redshift.amazon.com/SAML/Attributes/DbUser",
-           		"property": "AuthenticatedUserId",
-           		"format":"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
-         		}
-            }
-         },
+      "repeat": {
+        "min": 4,
+        "max": 10,
+        "match": {
+          "https://aws.amazon.com/SAML/Attributes/Role": {
+            "name": "https://aws.amazon.com/SAML/Attributes/Role",
+            "property": "FullGroups",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+          },
+          "https://aws.amazon.com/SAML/Attributes/RoleSessionName": {
+            "name": "https://aws.amazon.com/SAML/Attributes/RoleSessionName",
+            "property": "AuthenticatedUserId",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+          },
+          "https://redshift.amazon.com/SAML/Attributes/AutoCreate": {
+            "name": "https://redshift.amazon.com/SAML/Attributes/AutoCreate",
+            "property": "GlobalID1",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+          },
+          "https://redshift.amazon.com/SAML/Attributes/DbUser": {
+            "name": "https://redshift.amazon.com/SAML/Attributes/DbUser",
+            "property": "AuthenticatedUserId",
+            "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+          }
+        }
+      },
       "order": "attributeCallout"
     },
     "encryptSamlAssertionOptions": {

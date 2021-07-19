@@ -147,7 +147,7 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-	  "hint":"https://mambu.<Company ID>.com/login",
+      "hint": "https://mambu.<Company ID>.com/login",
       "controlType": "input"
     },
     "assertionOffsetMinutes": {
@@ -205,15 +205,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -223,15 +215,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -253,9 +237,7 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",
-	  "fixedValue:i":"%{_.assertionConsumerService}",
-      "visible":false
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -285,8 +267,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -345,8 +326,6 @@
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "fixedValue": "sp",
-	  "enabled": false,
       "width": 7,
       "noMargin": true,
       "options": [
@@ -405,7 +384,6 @@
       "label": "Name ID Format",
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-	  "visible": false,
       "width": 11,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
@@ -419,13 +397,11 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input",
-	  "visible": false
+      "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input",
-	  "visible": false
+      "controlType": "input"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -445,7 +421,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -475,7 +450,7 @@
     "spLoginUrl": {
       "label": "Mambu Login URL",
       "controlType": "input",
-	  "hint":"http://www.mambu.com",
+      "hint": "http://www.mambu.com",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
       "modify": {
@@ -542,21 +517,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
@@ -937,18 +898,14 @@
       "repeat": {
         "min": 3,
         "max": 10,
-        "match":
-        {
-        "mail":
-        {
-        "name": "mail"
-        },
-          "firstName":
-          {
+        "match": {
+          "mail": {
+            "name": "mail"
+          },
+          "firstName": {
             "name": "firstName"
           },
-          "lastName":
-          {
+          "lastName": {
             "name": "lastName"
           }
         }

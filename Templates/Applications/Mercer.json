@@ -147,7 +147,6 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-	  "fixedValue":"https://www.eelect.com/SSO/ProcessSSO.aspx?id=<ID>",
       "controlType": "input"
     },
     "assertionOffsetMinutes": {
@@ -205,15 +204,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -223,15 +214,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -253,7 +236,6 @@
     },
     "audience": {
       "label": "Audience",
-	  "visible":false,
       "controlType": "input"
     },
     "dataEncryptionMethod": {
@@ -284,8 +266,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -403,7 +384,6 @@
       "label": "Name ID Format",
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-	  "visible":false,
       "width": 11,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
@@ -417,12 +397,10 @@
     },
     "recipient": {
       "label": "Recipient",
-	  "visible":false,
       "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-	  "visible":false,
       "controlType": "input"
     },
     "signingAlgorithm": {
@@ -443,7 +421,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -473,7 +450,6 @@
     "spLoginUrl": {
       "label": "Mercer Login URL",
       "controlType": "input",
-	  "visible":false,
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
       "modify": {
@@ -504,7 +480,6 @@
     },
     "attributeAddButton": {
       "content:n": "&nbsp;&nbsp;Add SAML Attribute",
-	  "visible":false,
       "before": "attributeAddIcon",
       "dashed": true,
       "expand": true,
@@ -541,25 +516,10 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
-	  "visible":false,
       "small": true,
       "stack": "large"
     },
@@ -880,7 +840,6 @@
       "info": "Certificates must be managed and uploaded using the Windows Certificates Console on this appliance."
     },
     "noSAMLAttributes": {
-      
       "modify": {
         "attributeItemEmpty": {
           "visible": true

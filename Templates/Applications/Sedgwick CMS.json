@@ -147,9 +147,7 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-      "controlType": "input",
-	  "fixedValue": "https://expresspreview.sedgwickcms.net/voe/sso",
-	  "visible": false
+      "controlType": "input"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -206,15 +204,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -224,15 +214,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -254,8 +236,7 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",	
-	  "visible": false
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -285,8 +266,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -341,15 +321,13 @@
       "displayOnly@providersInfo": true,
       "stack@providersInfo": "medium",
       "noMargin@providersInfo": true,
-	  "extrasAt": "field"
+      "extrasAt": "field"
     },
     "initiationType": {
       "label": "Connection Type",
       "controlType": "select",
-      "fixedValue": "idp",
-	  "width": 7,
+      "width": 7,
       "noMargin": true,
-	  "enabled" : false,
       "options": [
         {
           "value": "sp",
@@ -405,12 +383,8 @@
     "nameIdFormat": {
       "label": "Name ID Format",
       "controlType": "select",
-      "fixedValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
-	  "visible":false,
-	  "options": 
-	  [
-	    
+      "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
         "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
         "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos",
@@ -418,20 +392,15 @@
         "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
         "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName",
         "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
-		
-	]
-	  
+      ]
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input",
-	  "fixedValue": "https://expresspreview.sedgwickcms.net/voe/sso",
-	  "visible": false
+      "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input",
-	  "visible": false
+      "controlType": "input"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -451,7 +420,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -499,8 +467,7 @@
       "width": 7,
       "emptyOption": "AuthenticatedUserId",
       "source": "options:dataStoreProperties:dataStoreOptions",
-      "defaultValue": "AuthenticatedUserId",
-	  "enabled" : true
+      "defaultValue": "AuthenticatedUserId"
     }
   },
   "statics": {
@@ -548,21 +515,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
@@ -740,7 +693,7 @@
       "content": "OPTIONAL CONTENT",
       "pad": ":::small"
     },
-     "realmInfo": {
+    "realmInfo": {
       "content:im": "**Realm:** Secureauth %{_.realmNumber}",
       "color": "disabled",
       "staticType": "color"
@@ -1058,8 +1011,11 @@
         "assertionOffsetMinutes",
         "signingCertOptions",
         "signSamlElements",
-        "encryptSamlAssertion"
-        
+        "encryptSamlAssertion",
+        "attributesHeader",
+        "noSAMLAttributes",
+        "attributeAddButton",
+        "attributeItem"
       ],
       "order@details": [
         "applicationInputs",

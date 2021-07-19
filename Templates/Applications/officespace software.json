@@ -148,7 +148,7 @@
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-	  "hint": "https://<company name>.officespacesoftware.com/users/auth/saml/callback"
+      "hint": "https://<company name>.officespacesoftware.com/users/auth/saml/callback"
     },
     "assertionOffsetMinutes": {
       "label": "Offset Minutes",
@@ -205,15 +205,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -223,15 +215,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -253,8 +237,7 @@
     },
     "audience": {
       "label": "Audience",
-      "controlType": "input",
-	  "visible": false
+      "controlType": "input"
     },
     "dataEncryptionMethod": {
       "label": "Data Encryption Method",
@@ -284,8 +267,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -364,10 +346,8 @@
     },
     "initiationBy": {
       "controlType": "radiogroup",
-      "fixedValue": "redirect",
       "noFieldset": true,
       "stack": "small",
-	  
       "properties": {
         "inline": true,
         "alignment": ":middle",
@@ -376,14 +356,12 @@
       "options": [
         {
           "value": "redirect",
-          "display": "By Redirect",
-		  "visible": false
+          "display": "By Redirect"
         },
         {
           "value": "post",
           "display": "By Post",
-          "extras": "initiationByTooltip",
-		  "visible": false
+          "extras": "initiationByTooltip"
         }
       ],
       "modify": {
@@ -407,7 +385,6 @@
       "controlType": "select",
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
-	  "visible": false,
       "options": [
         "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
         "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
@@ -420,13 +397,11 @@
     },
     "recipient": {
       "label": "Recipient",
-      "controlType": "input",
-	  "visible": false
+      "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-      "controlType": "input",
-	  "visible": false
+      "controlType": "input"
     },
     "signingAlgorithm": {
       "label": "Signing Algorithm",
@@ -446,7 +421,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -475,7 +449,7 @@
     },
     "spLoginUrl": {
       "label": "OfficeSpace Software Login URL",
-	  "hint": "https://<company name>.officespacesoftware.com/users/sign_in/saml",
+      "hint": "https://<company name>.officespacesoftware.com/users/sign_in/saml",
       "controlType": "input",
       "extras": "spLoginUrlTooltip",
       "extrasAt": "field",
@@ -543,21 +517,7 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
@@ -936,37 +896,28 @@
       "logical": true,
       "dataModelName": "attributes",
       "repeat": {
-	   "min": 4,
+        "min": 4,
         "max": 10,
-		"match":
-        {
-          "name":
-          {
+        "match": {
+          "name": {
             "name": "name",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
           },
-        
-		"email":
-          {
+          "email": {
             "name": "email",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
           },
-		
-		"first_name":
-          {
+          "first_name": {
             "name": "first_name",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
           },
-		
-		"last_name":
-          {
+          "last_name": {
             "name": "last_name",
             "format": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
           }
         }
-	
-       },
-      	 "order": "attributeCallout"
+      },
+      "order": "attributeCallout"
     },
     "encryptSamlAssertionOptions": {
       "logical": true,

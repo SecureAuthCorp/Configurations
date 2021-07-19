@@ -147,7 +147,6 @@
     },
     "assertionConsumerService": {
       "label": "Assertion Consumer Service (ACS)",
-	  "fixedValue": "https://bhleadintegration.azurewebsites.net/saml2/acs",
       "controlType": "input"
     },
     "assertionOffsetMinutes": {
@@ -205,15 +204,7 @@
       "label": "Format",
       "dataModelName": "format",
       "controlType": "select",
-      "options:t": "$.vars.attributeFormatsList",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "options:t": "$.vars.attributeFormatsList"
     },
     "attributeFilterGroup": {
       "label": "Filtered Group",
@@ -223,15 +214,7 @@
     "attributeName": {
       "label": "Attribute Name",
       "controlType": "input",
-      "dataModelName": "name",
-      "modify:c": {
-        "attributeItemMatch%{local.repeat.index}": {
-          "enabled": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "enabled": true
-        }
-      }
+      "dataModelName": "name"
     },
     "attributeNamespace": {
       "label": "Namespace (1.1)",
@@ -253,7 +236,7 @@
     },
     "audience": {
       "label": "Audience",
-	  "hint":"https://digitalinsights.<company>.com",
+      "hint": "https://digitalinsights.<company>.com",
       "controlType": "input"
     },
     "dataEncryptionMethod": {
@@ -284,8 +267,7 @@
     "encodeToBase64": {
       "controlType": "switch",
       "states": "Encode to Base64",
-      "defaultValue": false,
-      "visible": false
+      "defaultValue": false
     },
     "encryptSamlAssertion": {
       "states": "Encrypt SAML Assertion",
@@ -402,7 +384,6 @@
     "nameIdFormat": {
       "label": "Name ID Format",
       "controlType": "select",
-      "visible":false,
       "defaultValue": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "width": 11,
       "options": [
@@ -417,12 +398,11 @@
     },
     "recipient": {
       "label": "Recipient",
-	  "visible":false,
       "controlType": "input"
     },
     "relayState": {
       "label": "Relay State",
-	  "hint":"https://digitalinsights.<company>.com/home/dashboard",
+      "hint": "https://digitalinsights.<company>.com/home/dashboard",
       "controlType": "input"
     },
     "signingAlgorithm": {
@@ -443,7 +423,6 @@
       "controlType": "options",
       "defaultValue": {
         "issuedTo": "No Certificate Selected"
-        
       },
       "width": 12,
       "emptyContent": "noCertificatesAvailable",
@@ -539,25 +518,10 @@
         "size": "medium"
       },
       "type": "destructive",
-      "dashed": true,
-      "modify:c": {
-        "attributeItemDisableDelete": {
-          "disabled": true
-        },
-        "attributeItemEnableDelete": {
-          "disabled": false
-        },
-        "attributeItemMatch%{local.repeat.index}": {
-          "visible": false
-        },
-        "attributeItemUnmatch%{local.repeat.index}": {
-          "visible": true
-        }
-      }
+      "dashed": true
     },
     "attributesHeader": {
       "content": "SAML ATTRIBUTES",
-	  "visible":false,
       "small": true,
       "stack": "large"
     },
@@ -568,7 +532,6 @@
     },
     "dataStoresAndGroupsHeader": {
       "content": "USER DATA STORES AND GROUPS",
-	  "visible":false,
       "contentEast": {
         "name": "editIcon",
         "clickAction": {
@@ -879,7 +842,6 @@
       "info": "Certificates must be managed and uploaded using the Windows Certificates Console on this appliance."
     },
     "noSAMLAttributes": {
-     
       "modify": {
         "attributeItemEmpty": {
           "visible": true
@@ -1053,7 +1015,8 @@
         "encryptSamlAssertion",
         "attributesHeader",
         "noSAMLAttributes",
-        "attributeItem"
+        "attributeItem",
+        "attributeAddButton"
       ],
       "order@details": [
         "applicationInputs",
