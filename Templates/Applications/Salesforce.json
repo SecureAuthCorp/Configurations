@@ -179,11 +179,48 @@
           "value": "idp",
           "display": "IdP Initiated"
         }
-      ]
+      ],
+      "notify":
+      {
+        "initiationTypeSP": "sp",
+        "initiationTypeIdP": "idp"
+      }
     },
-    "initiationBy": {
-      "controlType": "input",
-      "defaultValue": "redirect"
+    "initiationBy":
+    {
+      "controlType": "radiogroup",
+      "defaultValue": "redirect",
+      "noFieldset": true,
+      "stack": "small",
+      "properties":
+      {
+        "inline": true,
+        "alignment": ":middle",
+        "stack": ":medium"
+      },
+      "options":
+      [
+        {
+          "value": "redirect",
+          "display": "By Redirect"
+        },
+        {
+          "value": "post",
+          "display": "By Post",
+          "extras": "initiationByTooltip"
+        }
+      ],
+      "modify":
+      {
+        "initiationTypeSP":
+        {
+          "visible": true
+        },
+        "initiationTypeIdP":
+        {
+          "visible": false
+        }
+      }
     },
     "issuer": {
       "label": "SAML Issuer",
