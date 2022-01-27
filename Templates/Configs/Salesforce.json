@@ -7,7 +7,8 @@
     "applicationType": "SAML",
     "federationData": {
         "assertionConsumerService": {
-            "label": "Salesforce Login URL"
+            "label": "Assertion Consumer Service (ACS)",
+            "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
         },
         "initiationType": {
             "value": "sp",
@@ -36,7 +37,9 @@
         "recipient": {
             "label": "SAML Recipient URL"
         },
-        "spLoginUrl": {},
+        "spLoginUrl": {
+            "label": "Salesforce Login URL"
+        },
         "assertionValidHours": {},
         "assertionOffsetMinutes": {
             "tooltip": null,

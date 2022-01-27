@@ -55,7 +55,18 @@
       ]
     },
     "spLoginUrl": {
-      "controlType": "input"
+      "label": "Salesforce Login URL",
+      "controlType": "input",
+      "extras": "spLoginUrlTooltip",
+      "extrasAt": "field",
+      "modify": {
+        "initiationTypeSP": {
+          "visible": true
+        },
+        "initiationTypeIdP": {
+          "visible": false
+        }
+      }
     },
     "assertionValidHours": {
       "controlType": "input",
@@ -272,13 +283,12 @@
     "signSamlMessage": {
       "states": "Sign SAML Message",
       "controlType": "switch",
-      "defaultValue": false
+      "defaultValue": true
     },
     "assertionConsumerService": {
+      "label": "Assertion Consumer Service (ACS)",
       "controlType": "input",
-      "label": "Salesforce Login URL",
-      "extras": "spLoginUrlToolTip",
-      "width": 5
+      "description": "This URL, provided by the service provider, is used to accept a SAML assertion"
     },
     "userIdProfileField": {
       "label": "User ID Profile Field",
